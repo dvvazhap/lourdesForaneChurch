@@ -1,6 +1,5 @@
 <?php $page = 'contact';
 require_once("include/connection.php");
-require_once("include/functions.php");
 ?><style type="text/css">
 #title{color:#ff3747;text-align:center;font-family:Forte,Georgia,Fantasy;font-size:50px;}
 #row1{line-height:1.5em;font-size:40px;font-family:Forte,Cooper,monospace;padding:0%;margin-bottom:120px;text-align:center;height:330px;color:#000111;}
@@ -21,19 +20,19 @@ float:right;text-align:center; line-height:1.5em;font-size:25px; font-style:ital
 
 <div id="row1">Priests of Lourdes Forane Church...!<div id="c1"><img id="c1_1" src="images/2.png" /><div id="contact_detail_wrapper">
 <?php $query="SELECT * FROM contact WHERE position = 1";
-$result=mysql_query($query,$db); while($row=mysql_fetch_array($result)){echo "<div id=\"name\">{$row['name']}<br/></div><div id=\"address\">{$row['address']}<br/></div>";echo "<div id=\"contact_details\">"; if($row['email']!=NULL){echo "Email :{$row['email']}<br/>";}if($row['phone']!=NULL){echo "Phone : +91-{$row['phone']}<br/>";} if($row['landline']!=NULL){echo "Landline : 0422-{$row['landline']}<br/>";} echo "</div>";} ?></div></div>
+$result=mysqli_query($db,$query); while($row=mysqli_fetch_array($result)){echo "<div id=\"name\">{$row['name']}<br/></div><div id=\"address\">{$row['address']}<br/></div>";echo "<div id=\"contact_details\">"; if($row['email']!=NULL){echo "Email :{$row['email']}<br/>";}if($row['phone']!=NULL){echo "Phone : +91-{$row['phone']}<br/>";} if($row['landline']!=NULL){echo "Landline : 0422-{$row['landline']}<br/>";} echo "</div>";} ?></div></div>
 <div id="c2"><img id="c2_1" src="images/2.png" /><div id="contact_detail_wrapper">
-<?php $query="SELECT * FROM contact WHERE position=2"; $result=mysql_query($query,$db);
-while($row=mysql_fetch_array($result)){ echo "<div id=\"name\">{$row['name']}<br/></div><div id=\"address\">{$row['address']}<br/></div>";
+<?php $query="SELECT * FROM contact WHERE position=2"; $result=mysqli_query($db,$query);
+while($row=mysqli_fetch_array($result)){ echo "<div id=\"name\">{$row['name']}<br/></div><div id=\"address\">{$row['address']}<br/></div>";
 echo "<div id=\"contact_details\">"; if($row['email']!=NULL){ echo "Email :{$row['email']}<br/>";} if($row['phone']!=NULL){
 echo "Phone : +91-{$row['phone']}<br/>";} if($row['landline']!=NULL){ echo "Landline : 0422-{$row['landline']}<br/>";} echo "</div>";} ?>
 </div></div></div><div id="row2">Kaikkaran's...!<div id="c1"><img id="c1_2" src="images/2.png" /><div id="contact_detail_wrapper">
-<?php $query="SELECT * FROM contact WHERE position=3"; $result=mysql_query($query,$db);
-while($row=mysql_fetch_array($result)){ echo "<div id=\"name\">{$row['name']}<br/></div><div id=\"address\">{$row['address']}<br/></div>";
+<?php $query="SELECT * FROM contact WHERE position=3"; $result=mysqli_query($db,$query);
+while($row=mysqli_fetch_array($result)){ echo "<div id=\"name\">{$row['name']}<br/></div><div id=\"address\">{$row['address']}<br/></div>";
 echo "<div id=\"contact_details\">"; if($row['email']!=NULL){echo "Email :{$row['email']}<br/>";} if($row['phone']!=NULL){ echo "Phone : +91-{$row['phone']}<br/>";}if($row['landline']!=NULL){ echo "Landline : 0422-{$row['landline']}<br/>";}echo "</div>";}?>
 </div></div><div id="c2"><img id="c2_2" src="images/2.png" /><div id="contact_detail_wrapper">
-<?php $query="SELECT * FROM contact WHERE position=4"; $result=mysql_query($query,$db);
-while($row=mysql_fetch_array($result)){ echo "<div id=\"name\">{$row['name']}<br/></div><div id=\"address\">{$row['address']}<br/></div>"; echo "<div id=\"contact_details\">";if($row['email']!=NULL){echo "Email :{$row['email']}<br/>";} if($row['phone']!=NULL){echo "Phone : +91-{$row['phone']}<br/>";} if($row['landline']!=NULL){echo "Landline : 0422-{$row['landline']}<br/>";}echo "</div>";}?>
+<?php $query="SELECT * FROM contact WHERE position=4"; $result=mysqli_query($db,$query);
+while($row=mysqli_fetch_array($result)){ echo "<div id=\"name\">{$row['name']}<br/></div><div id=\"address\">{$row['address']}<br/></div>"; echo "<div id=\"contact_details\">";if($row['email']!=NULL){echo "Email :{$row['email']}<br/>";} if($row['phone']!=NULL){echo "Phone : +91-{$row['phone']}<br/>";} if($row['landline']!=NULL){echo "Landline : 0422-{$row['landline']}<br/>";}echo "</div>";}?>
 </div></div></div><div id="c23"><a href="http://www.w3creatorz.org" target="_blank"><img src='images/logo2.png'></a>
 <div>"The Pioneers in Web Designing "<br/><br/>
 Dijil Varghese<br/>

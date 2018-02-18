@@ -17,20 +17,20 @@ if($sub_page==NULL){$sub_page=0;}
 $cur=0;
 if(($page=='wards')||($page=='associations')){
 $sql="SELECT * FROM {$page}_table WHERE id={$sub_page}";
-$result=mysql_query($sql,$db);
-while($row=mysql_fetch_array($result)){
+$result=mysqli_query($db,$sql);
+while($row=mysqli_fetch_array($result)){
 		echo"<div class='current'><img src=\"images/{$page}_table/{$row['image']}\"/></div>";
 }
 $sql="SELECT * FROM albums WHERE page='{$page}' && sub_page={$sub_page}";
-$result=mysql_query($sql,$db);
-while($row=mysql_fetch_array($result)){
+$result=mysqli_query($db,$sql);
+while($row=mysqli_fetch_array($result)){
 	echo"<div><img src=\"images/gallery/{$page}/{$sub_page}/{$row['name']}\" /></div>";	
 }
 }
 else{
 $sql="SELECT * FROM albums WHERE page='{$page}' && sub_page={$sub_page}";
-$result=mysql_query($sql,$db);
-while($row=mysql_fetch_array($result)){
+$result=mysqli_query($db,$sql);
+while($row=mysqli_fetch_array($result)){
 	if($cur=0){
 		echo"<div class='current'><img src=\"images/gallery/{$page}/{$row['name']}\"/></div>";
 		$cur=1;

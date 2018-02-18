@@ -30,11 +30,11 @@ elseif($action==22){   /*INSERT WARD INFO and PRAYER MEETING DEFAULT */
 	$count=$_GET['count'];
 	$sql = "INSERT INTO ward_info (`page`,`sub_page`,`temp_id`,`about`,`location`,`nof`) 
 		VALUES('{$page}',{$count},{$count},'about our ward','location of our ward',43)";
-	$result = mysql_query($sql,$db);
+	$result = mysqli_query($db,$sql);
 	if(!isset($result)){ echo "<script>window.location='admin_{$page}.php?page={$page}&id={$count}&action=23'</script>"; }
 	$sql = "INSERT INTO prayer_meeting (`page`,`sub_page`,`temp_id`,`date`,`time`,`name`,`address`,`information`)
 			VALUES ('{$page}',{$count},{$count},'21 may 2012','5.30 p.m','Name','Address','Information')";
-	$result=mysql_query($sql,$db);
+	$result=mysqli_query($db,$sql);
 	if(!isset($result)){ echo "<script>window.location='admin_{$page}.php?page={$page}&id={$count}&action=23'</script>"; }	
 	echo "<script>window.location='admin_{$page}.php?page={$page}'</script>";
 }
@@ -61,8 +61,8 @@ elseif(($action==NULL)&&($sub_page!=0)){
 	include("../include/add_gallery_image.php"); /*---------Add Gallery Image-----------*/
 	
 	$query = "SELECT * FROM {$page}_table WHERE id={$sub_page}";
-	$result=mysql_query($query,$db);
-	while($row = mysql_fetch_array($result)){
+	$result=mysqli_query($db,$query);
+	while($row = mysqli_fetch_array($result)){
 	$page_name = $row['name'];
 	echo "<br/><br/><br/><h4>Welcome to {$row['name']} Ward</h4><br/>";
 	include("../include/page_table_image.php"); /*------ Page Table Image ----*/
@@ -71,13 +71,13 @@ elseif(($action==NULL)&&($sub_page!=0)){
 	include("../include/display_admin_page_content.php");
 
 	$query="SELECT * FROM ward_info WHERE sub_page={$sub_page}";
-	$result=mysql_query($query,$db);
+	$result=mysqli_query($db,$query);
 	confirm_query($result);
-	if(!isset($result)){echo"Sorry ! ".mysql_error()."<br/> Go to home page and retry...";}
+	if(!isset($result)){echo"Sorry ! ".mysqli_error()."<br/> Go to home page and retry...";}
 	echo"<br/>About {$page_name} Ward :";
 	
 	echo"<table cellpadding=10 cellspacing=4>";
-	while($display = mysql_fetch_array($result)){
+	while($display = mysqli_fetch_array($result)){
 		echo"<form action =\"admin_{$page}.php?page={$page}&action=0&sub_page={$sub_page}&admin_right={$admin_right} \" method=\"post\">
 		<tr><td>About {$page_name} Ward:</td><td><textarea name=\"about\" rows=\"4\" cols=\"50\">{$display['about']}</textarea></td></tr>
 		<tr><td>Location :</td><td><textarea name=\"location\" rows=\"3\" cols=\"50\">{$display['location']}</textarea></td></tr>
@@ -87,10 +87,10 @@ elseif(($action==NULL)&&($sub_page!=0)){
 	echo"</table><hr/>";
 	
 	$query="SELECT * FROM prayer_meeting WHERE sub_page={$sub_page} ";
-	$result=mysql_query($query,$db);
+	$result=mysqli_query($db,$query);
 	echo"St.{$page_name} Ward Prayer Meeting Info:";
 	echo "<table>";
-	while($row=mysql_fetch_array($result)){
+	while($row=mysqli_fetch_array($result)){
 	echo"<form action = \"admin_{$page}.php?page={$page}&action=2&sub_page={$sub_page}\" method=\"post\" />
 	<tr><td>Date</td><td><input type=\"text\" name=\"date\" value=\"{$row['date']}\"/></td></tr>
 	<tr><td>Time</td><td><input type=\"text\" name=\"time\" value=\"{$row['time']}\"/></td></tr>
@@ -109,12 +109,12 @@ elseif($action==0){     //Save the contents of wards info
 	$query="UPDATE ward_info
 			SET location='{$location}',about='{$about}',nof={$nof}
 			WHERE sub_page={$sub_page} ";
-	$result=mysql_query($query,$db);
+	$result=mysqli_query($db,$query);
 	if($result){ 
 		echo "<script>window.location='admin_{$page}.php?page={$page}&sub_page={$sub_page}'</script>";
 		exit;
 	}
-	else{echo"Sorry ! ".mysql_error()."<br/> Go to home page and retry...";}
+	else{echo"Sorry ! ".mysqli_error()."<br/> Go to home page and retry...";}
 }
 
 elseif($action==2){  // Save the contents of prayer meeting
@@ -126,10 +126,10 @@ elseif($action==2){  // Save the contents of prayer meeting
 	$query = "UPDATE prayer_meeting 
 				SET date='{$date}',time='{$time}',name='{$name}',address='{$address}',information='{$information}' 
 				WHERE sub_page={$sub_page}";
-	$result=mysql_query($query,$db);
+	$result=mysqli_query($db,$query);
 	confirm_query($result);
 	if(isset($result)){echo "<script>window.location='admin_{$page}.php?page={$page}&sub_page={$sub_page}'</script>";}
-	else{echo"Sorry ! ".mysql_error()."<br/> Go to home page and retry...";}
+	else{echo"Sorry ! ".mysqli_error()."<br/> Go to home page and retry...";}
 }
 elseif($action==11){  /* Insert Content Form */ include("../include/insert_form_admin_page_content.php");}
 elseif($action==13){  /*Update the page_content */ include("../include/update_admin_page_content.php");}

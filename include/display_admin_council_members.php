@@ -35,15 +35,15 @@ if(isset($_GET['council'])){echo"<script>show_admin_council_members();</script>"
 if(isset($_GET['position'])){
 	$position=$_GET['position'];
 	if(isset($_POST['update'])){
-		$name=mysql_prep($_POST['name']);
-		$address=mysql_prep($_POST['address']);
-		if(isset($_POST['phone'])){	$phone=mysql_prep($_POST['phone']);}
+		$name=mysqli_prep($db,$_POST['name']);
+		$address=mysqli_prep($db,$_POST['address']);
+		if(isset($_POST['phone'])){	$phone=mysqli_prep($db,$_POST['phone']);}
 		else{$phone=NULL;}
-		$landline=mysql_prep($_POST['landline']);
+		$landline=mysqli_prep($db,$_POST['landline']);
 		$query="UPDATE council_members 
 			SET `name`='{$name}',`address`='{$address}',`phone`='{$phone}',`landline`='{$landline}' 
 			WHERE page='{$page}' && sub_page={$sub_page} && position={$position} ";
-		$result=mysql_query($query,$db);
+		$result=mysqli_query($db,$query);
 		if($result){
 			echo "<script>window.location='admin_{$page}.php?page={$page}&sub_page={$sub_page}&council=1'</script>"; exit;
 		}
@@ -63,8 +63,8 @@ if(isset($_GET['position'])){
 			else{
 				if($_FILES['file']['name']!=NULL){
 					$query="SELECT * FROM council_members WHERE page='{$page}' && sub_page={$sub_page} && position={$position}";
-					$result=mysql_query($query,$db);
-					while($row=mysql_fetch_array($result)){
+					$result=mysqli_query($db,$query);
+					while($row=mysqli_fetch_array($result)){
 						if(($row['image']!='0')&&($row['image']!=NULL))
 					unlink("../images/council_members/{$page}/{$sub_page}/{$row['image']}");
 					}
@@ -73,7 +73,7 @@ if(isset($_GET['position'])){
 				move_uploaded_file($_FILES["file"]["tmp_name"],$path.$_FILES["file"]["name"]);
 				$name=$_FILES["file"]["name"];
 				$query="UPDATE council_members SET `image`='{$name}' WHERE page='{$page}' && sub_page={$sub_page} && position={$position} ";
-				$result=mysql_query($query,$db);
+				$result=mysqli_query($db,$query);
 				if($result){
 					echo "<script>window.location='admin_{$page}.php?page={$page}&sub_page={$sub_page}&council=1'</script>";exit;
 				}
@@ -86,12 +86,12 @@ if(isset($_GET['position'])){
 	}
 	if(isset($_POST['delete'])){
 		$query="SELECT * FROM council_members WHERE page='{$page}' && sub_page={$sub_page} && position={$position}";
-		$result=mysql_query($query,$db);
-		while($row=mysql_fetch_array($result)){
+		$result=mysqli_query($db,$query);
+		while($row=mysqli_fetch_array($result)){
 			unlink("../images/council_members/{$page}/{$sub_page}/{$row['image']}");
 		}
 		$query="UPDATE council_members SET `image`=0 WHERE page='{$page}' && sub_page={$sub_page} && position={$position} ";
-		$result=mysql_query($query,$db);
+		$result=mysqli_query($db,$query);
 		if($result){
 			echo "<script>window.location='admin_{$page}.php?page={$page}&sub_page={$sub_page}&council=1'</script>";
 			exit;

@@ -1,6 +1,5 @@
 <?php
 require_once("connection.php");
-require_once("functions.php");
 if(isset($_POST['page'])){$page=$_POST['page'];}
 if(isset($_POST['sub_page'])){$sub_page=$_POST['sub_page'];}
 
@@ -26,9 +25,9 @@ if($page=='gallery'){
 	$page_name=$_POST['album_name'];
 
 	$sql1="SELECT DISTINCT page_name FROM albums WHERE page='{$page}' && sub_page={$sub_page} && page_name!='{$page_name}' ORDER BY page_name";
-	$res1=mysql_query($sql1,$db);
+	$res1=mysqli_query($db,$sql1);
 	echo "<div id='show_album' style='background-color:#fffeee;'>";
-	while($display = mysql_fetch_array($res1)){
+	while($display = mysqli_fetch_array($res1)){
 		echo"<button  class='album' onclick='show_album(this.value)' value=\"{$display['page_name']}\" >{$display['page_name']}</button>";
 	}
 	echo "</div>";
@@ -36,13 +35,13 @@ if($page=='gallery'){
 	echo"<div id='one_image'>";
 	if($page=="gallery"){echo "<h3>Album Name :".$page_name."</h3>";}
 	$query="SELECT * FROM albums WHERE page='{$page}' && page_name='{$page_name}' && sub_page={$sub_page}";
-	$res=mysql_query($query,$db);
-	$num_rows=mysql_num_rows($res);
+	$res=mysqli_query($db,$query);
+	$num_rows=mysqli_num_rows($res);
 	if($num_rows >0){
 		$sql="SELECT * FROM albums WHERE page='{$page}' && page_name='{$page_name}' && sub_page={$sub_page}";
-		$result=mysql_query($sql,$db);
+		$result=mysqli_query($db,$sql);
 		$lr="one_image_left";
-		while($row=mysql_fetch_array($result)){
+		while($row=mysqli_fetch_array($result)){
 			echo"<div class='{$lr}'>";
 			echo "<div id='one_image_wrapper'>";
 			$img=$path."{$page_name}/{$row['name']}";
@@ -71,11 +70,11 @@ elseif($page!='gallery'){
 	else{echo"<h4><div style='color:black'>*Upload a jpg/jpeg Image of size less than 1 Mb</div></h4>";}
 	echo"<div id='one_image'>";
 	$query="SELECT * FROM albums WHERE page='{$page}' && sub_page={$sub_page}";
-	$res=mysql_query($query,$db);
-	if($res)	$num_rows=mysql_num_rows($res);
+	$res=mysqli_query($db,$query);
+	if($res)	$num_rows=mysqli_num_rows($res);
 	if($num_rows >0){
 		$lr="one_image_left";
-		while($row=mysql_fetch_array($res)){
+		while($row=mysqli_fetch_array($res)){
 			$page_name=$row['page_name'];
 			echo"<div class='{$lr}'>";
 			echo "<div id='one_image_wrapper'>";

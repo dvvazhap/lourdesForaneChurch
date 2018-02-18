@@ -1,14 +1,13 @@
 <?php
 require_once("connection.php");
-require_once("functions.php");
 if(isset($_GET['admin_right'])){$admin_right=$_GET['admin_right'];}
 
 $query="SELECT * FROM teachers ORDER by class";
-$result=mysql_query($query,$db);
+$result=mysqli_query($db,$query);
 confirm_query($result);
-if(!isset($result)){echo"Sorry ! ".mysql_error()."<br/> Go to home page and retry...";}
+if(!isset($result)){echo"Sorry ! ".mysqli_error()."<br/> Go to home page and retry...";}
 echo"<h3><center>Catechism Teachers</center></h3>";
-	while($display = mysql_fetch_array($result)){
+	while($display = mysqli_fetch_array($result)){
 	$class = $display['class'];
 	if($class==0){$class="Non-Teaching Staff";}
 	elseif($class==1){$class="L.K.G";}elseif($class==2){$class="U.K.G";}

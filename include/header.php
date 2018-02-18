@@ -1,14 +1,13 @@
 <?php /*if(!isset($_SESSION['user']))session_start();*/?>
 <! DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml">
-<?php require_once("include/connection.php");
-require_once("include/functions.php");
+<?php include("include/connection.php");
 if(isset($_POST['submit_login'])){
-$username=mysql_prep($_POST['username']);
-$password=mysql_prep($_POST['password']);
+$username=mysqli_prep($db,$_POST['username']);
+$password=mysqli_prep($db,$_POST['password']);
 $admin_page = NULL;$admin_sub_page = NULL;$admin_right = NULL;
 $sql = "SELECT * FROM security WHERE username='{$username}' && password='{$password}' ";
-$result = mysql_query($sql,$db);
-while($row=mysql_fetch_array($result))
+$result = mysqli_query($db,$sql);
+while($row=mysqli_fetch_array($result))
 {$_SESSION['user']=$username;$_SESSION['pass']=$password;
 $_SESSION['admin_right']=$row['admin_right'];
 $admin_page = $row['admin_page'];
@@ -52,10 +51,10 @@ fjs.parentNode.insertBefore(js, fjs);
 <div id='wrapper_right'>
 <img id='mary_image' src="images/mary4.png" />
 	<div id='viewers'>
-	<?php $sql="SELECT views from views";$res=mysql_query($sql,$db);
-	while($row=mysql_fetch_array($res)){$new_view = $row['views'] + 1;
+	<?php $sql="SELECT views from views";$res=mysqli_query($db,$sql);
+	while($row=mysqli_fetch_array($res)){$new_view = $row['views'] + 1;
 	$view = $row['views']; echo "Number of viewers :  ". $new_view;}
-	if(($page=='home')||($page==NULL)){$sql = "UPDATE views set views ={$new_view} WHERE id=1"; $res=mysql_query($sql,$db);}?></div>
+	if(($page=='home')||($page==NULL)){$sql = "UPDATE views set views ={$new_view} WHERE id=1"; $res=mysqli_query($db,$sql);}?></div>
 
 	<div id="admin_panel"><div onmouseover="moveout()">Admin</div></div><div id="admin_input_wrapper" onmouseout="movein()"></div>
 	<div id="admin_input"><br/><br/><br/><br/><br/><br/>
@@ -80,16 +79,16 @@ fjs.parentNode.insertBefore(js, fjs);
 		</ul>
 		</li>
 		<li><a id="tab_associations" href='#' onclick="show_associations(0,0)">ASSOCIATIONS</a>
-		<ul><?php $query = "SELECT * FROM associations_table ORDER by name"; $result = mysql_query($query,$db);
-		while($row=mysql_fetch_array($result)){
+		<ul><?php $query = "SELECT * FROM associations_table ORDER by name"; $result = mysqli_query($db,$query);
+		while($row=mysqli_fetch_array($result)){
 		$id=$row['id'];
 		echo "<li><a href='#' onclick='show_associations({$id},1)'>{$row['name']}</a><ul>
 		<li><a href='#' onclick='show_associations({$id},1)'>About {$row['name']} </a></li>
 		<li><a href='#' onclick='show_associations({$id},2)'>Council Members</a></li></ul></li>";}?>
 		</ul></li>
 		<li><a href='#' id="tab_wards" onclick="show_wards(0,0)">WARDS</a>
-		<ul><?php $query = "SELECT * FROM wards_table ORDER by name";$result = mysql_query($query,$db);
-		while($row=mysql_fetch_array($result)){
+		<ul><?php $query = "SELECT * FROM wards_table ORDER by name";$result = mysqli_query($db,$query);
+		while($row=mysqli_fetch_array($result)){
 		$id=$row['id'];
 		echo "<li><a href='#' onclick='show_wards({$id},1)'>{$row['name']}</a><ul>
 		<li><a href='#' onclick='show_wards({$id},1)'>{$row['name']} Ward </a></li>

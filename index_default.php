@@ -1,27 +1,26 @@
 <?php
 require_once("include/connection.php");
-require_once("include/functions.php");
 ?>
 <div class="cleaner_h40"></div>
 <div class="container-fluid">
 <div class="row" >
 	<div class="col-md-12 ">
 		<div id='gen_topic'><b><i><?php
-			$sql=mysql_query("SELECT * FROM page_content WHERE page='home' && sub_page=2 && sub_no=1");
-			while($row=mysql_fetch_array($sql)){
+			$sql=mysqli_query($db,"SELECT * FROM page_content WHERE page='home' && sub_page=2 && sub_no=1");
+			while($row=mysqli_fetch_array($sql)){
 				echo $row['sub_content'];
 			}
 			?></i></b>
 		</div>
 		<div id='gen_content'>
 			<?php
-			$sql=mysql_query("SELECT * FROM page_content WHERE page='home' && sub_page=0");
-			while($row=mysql_fetch_array($sql)){
+			$sql=mysqli_query($db,"SELECT * FROM page_content WHERE page='home' && sub_page=0");
+			while($row=mysqli_fetch_array($sql)){
 				echo "<p><b>".$row['sub_title']."</b><br/><span style='margin-left:30px;'>".$row['sub_content']."</span></p>";
 			}
 			?>
-			<span style='margin-left:50px'><?php $sql=mysql_query("SELECT name FROM contact WHERE position=1");
-			while($row=mysql_fetch_array($sql)){echo "<b><i>".$row['name']."</i></b>"; }?>
+			<span style='margin-left:50px'><?php $sql=mysqli_query($db,"SELECT name FROM contact WHERE position=1");
+			while($row=mysqli_fetch_array($sql)){echo "<b><i>".$row['name']."</i></b>"; }?>
 			</span>
 		</div>	
 	</div>
@@ -38,8 +37,8 @@ require_once("include/functions.php");
 	<div class="col-md-12 ">
 		<h2 style="color:black"><b><i>IMPORTANT EVENTS</i></b></h2>
 		<?php
-			$res=mysql_query("SELECT * FROM events ORDER BY date");
-			while($row=mysql_fetch_array($res)){
+			$res=mysqli_query($db,"SELECT * FROM events ORDER BY date");
+			while($row=mysqli_fetch_array($res)){
 			$dt = explode('-',$row['date']);
 			$month = $dt[1];
 			if($month=='1'){$month='Jan';}elseif($month=='2'){$month='Feb';}elseif($month=='3'){$month='Mar';}elseif($month=='4'){$month='Apr';}

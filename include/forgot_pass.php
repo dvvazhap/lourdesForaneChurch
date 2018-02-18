@@ -1,10 +1,9 @@
 <?php
 require_once("connection.php");
-require_once("functions.php");
 if(isset($_GET['user'])){
 	$user = $_GET['user'];
 	$c = $_GET['c'];
-	mysql_query("UPDATE security SET password='{$c}' WHERE username='{$user}'");
+	mysqli_query($db,"UPDATE security SET password='{$c}' WHERE username='{$user}'");
 }
 
 elseif(!isset($_GET['username'])){
@@ -17,9 +16,9 @@ elseif(isset($_GET['username'])){
 $username = $_GET['username'];
 $mobile = $_GET['mobile'];
 
-$res=mysql_query("SELECT * FROM security WHERE username='{$username}'");
-$c = mysql_num_rows($res);
-if($c==1)while($row=mysql_fetch_array($res)){
+$res=mysqli_query($db,"SELECT * FROM security WHERE username='{$username}'");
+$c = mysqli_num_rows($res);
+if($c==1)while($row=mysqli_fetch_array($res)){
 $phone = $row['phone'];
 $question = $row['question'];
 $answer = $row['answer'];

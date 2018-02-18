@@ -6,15 +6,15 @@
 <?php
 $count=0;
 $query = "SELECT * FROM page_content WHERE page='{$page}' && sub_page={$sub_page}";
-$result = mysql_query($query,$db);
-while($display = mysql_fetch_array($result)){$count++;}
+$result = mysqli_query($db,$query);
+while($display = mysqli_fetch_array($result)){$count++;}
 if($count==0){
 echo "<br/> No contents in the page...";}
 else {
 $query = "SELECT * FROM page_content WHERE page='{$page}' && sub_page={$sub_page}";
-$result = mysql_query($query,$db);
+$result = mysqli_query($db,$query);
 confirm_query($result);
-while($display = mysql_fetch_array($result)){
+while($display = mysqli_fetch_array($result)){
 	echo"<div id='page_content'><div id='sub_title'>{$display['sub_title']}</div>
 	<span id='sub_content'>{$display['sub_content']}</span></div>";
 }
@@ -28,26 +28,26 @@ echo"<form method='post'>
 	<input type='submit' value='Insert' name='insert_submit_admin_page_content' /></form>";
 
 if(isset($_POST['insert_submit_admin_page_content'])){
-	if(isset($_POST['sub_title'])){$sub_title=mysql_prep($_POST['sub_title']);}else{$sub_title=NULL;}
-	if(isset($_POST['sub_content'])){$sub_content=mysql_prep($_POST['sub_content']);}else{$sub_content=NULL;}
+	if(isset($_POST['sub_title'])){$sub_title=mysqli_prep($db,$_POST['sub_title']);}else{$sub_title=NULL;}
+	if(isset($_POST['sub_content'])){$sub_content=mysqli_prep($db,$_POST['sub_content']);}else{$sub_content=NULL;}
 	//to count the no of rows
 	$count=1;
 	$query="SELECT * FROM page_content WHERE page='{$page}' && sub_page={$sub_page}";
-	$res=mysql_query($query,$db);
+	$res=mysqli_query($db,$query);
 	confirm_query($res);
-	if(!isset($res)){echo"Sorry ! ".mysql_error()." Go to home page and retry...";}
-	while($row = mysql_fetch_array($res)){
+	if(!isset($res)){echo"Sorry ! ".mysqli_error()." Go to home page and retry...";}
+	while($row = mysqli_fetch_array($res)){
 	$count++;
 	}
 	/* $count=position of the sub title ... */
 	$query = "INSERT INTO page_content (`page`,`sub_page`,`sub_no`,`temp_id`,`sub_title`,`sub_content`) 
 		VALUES ('{$page}',{$sub_page},{$count},{$count},'{$sub_title}','{$sub_content}')";
-	$result = mysql_query($query,$db);
+	$result = mysqli_query($db,$query);
 	if($result){
 	if($page=='home')$sub_page=0;
 	echo "<script>window.location='admin_{$page}.php?sub_page={$sub_page}&page={$page}'</script>";
 	exit;
 	}
-	else{echo"Sorry ! ".mysql_error()." Go to home page and retry...";}
+	else{echo"Sorry ! ".mysqli_error()." Go to home page and retry...";}
 }
 ?>

@@ -16,4 +16,4 @@ document.getElementById("map_doc").style.marginLeft =  margin + "px";
 }
 }
 </script>
-</html><?php if(isset($reply)){if($reply==1){echo "<script>alert('Not a valid User...!')</script>";}}if(isset($db)){	mysql_close($db);} ?>
+</html><?php if(isset($reply)){if($reply==1){echo "<script>alert('Not a valid User...!')</script>";}}if(isset($db)){	mysqli_close($db);} ?>

@@ -1,6 +1,5 @@
 <?php
 require_once("include/connection.php");
-require_once("include/functions.php");
 ?>
 <html>
 <body>
@@ -21,8 +20,8 @@ require_once("include/functions.php");
 <div id="latest_news_heading"><b>LATEST UPDATES</b></div>
 <div id="latest_news_wrapper"><div id="latest_news_content" onmouseover='stopnews()' onmouseout='rollnews()'>
 <?php $sql="SELECT * FROM latest_news WHERE visible=1";
-$result=mysql_query($sql,$db);
-while($row=mysql_fetch_array($result)){
+$result=mysqli_query($db,$sql);
+while($row=mysqli_fetch_array($result)){
 	echo "<div id=\"latest_space\"></div>";			
 	if($row['new_file']==1){echo"<div id='new_file' >";}
 	else{echo "<div id='file'>";}

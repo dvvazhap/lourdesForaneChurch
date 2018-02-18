@@ -1,6 +1,5 @@
 <?php
 require_once("connection.php");
-require_once("functions.php");
 ?>
 <style>
 #entire_content{padding:20px;line-height:5em;font-size:30px; font-style:italic; background-color:white; -webkit-border-radius:30px;-moz-border-radius:30px;border-radius:30px; overflow:hidden; }

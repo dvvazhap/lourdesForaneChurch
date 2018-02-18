@@ -21,8 +21,8 @@ include("include/header.php");
         <div id="slider">
             <a href="#" onclick="show_tab('service')" ><img src="slider/pray.jpg" alt="" /></a>
 			<?php
-			$sql=mysql_query("SELECT * FROM albums WHERE page='home'");
-			while($row=mysql_fetch_array($sql)){
+			$sql=mysqli_query($db,"SELECT * FROM albums WHERE page='home'");
+			while($row=mysqli_fetch_array($sql)){
 				$name=$row['name'];
 				echo "<img src='images/gallery/home/{$name}' />";
 			}

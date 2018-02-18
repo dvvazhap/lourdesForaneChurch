@@ -1,9 +1,9 @@
 <?php
-if(isset($_GET['name'])){$get_name=mysql_prep($_GET['name']);}else{$get_name=NULL;}
-if(isset($_POST['name'])){$post_name=mysql_prep($_POST['name']);}else{$post_name=NULL;}
-if(isset($_POST['nop'])){$nop=mysql_prep($_POST['nop']);}else{$nop=NULL;}
-if(isset($_POST['username'])){$temp_username=mysql_prep($_POST['username']);}else{$temp_username=NULL;}
-if(isset($_POST['password'])){$temp_password=mysql_prep($_POST['password']);}else{$temp_password=NULL;}
+if(isset($_GET['name'])){$get_name=mysqli_prep($db,$_GET['name']);}else{$get_name=NULL;}
+if(isset($_POST['name'])){$post_name=mysqli_prep($db,$_POST['name']);}else{$post_name=NULL;}
+if(isset($_POST['nop'])){$nop=mysqli_prep($db,$_POST['nop']);}else{$nop=NULL;}
+if(isset($_POST['username'])){$temp_username=mysqli_prep($db,$_POST['username']);}else{$temp_username=NULL;}
+if(isset($_POST['password'])){$temp_password=mysqli_prep($db,$_POST['password']);}else{$temp_password=NULL;}
 if(isset($_GET['reply'])){$reply=$_GET['reply'];}else{$reply=NULL;}
 if($get_name==NULL){$name=$post_name;}else{$name=$get_name;}
 if($reply==1){ echo "<br/>Sorry...!<br/> Some one have already registered with that user name,...<br/>Pls try with an alternate username";}
@@ -26,8 +26,8 @@ echo "<table>
 </select></td></tr>
 <tr><th></th><td></td><td><input type=\"submit\" value=\"NEXT STEP\"></td></tr></form></table>";}
 else{ $sql="SELECT * FROM security WHERE username='{$temp_username}'";
-$result=mysql_query($sql,$db);
-while($row=mysql_fetch_array($result)){echo "<script>window.location='admin_{$page}.php?page={$page}&id={$count}&action=20&name={$post_name}&reply=1'</script>";}
+$result=mysqli_query($db,$sql);
+while($row=mysqli_fetch_array($result)){echo "<script>window.location='admin_{$page}.php?page={$page}&id={$count}&action=20&name={$post_name}&reply=1'</script>";}
 echo "<table><form action=\"admin_{$page}.php?page={$page}&action=21\" method=\"post\">
 <tr><th>{$page} Name :</th><td><input type=\"hidden\" name=\"name\" value=\"{$post_name}\" />{$post_name}</td></tr>
 <tr><input type=\"hidden\" name=\"nop\" value=\"{$nop}\" /></tr>

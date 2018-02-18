@@ -1,17 +1,16 @@
 <?php
 require_once("include/connection.php");
-require_once("include/functions.php");
 if(isset($_GET['pid'])){$id=$_GET['pid'];
 $sql = "SELECT * FROM parishes_table WHERE id={$id}";
-$res = mysql_query($sql,$db);
+$res = mysqli_query($db,$sql);
 $path = "images/parishes/";
 }
 if(isset($_GET['fid'])){$id=$_GET['fid'];
 $sql = "SELECT * FROM forane_table WHERE id={$id}";
-$res = mysql_query($sql,$db);
+$res = mysqli_query($db,$sql);
 $path = "images/forane/";
 }
-while($row=mysql_fetch_array($res)){
+while($row=mysqli_fetch_array($res)){
 $name=$row['name'];
 $image=$row['image'];
 $landline=$row['landline'];

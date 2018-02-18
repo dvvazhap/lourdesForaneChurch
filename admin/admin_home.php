@@ -111,19 +111,19 @@ include("../include/add_gallery_image.php");
 
 
 $query = "SELECT * FROM page_content WHERE page='home' && sub_page=2";
-$result = mysql_query($query,$db);
-$c=mysql_num_rows($result);
-if($c==0){$sql="INSERT into page_content(`page`,`sub_page`,`sub_no`,`temp_id`) VALUES('home',2,1,1)"; $res=mysql_query($sql,$db);}
+$result = mysqli_query($db,$query);
+$c=mysqli_num_rows($result);
+if($c==0){$sql="INSERT into page_content(`page`,`sub_page`,`sub_no`,`temp_id`) VALUES('home',2,1,1)"; $res=mysqli_query($db,$sql);}
 confirm_query($result);
-if(isset($result)){ while($display = mysql_fetch_array($result)){
+if(isset($result)){ while($display = mysqli_fetch_array($result)){
 echo "<form id='flash_news' method='post'><b style='color:black'>Main Heading:</b><br/>
 <textarea name='flash_content' rows='2' cols='50'>{$display['sub_content']}</textarea>
 <input type='submit' name='submit_flash_news' value= 'Save' /></form>";}}
 if(isset($_POST['submit_flash_news'])){
-if(isset($_POST['flash_content'])){$flash_content=mysql_prep($_POST['flash_content']);}else{$flash_content=NULL;}
+if(isset($_POST['flash_content'])){$flash_content=mysqli_prep($db,$_POST['flash_content']);}else{$flash_content=NULL;}
 $query="UPDATE `page_content` SET `sub_content`='{$flash_content}' 
 WHERE `sub_no`=1 && `sub_page`=2 && page='home'";
-$result = mysql_query($query,$db);
+$result = mysqli_query($db,$query);
 echo "<script>window.location='admin_home.php?page=home&sub_page=0'</script>";}
 include("../include/display_admin_page_content.php");
 
@@ -138,15 +138,15 @@ echo "<div id='del'></div>";
 echo"<hr/><b style='color:black'>Latest News :</b><br/>";
 $count=0;
 $query = "SELECT * FROM latest_news";
-$result = mysql_query($query,$db);
-while($row=mysql_fetch_array($result)){$count++;}
+$result = mysqli_query($db,$query);
+while($row=mysqli_fetch_array($result)){$count++;}
 if($count>0){
 echo"<table cellpadding=10 cellspacing=2><tr><th>File Description</th><th>File Name</th><th>New File</th><th>Visible</th><th>File Type</th></tr>";}
 else{ echo"No file exists in the latest news...!";}
 
 $query = "SELECT * FROM latest_news";
-$result = mysql_query($query,$db);
-while($display = mysql_fetch_array($result)){
+$result = mysqli_query($db,$query);
+while($display = mysqli_fetch_array($result)){
 if ($display['new_file']==1)
 {$check_n= "checked='checked'";}
 else{$check_n=" ";}
@@ -170,17 +170,17 @@ elseif(($sub_page==1) && ($action==NULL)){ //Insert a new file
 echo"Latest News<br/>";
 $count=0;
 $query = "SELECT * FROM latest_news";
-$result = mysql_query($query,$db);
+$result = mysqli_query($db,$query);
 confirm_query($result);
-while($row=mysql_fetch_array($result)){$count++;}
+while($row=mysqli_fetch_array($result)){$count++;}
 if($count>0){
 echo"<table cellpadding=10 cellspacing=2>
 <tr><th>File Description</th><th>File Name</th><th>New File</th><th>Visible</th><th>File Type</th></tr>";}
 else{echo "There are no files in latest news";}
 $query = "SELECT * FROM latest_news";
-$result = mysql_query($query,$db);
+$result = mysqli_query($db,$query);
 confirm_query($result);
-while($display = mysql_fetch_array($result)){
+while($display = mysqli_fetch_array($result)){
 if ($display['new_file']==1)
 {$check_n= "checked='checked'";}
 else{$check_n=" ";}
@@ -205,37 +205,37 @@ Visible:<input type='checkbox' name='visible' checked='checked' />
 elseif(($sub_page==2)&&($action==NULL)){//Delete a file
 $file_id=$_GET['file_id'];
 $sql="SELECT * from latest_news WHERE file_id={$file_id}";
-$result=mysql_query($sql,$db);
-while($row=mysql_fetch_array($result)){if($row['file_name']!=0)unlink("../latest_news/".$row['file_name']);}
+$result=mysqli_query($db,$sql);
+while($row=mysqli_fetch_array($result)){if($row['file_name']!=0)unlink("../latest_news/".$row['file_name']);}
 $query="DELETE FROM latest_news WHERE file_id = {$file_id}";
-$result = mysql_query($query,$db);
+$result = mysqli_query($db,$query);
 if($result){
 /*-----count the no of rows----*/
 $count=0;
-$query="SELECT * FROM latest_news";$res=mysql_query($query,$db);confirm_query($res);
-while($row = mysql_fetch_array($res)){$count++;}
+$query="SELECT * FROM latest_news";$res=mysqli_query($db,$query);confirm_query($res);
+while($row = mysqli_fetch_array($res)){$count++;}
 /* -----$count==> No of rows----- */
 for($i=$file_id;$i<=$count;$i++){
 $tid=$i+1;
 $query = "UPDATE latest_news SET file_id={$i} WHERE temp_id={$tid}";
-$result= mysql_query($query,$db);
+$result= mysqli_query($db,$query);
 confirm_query($result);
 if(isset($result)){
 $sql="SELECT * FROM latest_news";
-$res=mysql_query($sql,$db);
+$res=mysqli_query($db,$sql);
 confirm_query($res);
-while($row = mysql_fetch_array($res)){
+while($row = mysqli_fetch_array($res)){
 $sql_query = "UPDATE latest_news SET temp_id={$row['file_id']} WHERE file_id={$row['file_id']}";
-$result= mysql_query($sql_query,$db);}
-}else{echo"Sorry ! ".mysql_error()." Go to home page and retry...";}}
+$result= mysqli_query($db,$sql_query);}
+}else{echo"Sorry ! ".mysqli_error()." Go to home page and retry...";}}
 echo "<script>window.location='admin_home.php?sub_page=0&page={$page}'</script>";
 die;
 }
-else{echo"Sorry ! ".mysql_error()." Go to home page and retry...";}
+else{echo"Sorry ! ".mysqli_error()." Go to home page and retry...";}
 }
 elseif(($sub_page==3) && ($action==NULL)){ //Edit the file
-$file_id=mysql_prep($_GET['file_id']);
-$file_desc=mysql_prep($_POST['file_desc']);
+$file_id=mysqli_prep($db,$_GET['file_id']);
+$file_desc=mysqli_prep($db,$_POST['file_desc']);
 if(!isset($_POST['new_file'])){$new_file=0;}
 else{$new_file=1;}
 if(!isset($_POST['visible'])){$visible=0;}
@@ -244,16 +244,16 @@ $query="UPDATE `latest_news`
 SET `file_desc`='{$file_desc}',
 `visible`={$visible},`new_file`={$new_file} 
 WHERE `file_id`={$file_id}";
-$result = mysql_query($query,$db);
+$result = mysqli_query($db,$query);
 if($result){
 echo "<script>window.location='admin_home.php?sub_page=0&page={$page}'</script>";
 exit;
 }
-else{echo"Sorry ! ".mysql_error()." Go to home page and retry...";}
+else{echo"Sorry ! ".mysqli_error()." Go to home page and retry...";}
 }
 
 elseif(($sub_page==4) && ($action==NULL)){   //Submit Insert Button
-$file_desc=mysql_prep($_POST['file_desc']);
+$file_desc=mysqli_prep($db,$_POST['file_desc']);
 $abc = is_dir("../latest_news");
 if(!$abc){mkdir("../latest_news");}
 $path="../latest_news/";
@@ -266,16 +266,16 @@ if(!isset($_POST['new_file'])){$new_file=0;}else{$new_file=1;}
 if(!isset($_POST['visible'])){$visible=0;}else{$visible=1;}
 $file_id=1;
 $query="SELECT * FROM latest_news";
-$res=mysql_query($query,$db);
+$res=mysqli_query($db,$query);
 confirm_query($res);
-if(!isset($res)){echo"Sorry ! ".mysql_error()." Go to home page and retry...";}
-while($row = mysql_fetch_array($res)){$file_id++;}
+if(!isset($res)){echo"Sorry ! ".mysqli_error()." Go to home page and retry...";}
+while($row = mysqli_fetch_array($res)){$file_id++;}
 $query = "INSERT INTO latest_news (`page`,`file_id`,`temp_id`,`file_desc`,`file_name`, `visible`, `new_file`) 
 VALUES ('{$page}',{$file_id},{$file_id},'{$file_desc}', '{$name}', {$visible}, {$new_file})";
-$result = mysql_query($query,$db);
+$result = mysqli_query($db,$query);
 if($result){echo "<script>window.location='admin_home.php?sub_page=0&page={$page}'</script>";
 exit;}
-else{echo"Sorry ! ".mysql_error()." Go to home page and retry...";}
+else{echo"Sorry ! ".mysqli_error()." Go to home page and retry...";}
 }
 elseif($action==11){/*Insert Content Form*/ echo "<br/><h3>Add contents into your History page :</h3>";
 include("../include/insert_form_admin_page_content.php");}

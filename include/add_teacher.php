@@ -1,14 +1,13 @@
 <?php
 require_once("connection.php");
-require_once("functions.php");
 if(isset($_GET['add_teacher_submit'])){
-$n=mysql_prep($_POST['n']);
-$p=mysql_prep($_POST['p']);
-$l=mysql_prep($_POST['l']);
-$c=mysql_prep($_POST['c']);
-$a=mysql_prep($_POST['a']);
+$n=mysqli_prep($db,$_POST['n']);
+$p=mysqli_prep($db,$_POST['p']);
+$l=mysqli_prep($db,$_POST['l']);
+$c=mysqli_prep($db,$_POST['c']);
+$a=mysqli_prep($db,$_POST['a']);
 $rand = rand(1,9999);
-mysql_query("INSERT INTO teachers(`id`,`name`,`phone`,`landline`,`class`,`address`,`image`) VALUES({$rand},'{$n}','{$p}','{$l}',{$c},'{$a}','')");
+mysqli_query($db,"INSERT INTO teachers(`id`,`name`,`phone`,`landline`,`class`,`address`,`image`) VALUES({$rand},'{$n}','{$p}','{$l}',{$c},'{$a}','')");
 }
 if(!isset($_GET['teacher'])){echo "<div id='add_teacher'></div>";
 }

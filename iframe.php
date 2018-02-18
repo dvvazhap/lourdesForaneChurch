@@ -1,6 +1,5 @@
 <?php
 	require_once("include/connection.php");
-	require_once("include/functions.php");
 	if(isset($_GET['page'])){$page=$_GET['page'];}
 	if(isset($_GET['sub_page'])){$sub_page=$_GET['sub_page'];}else{$sub_page=0;}
 	if(isset($_GET['s_sub_page'])){$s_sub_page=$_GET['s_sub_page'];}else{$s_sub_page=0;} 

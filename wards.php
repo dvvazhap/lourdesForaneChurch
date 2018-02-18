@@ -1,6 +1,5 @@
 <?php $page = 'wards';
 require_once("include/connection.php");
-require_once("include/functions.php");
 if(isset($_GET['sub_page'])){$sub_page=$_GET['sub_page'];}else{$sub_page=0;}
 if(isset($_GET['s_sub_page'])){$s_sub_page=$_GET['s_sub_page'];}else{$s_sub_page=0;}
 ?>
@@ -19,8 +18,8 @@ if(isset($_GET['s_sub_page'])){$s_sub_page=$_GET['s_sub_page'];}else{$s_sub_page
 </style>
 <?php $page="wards";
 	$sql = "SELECT * FROM wards_table WHERE id={$sub_page}"; 
-	$result=mysql_query($sql,$db);
-	while($row=mysql_fetch_array($result)){$pagename = $row['name'];}
+	$result=mysqli_query($db,$sql);
+	while($row=mysqli_fetch_array($result)){$pagename = $row['name'];}
 if($sub_page==0){
 echo"<style>#content_wrapper {
 clear:both;position:relative;margin-left:5%;width:1000px; padding: 40px 0px;
@@ -28,14 +27,14 @@ background-image:url(images/backg1.jpg); -webkit-border-radius:30px;-moz-border-
 #content{padding: 0px 50px;width: 89%;}#content p{margin-bottom: 10px;}</style>";
 if($sub_page==NULL){$sub_pag=0;}
 $sql="SELECT * FROM wards_table ORDER BY name "; 
-$res=mysql_query($sql,$db); 
+$res=mysqli_query($db,$sql); 
 $lr="one_image_left";
-while($row=mysql_fetch_array($res)){
+while($row=mysqli_fetch_array($res)){
 $id = $row['id'];
  echo"<a href='#' onclick='show_wards({$id},1)'><div id='page_aw_wrapper' class='{$lr}'>
 <div id='page_aw_name'>{$row['name']}</div><div id='page_pic_agw_frame'>";
-$sql1="SELECT * FROM {$page}_table WHERE id={$row['id']}"; $res1=mysql_query($sql1,$db);
-echo "<div id='page_pic_agw'>"; while($row1=mysql_fetch_array($res1)){if($row['image']==NULL){echo"<div><img src=\"images/no_image.jpg\" /></div>";}else echo"<div><img src=\"images/{$page}_table/{$row1['image']}\" /></div>";}
+$sql1="SELECT * FROM {$page}_table WHERE id={$row['id']}"; $res1=mysqli_query($db,$sql1);
+echo "<div id='page_pic_agw'>"; while($row1=mysqli_fetch_array($res1)){if($row['image']==NULL){echo"<div><img src=\"images/no_image.jpg\" /></div>";}else echo"<div><img src=\"images/{$page}_table/{$row1['image']}\" /></div>";}
 echo "</div></div>";
 if($lr=="one_image_left"){$lr="one_image_centerl";}else if($lr=="one_image_centerl"){$lr="one_image_centerr";}
 else if($lr=="one_image_centerr"){$lr="one_image_right";}else{$lr="one_image_left";}
@@ -50,8 +49,8 @@ width:90%;padding: 4% 0%; background-image:url(images/backg1.jpg);
 #content p{margin-bottom: 10px;}</style>";
  echo "<h2 id=\"title\"> {$pagename} Ward..!</h2><div class=\"hr_divider\"></div>";
 include("include/display_page_content.php"); 
-$query="SELECT * FROM ward_info WHERE sub_page={$sub_page}"; $result=mysql_query($query,$db);
-while($row=mysql_fetch_array($result)){ /*echo "<span id=\"content_text\">{$row['about']}</span><br/><br/>";
+$query="SELECT * FROM ward_info WHERE sub_page={$sub_page}"; $result=mysqli_query($db,$query);
+while($row=mysqli_fetch_array($result)){ /*echo "<span id=\"content_text\">{$row['about']}</span><br/><br/>";
 echo "<h3 id=\"ward_title\">Location of our ward </h3><span id=\"content_text\">{$row['location']}</span><br/><br/>*/echo "<h3 id=\"ward_title\">Number of Families : {$row['nof']}</h3><br/><br/>";}}		
 elseif($s_sub_page==2){include("include/display_council_members.php");}
 elseif($s_sub_page==3){
@@ -61,8 +60,8 @@ background-image:url(images/aaa.png); background-size:100%;
 #content{padding:0px 50px;width:700px;margin:20px 0px 0px 50px;}
 #content p{margin-bottom: 10px;}</style>";
 echo"<h2 id=\"title\">Prayer Meeting</h2><div class=\"hr_divider\"></div>";
-$query="SELECT * FROM prayer_meeting WHERE sub_page={$sub_page}"; $result=mysql_query($query,$db);
-while($row=mysql_fetch_array($result)){ echo "<span id=\"meeting_start\">The next Prayer Meeting of Our <span id=\"wardname\">{$pagename} Ward</span> is to be held on <span id=\"meeting_info\">{$row['date']}</span> at <span id=\"meeting_info\">{$row['time']}</span>
+$query="SELECT * FROM prayer_meeting WHERE sub_page={$sub_page}"; $result=mysqli_query($db,$query);
+while($row=mysqli_fetch_array($result)){ echo "<span id=\"meeting_start\">The next Prayer Meeting of Our <span id=\"wardname\">{$pagename} Ward</span> is to be held on <span id=\"meeting_info\">{$row['date']}</span> at <span id=\"meeting_info\">{$row['time']}</span>
 in the House of <span id=\"owner_name\">{$row['name']}</span>.</span><br/><br/><p id=\"resi_info\">His/Her residential address is,</p> 
 <div id=\"meeting_address\">{$row['address']}</div>";
 if($row['information']!=NULL){ echo "<div id=\"information\">{$row['information']}</div>";}

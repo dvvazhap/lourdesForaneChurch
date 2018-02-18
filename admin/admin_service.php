@@ -7,10 +7,10 @@ th{text-align:left;}</style><div id="content"><h2>Service Page</h2>
 <?php if(isset($_GET['action'])){$action=$_GET['action'];}else{$action=NULL;}
 if($action==NULL){
 if(isset($_GET['prayer_id'])){ $prayer_id=$_GET['prayer_id'];}else{$prayer_id=NULL;}echo"<hr/>";
-$query="SELECT * FROM service_table"; $res=mysql_query($query,$db); confirm_query($res);
-if(isset($res)){ $count=0; while($row = mysql_fetch_array($res)){$count++;}
-if($count>0){ $query = "SELECT * FROM service_table "; $result = mysql_query($query,$db);
-while($row=mysql_fetch_array($result)){
+$query="SELECT * FROM service_table"; $res=mysqli_query($db,$query); confirm_query($res);
+if(isset($res)){ $count=0; while($row = mysqli_fetch_array($res)){$count++;}
+if($count>0){ $query = "SELECT * FROM service_table "; $result = mysqli_query($db,$query);
+while($row=mysqli_fetch_array($result)){
 echo "<table id=\"contact_info\"><tr><th width=\"75\">Name</th><th>:</th><td width=\"400\">{$row['name']}</td><th>Email:</th><td width=\"400\">{$row['email']}</td></tr></table>
 <table id=\"contact_info\"><tr><th width=\"75\">Subject</th><th>:</th><td width=\"600\">{$row['subject']}</td></tr></table>";
 if($prayer_id!=$row['sid']){
@@ -22,12 +22,12 @@ else{echo"<table id=\"prayer\"><tr><th id=\"prayer_title\">Prayer Regarding :</t
 else{echo "There are no prayer requests...";}}}
 elseif($action=2){
 if(isset($_GET['sid'])){$sid=$_GET['sid'];}else{$sid=NULL;}
-$query="DELETE FROM service_table WHERE `sid` = {$sid}"; $result = mysql_query($query,$db);
-if($result){ $count=0; $query="SELECT * FROM service_table"; $res=mysql_query($query,$db); confirm_query($res);
-while($row = mysql_fetch_array($res)){$count++;}
-for($i=$sid;$i<=$count;$i++){ $tid=$i+1; $query = "UPDATE service_table SET sid={$i} WHERE tempid={$tid}"; $result= mysql_query($query,$db); confirm_query($result);
-if(isset($result)){ $sql="SELECT * FROM service_table"; $res=mysql_query($sql,$db); confirm_query($res);
-while($row = mysql_fetch_array($res)){ $sql_query = "UPDATE service_table SET tempid={$row['sid']} WHERE sid={$row['sid']}";$result= mysql_query($sql_query,$db);}}
-else{echo"Sorry ! ".mysql_error()." Go to home page and retry...";}}
+$query="DELETE FROM service_table WHERE `sid` = {$sid}"; $result = mysqli_query($db,$query);
+if($result){ $count=0; $query="SELECT * FROM service_table"; $res=mysqli_query($db,$query); confirm_query($res);
+while($row = mysqli_fetch_array($res)){$count++;}
+for($i=$sid;$i<=$count;$i++){ $tid=$i+1; $query = "UPDATE service_table SET sid={$i} WHERE tempid={$tid}"; $result= mysqli_query($db,$query); confirm_query($result);
+if(isset($result)){ $sql="SELECT * FROM service_table"; $res=mysqli_query($db,$sql); confirm_query($res);
+while($row = mysqli_fetch_array($res)){ $sql_query = "UPDATE service_table SET tempid={$row['sid']} WHERE sid={$row['sid']}";$result= mysqli_query($db,$sql_query);}}
+else{echo"Sorry ! ".mysqli_error()." Go to home page and retry...";}}
 echo "<script>window.location='admin_service.php?page={$page}'</script>";exit;}
-else{echo"Sorry !" . mysql_error() ." Go to home page and retry...";}} ?> </div><?php include("admin_footer.php")?>
+else{echo"Sorry !" . mysqli_error() ." Go to home page and retry...";}} ?> </div><?php include("admin_footer.php")?>

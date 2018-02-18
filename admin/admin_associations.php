@@ -46,8 +46,8 @@ elseif(($action==NULL)&&($sub_page!=0)){
 	if($admin_right==2){include("../include/add_user.php");
 	include("../include/view_users.php");}
 	include("../include/add_gallery_image.php"); /*---------Add Gallery Image-----------*/
-$query = "SELECT * FROM {$page}_table WHERE id={$sub_page}";$result=mysql_query($query,$db);
-while($row = mysql_fetch_array($result)){$page_name = $row['name'];echo "<br/><br/><br/><h4>Welcome to {$row['name']} Association</h4><br/>";include("../include/page_table_image.php");}
+$query = "SELECT * FROM {$page}_table WHERE id={$sub_page}";$result=mysqli_query($db,$query);
+while($row = mysqli_fetch_array($result)){$page_name = $row['name'];echo "<br/><br/><br/><h4>Welcome to {$row['name']} Association</h4><br/>";include("../include/page_table_image.php");}
 include("../include/display_admin_council_members.php");
 include("../include/display_admin_page_content.php");echo"<hr/>";
 if(isset($_GET['if'])){echo"<script type='text/javascript'>alert('Invalid File')";echo"</script>";}}

@@ -50,20 +50,19 @@ function add_user(){
 if(isset($_GET['add'])){
 session_start();
 require_once("connection.php");
-require_once("functions.php");
-$add_user=mysql_prep($_POST['add_user']);
-$add_pass=mysql_prep($_POST['add_pass']);
+$add_user=mysqli_prep($db,$_POST['add_user']);
+$add_pass=mysqli_prep($db,$_POST['add_pass']);
 	$sql="SELECT * FROM security where username='{$add_user}'";
-	$result=mysql_query($sql,$db);
-	while($row=mysql_fetch_array($result)){
+	$result=mysqli_query($db,$sql);
+	while($row=mysqli_fetch_array($result)){
 		echo "<div id='error_notify'>Sorry..! Someone have already registered with that username<br/>Try with an altername username<br/></div>
 		<table id='add_user_table'>
 		<tr><th>Username</th><th>:</th><td><input type='text' id='add_username' size='40' maxlength ='30' /></td></tr>
 		<tr><th>Password</th><th>:</th><td><input type='password' id='add_password' size='40' maxlength ='30' /></td></tr>
 		<tr><th></th><td></td><td><button onclick='add_user()'>Add User</button></td></tr></table>";
 	}
-	$r = mysql_query("SELECT * FROM security WHERE username = '{$_SESSION['user']}'");
-	while($row = mysql_fetch_array($r)){
+	$r = mysqli_query($db,"SELECT * FROM security WHERE username = '{$_SESSION['user']}'");
+	while($row = mysqli_fetch_array($r)){
 		$page = $row['admin_page'];
 		$sub_page = $row['admin_sub_page'];
 		$admin_right = $row['admin_right'];
@@ -75,7 +74,7 @@ $add_pass=mysql_prep($_POST['add_pass']);
 	elseif(($page=="wards")||($page=="associations")||($page=="catechism")){$new_admin_right=3;} 
 	$query="INSERT into security(`id`,`temp_id`,`admin_page`,`admin_sub_page`,`admin_right`,`username`,`password`) 
 		VALUES(1,1,'{$page}',{$sub_page},{$new_admin_right},'{$add_user}','{$add_pass}')";
-	$result=mysql_query($query,$db);
+	$result=mysqli_query($db,$query);
 	if($result){echo "<div id='pass_notify'>User created successfully</div>";}
 }
 ?>

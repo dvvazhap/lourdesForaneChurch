@@ -67,7 +67,7 @@ echo "<input type='hidden' value='{$sub_page}' id='sub_page'>";
 echo "<input type='hidden' value='{$admin_right}' id='admin_right'>";
 if(isset($_GET['gallery'])){
 if($_GET['gallery']=='1')echo "<input type='hidden' id='gallery' value='1'><script>init();</script>";
-else{$album_name=mysql_prep($_GET['gallery']);
+else{$album_name=mysqli_prep($db,$_GET['gallery']);
 echo "<input type='hidden' id='gallery' value='{$album_name}'><script> init();</script>";}
 }
 if(isset($_POST['delete_image'])){
@@ -75,7 +75,7 @@ if(isset($_POST['delete_image'])){
 	$file_name=$_POST['file_name'];
 	$page_name=$_POST['album_name'];
 	$sql="DELETE FROM albums WHERE page='{$page}' && sub_page='{$sub_page}' && name='{$file_name}' && page_name='{$page_name}'";
-	$result=mysql_query($sql,$db);
+	$result=mysqli_query($db,$sql);
 	unlink("{$_POST['image']}");
 	if($page!='gallery'){echo "<script>window.location='admin_{$page}.php?page={$page}&sub_page={$sub_page}&gallery=1'</script>";}
 	if($page=='gallery'){echo "<script>window.location='admin_{$page}.php?page={$page}&sub_page={$sub_page}&gallery={$page_name}'</script>";}		
@@ -98,8 +98,8 @@ if(isset($_POST['upload_image'])){
 			}
 			elseif(($page=='wards')||($page=='associations'))
 			{
-				$res = mysql_query("SELECT * FROM {$page}_table WHERE id={$sub_page}");
-				while($row = mysql_fetch_array($res)){
+				$res = mysqli_query($db,"SELECT * FROM {$page}_table WHERE id={$sub_page}");
+				while($row = mysqli_fetch_array($res)){
 				$page_name = $row['name'];
 				}
 				if(!is_dir("../images/gallery/{$page}")){
@@ -121,7 +121,7 @@ if(isset($_POST['upload_image'])){
 			move_uploaded_file($_FILES["file"]["tmp_name"],$path.$_FILES["file"]["name"]);
 			$fname=$_FILES['file']['name'];
 			$query="INSERT INTO albums (`name`,`page`,`page_name`,`sub_page`,`temp_id`) VALUES('{$fname}','{$page}','{$page_name}','{$sub_page}','{$sub_page}')";
-			$result=mysql_query($query,$db);
+			$result=mysqli_query($db,$query);
 			if($result)
 			{
 			if($page!='gallery'){
@@ -131,7 +131,7 @@ if(isset($_POST['upload_image'])){
 			}
 			else
 			{
-				echo"Sorry ! ".mysql_error()."<br/> Go to home page and retry...";
+				echo"Sorry ! ".mysqli_error()."<br/> Go to home page and retry...";
 			}
 		}
 	}
@@ -142,9 +142,9 @@ if($page!='gallery'){
 }
 elseif($page=='gallery'){
 	$sql1="SELECT DISTINCT page_name FROM albums WHERE page='{$page}' && sub_page={$sub_page} ORDER BY page_name";
-	$res1=mysql_query($sql1,$db);
+	$res1=mysqli_query($db,$sql1);
 	echo "<div id='show_album'>";
-	while($display = mysql_fetch_array($res1)){
+	while($display = mysqli_fetch_array($res1)){
 	echo"<button  class='album' onclick='show_album(this.value)' value=\"{$display['page_name']}\" >{$display['page_name']}</button>";
 	}
 	echo"</div>";

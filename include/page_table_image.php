@@ -5,15 +5,15 @@ elseif ((($_FILES["file"]["type"] == "image/jpeg")|| ($_FILES["file"]["type"] ==
 {if ($_FILES["file"]["error"] > 0){echo "Return Code: " . $_FILES["file"]["error"] . "<br />";}
 else{if($_FILES['file']['name']!=NULL){
 $query="SELECT * FROM {$page}_table WHERE id={$sub_page}";
-$result=mysql_query($query,$db);
-while($row=mysql_fetch_array($result)){
+$result=mysqli_query($db,$query);
+while($row=mysqli_fetch_array($result)){
 if(($row['image']!='0')&&($row['image']!=NULL))
 unlink("../images/{$page}_table/{$row['image']}");
 }}$path="../images/{$page}_table/";
 move_uploaded_file($_FILES["file"]["tmp_name"],$path.$_FILES["file"]["name"]);
 $name=$_FILES["file"]["name"];
 $query="UPDATE {$page}_table SET `image`='{$name}' WHERE id={$sub_page}";
-$result=mysql_query($query,$db);
+$result=mysqli_query($db,$query);
 if($result){
 echo "<script>window.location='admin_{$page}.php?page={$page}&sub_page={$sub_page}'</script>"; exit;
 }
@@ -21,8 +21,8 @@ else{echo"<script type='text/javascript'>alert('Sorry ! Something went wrong wit
 Go to home page and retry...')</script>";
 }}}else {echo"<script type='text/javascript'>alert('This image is not supported.\n Only jpeg png images less than 1 Mb size is accepted..!'); </script>";}}
 $query="SELECT * FROM {$page}_table WHERE id={$sub_page}";
-$result=mysql_query($query,$db);
-while($display=mysql_fetch_array($result)){
+$result=mysqli_query($db,$query);
+while($display=mysqli_fetch_array($result)){
 echo"<div id=\"page_table_image\" >";
 $path="../images/{$page}_table/".$display['image'];
 if((!file_exists($path))||($display['image']=="0")||($display['image']==""))

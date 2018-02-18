@@ -1,13 +1,12 @@
 <div id='page_name_bar'><div id='page_name'>
 <?php
 	require_once("include/connection.php");
-	require_once("include/functions.php");
 	if(isset($_GET['page'])){$page=$_GET['page'];}
 	if(isset($_GET['sub_page'])){$sub_page=$_GET['sub_page'];}else{$sub_page=0;}
 	if(isset($_GET['s_sub_page'])){$s_sub_page=$_GET['s_sub_page'];}else{$s_sub_page=0;}
 	$sql = "SELECT * FROM {$page}_table WHERE id={$sub_page}"; 
-	$result=mysql_query($sql,$db);
-	while($row=mysql_fetch_array($result)){$pagename = $row['name']; echo $row['name'];} echo "</div></div>"; ?>
+	$result=mysqli_query($db,$sql);
+	while($row=mysqli_fetch_array($result)){$pagename = $row['name']; echo $row['name'];} echo "</div></div>"; ?>
 <style>
 #page_name_bar{ float:left;margin-left:0%;width:40%;height:250px;margin-top:-30px;}
 #page_name{ margin-top:100px;margin-left:1%;height:60px;
@@ -41,13 +40,13 @@ if($sub_page==NULL){$sub_page=0;}
 $cur=0;
 if(($page=='wards')||($page=='associations')){
 $sql="SELECT * FROM {$page}_table WHERE id={$sub_page}";
-$result=mysql_query($sql,$db);
-while($row=mysql_fetch_array($result)){
+$result=mysqli_query($db,$sql);
+while($row=mysqli_fetch_array($result)){
 		echo"<div class='current'><img src=\"images/{$page}_table/{$row['image']}\"/></div>";
 }
 $sql="SELECT * FROM albums WHERE page='{$page}' && sub_page={$sub_page}";
-$result=mysql_query($sql,$db);
-while($row=mysql_fetch_array($result)){
+$result=mysqli_query($db,$sql);
+while($row=mysqli_fetch_array($result)){
 	echo"<div><img src=\"images/gallery/{$page}/{$sub_page}/{$row['name']}\" /></div>";	
 }}
 ?>

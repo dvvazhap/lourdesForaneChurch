@@ -1,10 +1,9 @@
 <?php 
 $page='service';
 require_once("include/connection.php");
-require_once("include/functions.php");
 
 if(isset($_GET['submit'])){
-require_once("include/connection.php"); require_once("include/functions.php");
+require_once("include/connection.php");
 if(isset($_POST['name'])){$name=$_POST['name'];}
 else{$name=NULL;}
 if(isset($_POST['email'])){$email=$_POST['email'];}
@@ -13,11 +12,11 @@ if(isset($_POST['subject'])){$subject=$_POST['subject'];}
 else{$subject=NULL;}
 if(isset($_POST['detail'])){$detail=$_POST['detail'];}else{$detail=NULL;}
 $count=1;
-$query="SELECT * FROM service_table"; $res=mysql_query($query,$db); confirm_query($res);
-if(!isset($res)){echo"Sorry ! ".mysql_error()." Go to home page and retry...";}
-while($row = mysql_fetch_array($res)){$count++;}
+$query="SELECT * FROM service_table"; $res=mysqli_query($db,$query); confirm_query($res);
+if(!isset($res)){echo"Sorry ! ".mysqli_error()." Go to home page and retry...";}
+while($row = mysqli_fetch_array($res)){$count++;}
 $query = "INSERT into service_table(sid,tempid,page,name,email,subject,detail) VALUES({$count},{$count},'{$page}','{$name}','{$email}','{$subject}','{$detail}')";
-mysql_query($query,$db); 
+mysqli_query($db,$query); 
 }
 ?>
 <style type="text/css">#error_msg{color:red;font-size:20px;}
@@ -49,8 +48,8 @@ width:1000px;padding: 4% 0%; background-image:url(images/aaa.png); background-si
 <button onclick='reset()' id='reset' class='field'> RESET</button>
 </div></div>
 <div id="service_address"><br/><h4 style='color:#ff5034'>Mailing Address</h4><h6 style='color:#002537'>Lourdes Forane Church</h6>Sathy Road, Near GP Hospital<br/>Gandhipuram, Coimbatore<br/>Tamil Nadu, India<br/>Pincode: 641012<br/><br/>Tel: 0422-2525284<br/> <br/><br/>
-<?php $sql="SELECT * FROM contact WHERE position=1"; $result=mysql_query($sql,$db); confirm_query($result);
-while($row=mysql_fetch_array($result)){echo "<h6 style='color:#002537'>{$row['name']}</h6>";if(isset($row['phone'])){echo "Phone: +91-{$row['phone']}<br/>";}if(isset($row['landline'])){echo "Landline: 0422-{$row['landline']}<br/>";}if(isset($row['email'])){echo "EMail: {$row['email']}<br/>";}echo "<br/>";}
-$sql="SELECT * FROM contact WHERE position=2"; $result=mysql_query($sql,$db); confirm_query($result);
-while($row=mysql_fetch_array($result)){ echo "<h6 style='color:#002537'>{$row['name']}</h6>";if(isset($row['phone'])){echo "Phone: +91-{$row['phone']}<br/>";}if(isset($row['landline'])){echo "Landline: 0422-{$row['landline']}<br/>";} if(isset($row['email'])){echo "EMail: {$row['email']}<br/>";}} ?>
+<?php $sql="SELECT * FROM contact WHERE position=1"; $result=mysqli_query($db,$sql); confirm_query($result);
+while($row=mysqli_fetch_array($result)){echo "<h6 style='color:#002537'>{$row['name']}</h6>";if(isset($row['phone'])){echo "Phone: +91-{$row['phone']}<br/>";}if(isset($row['landline'])){echo "Landline: 0422-{$row['landline']}<br/>";}if(isset($row['email'])){echo "EMail: {$row['email']}<br/>";}echo "<br/>";}
+$sql="SELECT * FROM contact WHERE position=2"; $result=mysqli_query($db,$sql); confirm_query($result);
+while($row=mysqli_fetch_array($result)){ echo "<h6 style='color:#002537'>{$row['name']}</h6>";if(isset($row['phone'])){echo "Phone: +91-{$row['phone']}<br/>";}if(isset($row['landline'])){echo "Landline: 0422-{$row['landline']}<br/>";} if(isset($row['email'])){echo "EMail: {$row['email']}<br/>";}} ?>
 </div><div class="cleaner"></div>

@@ -23,7 +23,6 @@ b{color:black; font-size:18px; font-style:italic;}
 </style>
 <?php
 require_once("include/connection.php");
-require_once("include/functions.php");
 if(isset($_GET['tab'])){
 $tab=$_GET['tab'];
 echo"<div id='tabs_wrapper'><ul id='tabs'>";
@@ -43,16 +42,16 @@ echo "</ul>
 <div id='tab_content'>
 <table border='1' cellspacing='0' cellpadding='0' align='left' width='800'>
 <tr><td width='100'><p><strong>S. No.</strong></p></td><td width='174'><p><strong>Parish</strong></p></td><td width='300'><p><strong>Place</strong></p></td></tr>";
-$sql="SELECT * FROM forane_table WHERE forane={$tab}"; $result=mysql_query($sql,$db); $count = mysql_num_rows($result); 
-if($count>0) while($row=mysql_fetch_array($result))
+$sql="SELECT * FROM forane_table WHERE forane={$tab}"; $result=mysqli_query($db,$sql); $count = mysqli_num_rows($result); 
+if($count>0) while($row=mysqli_fetch_array($result))
 { $id=$row['id'];
 $name=$row['name'];$place=$row['place'];
 echo "<tr><td width='100'><p>1</p></td><td id='link_parish' width='174'><p>
 <a onClick=\"MyWindow=window.open('parish.php?fid={$id}','MyWindow','toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=no,resizable=no,width=1000,height=450'); return true;\" >{$name}</a>
 </p></td><td width='300'><p>{$place}</p></td></tr>"; }
-$sql="SELECT * FROM parishes_table WHERE forane={$tab}"; $result=mysql_query($sql,$db); $count = mysql_num_rows($result); 
+$sql="SELECT * FROM parishes_table WHERE forane={$tab}"; $result=mysqli_query($db,$sql); $count = mysqli_num_rows($result); 
 $sno=2;
-if($count>0)while($row=mysql_fetch_array($result))
+if($count>0)while($row=mysqli_fetch_array($result))
 {$id=$row['id'];
 $name=$row['name'];$place=$row['place'];
 echo "<tr><td width='100'><p>{$sno}</p></td><td id='link_parish' width='174'><p><a onClick=\"MyWindow=window.open('parish.php?pid={$id}','MyWindow','toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=no,resizable=no,width=1000,height=450'); return true;\" >{$name}</a></p></td><td width='300'><p>{$place}</p></td></tr>";

@@ -1,19 +1,18 @@
 <?php
 require_once("connection.php");
-require_once("functions.php");
 if(isset($_GET['page'])){$page=$_GET['page'];}
 if(isset($_GET['sub_page'])){$sub_page=$_GET['sub_page'];}
 if(isset($_GET['page_name'])){$page_name=$_GET['page_name'];}
 if(isset($_GET['admin_right'])){$admin_right=$_GET['admin_right'];}
 
 $query="SELECT * FROM council_members WHERE page='{$page}' && sub_page={$sub_page} ORDER by position";
-$result=mysql_query($query,$db);
+$result=mysqli_query($db,$query);
 confirm_query($result);
 if(!isset($result)){
-	echo"Sorry ! ".mysql_error()."<br/> Go to home page and retry...";
+	echo"Sorry ! ".mysqli_error()."<br/> Go to home page and retry...";
 }
 echo"<h3><center>{$page_name} Council Members</center></h3>";
-	while($display = mysql_fetch_array($result)){
+	while($display = mysqli_fetch_array($result)){
 	echo"<div id='one_council_member'>
 		<form action =\"admin_{$page}.php?page={$page}&sub_page={$sub_page}&position={$display['position']}&admin_right={$admin_right}\" method='post' enctype='multipart/form-data'>
 			<h3 id='one_council_member_post'>{$display['post']}</h3>

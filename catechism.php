@@ -1,6 +1,5 @@
 <?php $page = 'catechism';
 require_once("include/connection.php");
-require_once("include/functions.php");
 ?>
 <style>
 #content_wrapper{background-image:url(images/backg1.jpg); }
@@ -30,8 +29,8 @@ if(isset($_GET['tab'])){$tab=$_GET['tab'];}else{$tab=0;}
 #content p{margin-bottom: 10px;}
 </style>";
 	$query="SELECT * FROM teachers ORDER by class DESC";
-	$result=mysql_query($query,$db);
-	while($row=mysql_fetch_array($result)){
+	$result=mysqli_query($db,$query);
+	while($row=mysqli_fetch_array($result)){
 	$class = $row['class'];
 	if($class==0){$class="Non-Teaching Staff";}
 	elseif($class==1){$class="L.K.G";}elseif($class==2){$class="U.K.G";}

@@ -1,5 +1,4 @@
 <?php require_once("../include/connection.php")?>
-<?php require_once("../include/functions.php")?>
 <?php include("admin_header.php")?>
 <style type="text/css"> #table_content{	text-align:center;}</style>
 <div id="content"><h2>Priests Page</h2>

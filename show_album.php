@@ -1,6 +1,5 @@
 <?php
 	require_once("include/connection.php");
-	require_once("include/functions.php");
 	if(isset($_GET['page'])){$page=$_GET['page'];}
 	if(isset($_GET['sub_page'])){$sub_page=$_GET['sub_page'];}
 	if(isset($_GET['page_name'])){$page_name=$_GET['page_name'];}
@@ -30,8 +29,8 @@ background:transparent url(../images/circle.png) no-repeat 50% 0px;display:block
 	<div class="book_wrapper">
 <a id="next_page_button" style="border:2px solid black"></a><a id="prev_page_button" style="border:2px solid black"></a>
 <?php
-$sql="SELECT * FROM albums WHERE page_name='{$page_name}'"; $res=mysql_query($sql,$db);
-while($row=mysql_fetch_array($res)){
+$sql="SELECT * FROM albums WHERE page_name='{$page_name}'"; $res=mysqli_query($db,$sql);
+while($row=mysqli_fetch_array($res)){
 	$pagee=$row['page'];
 	$image=$row['name'];
 	

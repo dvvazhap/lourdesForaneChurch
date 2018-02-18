@@ -56,10 +56,9 @@ $info = $_GET['info'];
 if($info==1){
 	if(!isset($_SESSION['user']))session_start();
 	require_once("connection.php");
-	require_once("functions.php");
 	$name = $_SESSION['user'];
-	$res = mysql_query("SELECT * FROM security WHERE username='{$name}'");
-	while($row = mysql_fetch_array($res)){
+	$res = mysqli_query($db,"SELECT * FROM security WHERE username='{$name}'");
+	while($row = mysqli_fetch_array($res)){
 		echo "<h3>Username :{$row['username']}</h3><br/>";
 		echo "Phone :<input type='text' id='mobile_no' onchange='val_phone(this.value)' "; if(($row['phone']=='')||($row['phone']==NULL)) echo"value=''"; else echo"value='{$row['phone']}'"; echo "maxlength='10'><br/><br/>";
 		echo "<table><tr><td>Security Question </td><td>:</td><td><select id='question' ><option "; if(($row['question']=="")||($row['question']==NULL)) echo"value=''"; else echo"value='{$row['question']}'"; echo " >{$row['question']}</option>
@@ -103,9 +102,8 @@ elseif($info==2){
 	$ans = $_POST['answer'];
 	if(!isset($_SESSION['user']))session_start();
 	require_once("connection.php");
-	require_once("functions.php");
 	$name = $_SESSION['user'];
-	$res=mysql_query("UPDATE security SET phone='{$mobile}',question='{$ques}',answer='{$ans}' WHERE username='{$name}'");
+	$res=mysqli_query($db,"UPDATE security SET phone='{$mobile}',question='{$ques}',answer='{$ans}' WHERE username='{$name}'");
 }
 }
 

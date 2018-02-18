@@ -1,6 +1,6 @@
 <?php
 require_once("connection.php");
-require_once("functions.php"); ?>
+?>
 <style>
 #event_wrapper{ height:80px; margin-bottom:20px; width:600px;}
 .date_wrapper{ width:100px; border:2px solid black; text-align:center; font-family:Forte,Cooper,serif; font-size:25px; color:black;}
@@ -11,16 +11,16 @@ require_once("functions.php"); ?>
 </style>
 <?php
 if(isset($_POST['show'])){
-	$q = mysql_query("SELECT * FROM events");
-	while($row=mysql_fetch_array($q)){
+	$q = mysqli_query($db,"SELECT * FROM events");
+	while($row=mysqli_fetch_array($q)){
 	$event_date = $row['date'];
 	$todays_date = date("Y-m-d");
 	$today = strtotime($todays_date);
 	$exp_date = strtotime($event_date);
-	if ($exp_date < $today) {$a = mysql_query("DELETE FROM events WHERE id = {$row['id']}");}
+	if ($exp_date < $today) {$a = mysqli_query($db,"DELETE FROM events WHERE id = {$row['id']}");}
 	}
-	$res=mysql_query("SELECT * FROM events ORDER BY date");
-	while($row=mysql_fetch_array($res)){
+	$res=mysqli_query($db,"SELECT * FROM events ORDER BY date");
+	while($row=mysqli_fetch_array($res)){
 	$dt = explode('-',$row['date']);
 	$month = $dt[1];
 	if($month=='1'){$month='January';}elseif($month=='2'){$month='February';}elseif($month=='3'){$month='March';}elseif($month=='4'){$month='April';}
@@ -36,14 +36,14 @@ if(isset($_POST['show'])){
 	}
 }
 elseif(isset($_POST['date'])){
-$date = mysql_prep($_POST['date']);
-$event = mysql_prep($_POST['event']);
+$date = mysqli_prep($db,$_POST['date']);
+$event = mysqli_prep($db,$_POST['event']);
 $id = rand(1,99999);
-$sql = mysql_query("INSERT INTO events(id,date,event) VALUES({$id},'{$date}','{$event}')");
+$sql = mysqli_query($db,"INSERT INTO events(id,date,event) VALUES({$id},'{$date}','{$event}')");
 }
 elseif(isset($_POST['id'])){
 $id = $_POST['id'];
-$q = mysql_query("DELETE FROM events WHERE id={$id}");
+$q = mysqli_query($db,"DELETE FROM events WHERE id={$id}");
 }
 elseif(isset($_GET['create_event'])){
 echo "<center>Create an event</center><br/>

@@ -29,15 +29,15 @@ echo "<script>show_admin_teachers();</script>";
 if(isset($_GET['id'])){
 	$id=$_GET['id'];
 	if(isset($_POST['update'])){
-		$name=mysql_prep($_POST['name']);
-		$address=mysql_prep($_POST['address']);
-		if(isset($_POST['phone'])){	$phone=mysql_prep($_POST['phone']);}
+		$name=mysqli_prep($db,$_POST['name']);
+		$address=mysqli_prep($db,$_POST['address']);
+		if(isset($_POST['phone'])){	$phone=mysqli_prep($db,$_POST['phone']);}
 		else{$phone=NULL;}
-		$landline=mysql_prep($_POST['landline']);
+		$landline=mysqli_prep($db,$_POST['landline']);
 		$query="UPDATE teachers 
 			SET `name`='{$name}',`address`='{$address}',`phone`='{$phone}',`landline`='{$landline}' 
 			WHERE id={$id} ";
-		$result=mysql_query($query,$db);
+		$result=mysqli_query($db,$query);
 		if($result){
 			echo "<script>window.location='admin_catechism.php?page=catechism&council=1'</script>"; exit;
 		}
@@ -54,8 +54,8 @@ if(isset($_GET['id'])){
 			else{
 				if($_FILES['file']['name']!=NULL){
 					$query="SELECT * FROM teachers WHERE id={$id}";
-					$result=mysql_query($query,$db);
-					while($row=mysql_fetch_array($result)){
+					$result=mysqli_query($db,$query);
+					while($row=mysqli_fetch_array($result)){
 						if(($row['image']!='0')&&($row['image']!=NULL))
 					unlink("../images/catechism/{$row['image']}");
 					}
@@ -64,7 +64,7 @@ if(isset($_GET['id'])){
 				move_uploaded_file($_FILES["file"]["tmp_name"],$path.$_FILES["file"]["name"]);
 				$name=$_FILES["file"]["name"];
 				$query="UPDATE teachers SET `image`='{$name}' WHERE id={$id} ";
-				$result=mysql_query($query,$db);
+				$result=mysqli_query($db,$query);
 				if($result){
 					echo "<script>window.location='admin_catechism.php?page=catechism&council=1'</script>";exit;
 				}
@@ -77,12 +77,12 @@ if(isset($_GET['id'])){
 	}
 	if(isset($_POST['delete'])){
 		$query="SELECT * FROM teachers WHERE id={$id}";
-		$result=mysql_query($query,$db);
-		while($row=mysql_fetch_array($result)){
+		$result=mysqli_query($db,$query);
+		while($row=mysqli_fetch_array($result)){
 			unlink("../images/catechism/{$row['image']}");
 		}
 		$query="UPDATE teachers SET `image`=0 WHERE id={$id} ";
-		$result=mysql_query($query,$db);
+		$result=mysqli_query($db,$query);
 		if($result){
 			echo "<script>window.location='admin_catechism.php?page=catechism&council=1'</script>";
 			exit;

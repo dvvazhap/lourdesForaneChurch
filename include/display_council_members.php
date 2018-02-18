@@ -15,13 +15,13 @@
 echo"<h2 id=\"title\">Council members</h2><div class=\"hr_divider\"></div>";
 $count=0;
 $sql = "SELECT * FROM council_members WHERE page='{$page}'&&sub_page={$sub_page}";
-$result=mysql_query($sql,$db);
-if(!isset($result)){echo "Error :".mysql_error();}
-while($dis=mysql_fetch_array($result)){$count++;}
+$result=mysqli_query($db,$sql);
+if(!isset($result)){echo "Error :".mysqli_error();}
+while($dis=mysqli_fetch_array($result)){$count++;}
 for($i=1;$i<=$count;$i++){
 	$query="SELECT * FROM council_members WHERE page='{$page}' && sub_page={$sub_page} && position={$i} ORDER by position";
-	$result=mysql_query($query,$db);
-	while($row=mysql_fetch_array($result)){
+	$result=mysqli_query($db,$query);
+	while($row=mysqli_fetch_array($result)){
 		echo"<div id=\"council_info\">";
 		echo"<div id=\"photo\">";
 		$path="images/council_members/".$page."/".trim($sub_page)."/".trim($row['image']);

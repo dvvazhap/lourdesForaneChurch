@@ -10,22 +10,21 @@ echo"Password should contain characters such as ' \" $ / \ & % ?
 <tr><th align='left'>Confirm password</th><td>:</td><td><input type='password' id='pass2' size='40' maxlength='30'></td></tr>
 <tr><th></th><td></td><td><button id='submit_change_password' OnClick='change_password()'>Change Password</button></td></tr>
 </table></div>";
-$actual_pass = mysql_prep($_SESSION['pass']);
+$actual_pass = mysqli_prep($db,$_SESSION['pass']);
 echo"<input type='hidden' id='actual_pass' value=$actual_pass >";
 }
 elseif(isset($_GET['change'])){
 session_start();
 require_once("connection.php");
-require_once("functions.php");
 if(isset($_POST['pass1'])){
-$pass1 = mysql_prep($_POST['pass1']);
+$pass1 = mysqli_prep($db,$_POST['pass1']);
 $session_user = $_SESSION['user'];
 $sql = "UPDATE security SET password='{$pass1}' WHERE username='{$session_user}'";
-$result=mysql_query($sql,$db);
+$result=mysqli_query($db,$sql);
 if($result){
 $query="SELECT * FROM security WHERE username='{$session_user}' ";
-$res=mysql_query($query,$db);
-while($row=mysql_fetch_array($res)){$sub_page=$row['admin_sub_page'];$admin_right=$row['admin_right'];}
+$res=mysqli_query($db,$query);
+while($row=mysqli_fetch_array($res)){$sub_page=$row['admin_sub_page'];$admin_right=$row['admin_right'];}
 $_SESSION['pass'] = $pass1;
 echo "<div id='pass_notify' style='width:500px; font-size:30px; margin-left:300px;'>Password changed successfully...!</div>";
 }}
