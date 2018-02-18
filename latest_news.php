@@ -6,8 +6,8 @@ require_once("include/functions.php");
 <body>
 <script type="text/javascript" src="js/jquery-1.3.2.js"></script>
 <style>
-#latest_news_wrapper{position:relative; width:90%;height:250px; z-index:3; margin-top:10px; margin-left:10px; overflow:hidden;}
-#latest_news_heading{color:black; background:#bf7f11; font-style:italic; font-size:30px;line-height:1.5em; height:30px; margin-left:0px; margin-top:-6%; padding:3% 1% 7% 7%; width:120%; overflow:hidden; }
+#latest_news_wrapper{width:90%;min-height:250px; z-index:3; overflow:hidden;}
+#latest_news_heading{color:black; font-style:italic; font-size:30px;line-height:1.5em; height:30px; margin-left:0px; margin-top:-6%; padding:3% 1% 7% 7%; width:120%; overflow:hidden; }
 #latest_news_content{width:90%;position:absolute; margin-top:10px;z-index:2;cursor:pointer;}
 #latest_news_content a{font-size:20px; font-family: 'Times New Roman', Cooper Black, serif; color:black;}
 #latest_news_content {font-size:20px; font-family: 'Times New Roman', Cooper Black, serif; color:black;}

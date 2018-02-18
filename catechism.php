@@ -3,7 +3,7 @@ require_once("include/connection.php");
 require_once("include/functions.php");
 ?>
 <style>
-#content_wrapper{background-image:url(images/backg1.jpg); -webkit-border-radius:30px;-moz-border-radius:30px;border-radius:30px;}
+#content_wrapper{background-image:url(images/backg1.jpg); }
 #title{color:#632c01;text-align:center;font-family:Forte,Georgia,Fantasy;font-size:50px;}
 #class_wrapper{position:relative; height:500px; width:800px; margin-bottom:100px;}
 #class{font-size:50px; margin-bottom:30px; margin-left:50px; font-family:'Times New Roman',Arial,serif; color:black;}
@@ -19,13 +19,13 @@ if(isset($_GET['tab'])){$tab=$_GET['tab'];}else{$tab=0;}
 		elseif($tab==1){
 		echo "<style>
 #council_info{height:250px;}
-#photo img{float:right; border:3px solid black; width:120px; height:160px; margin-left:50px; margin-top:10px; margin-right:150px; -webkit-border-radius:10px;-moz-border-radius:10px; border-radius:10px;}
+#photo img{float:right; border:3px solid black; width:120px; height:160px; margin-left:50px; margin-top:10px; margin-right:150px; -webkit-border-radius:5px;-moz-border-radius:5px; border-radius:5px;}
 #info{margin-left:180px;font-family:'Times New Roman','Arial Narrow',serif;font-size:20px;}
 #name{margin-left:180px;color:#001132;font-size:28px;font-family:'Times New Roman','Arial Narrow',serif; text-align:center; width:250px;}
 #post{margin-left:70px;font-style:italic;color:#000000;font-size:25px;font-family:Cooper,Arial,serif;}
 #address{margin-left:180px; font-style:italic; color:#632c01;width:250px;font-size:22px;line-height:1.5em; text-align:center;font-family:'Times New Roman',Cooper,serif;}
 #phone{	margin-left:180px;font-style:italic;color:#002453;text-align:center;width:250px;font-family:Times,serif;font-size:16px;}
-#content_wrapper {clear: both;position:relative;margin-left:5%;width:90%;padding: 4% 0%; background-image:url(images/backg1.jpg); background-size:100%;-webkit-border-radius:30px;-moz-border-radius:30px;border-radius:30px;}
+#content_wrapper {clear: both;position:relative;margin-left:5%;width:90%;padding: 4% 0%; background-image:url(images/backg1.jpg); background-size:100%;}
 #content{padding: 0px 50px;width: 89%;}
 #content p{margin-bottom: 10px;}
 </style>";

@@ -6,7 +6,7 @@ td{color:black;}
 #tab_content th{margin: 0;padding: 0px;border-width: 0px 1px 1px 0px;text-align:center;}
 #tab_content td{color:black; valign:top; height:20px;margin: 0;padding: 0px;border-width: 0px 1px 1px 0px;text-align:center; }
 #tab_content td p{height:30px;text-align:center;margin:0px;padding:0px; color:black;}
-.tab-content{width:800px;  margin-top:-27px; background-color:#c2a677; padding:50px 20px 50px 20px; -webkit-border-radius: 30px;-moz-border-radius: 30px;border-radius:30px;}
+.tab-content{width:800px;  margin-top:-27px; background-color:#c2a677; padding:50px 20px 50px 20px;}
 #tabs{text-decoration:none; list-style:none; padding:0px; height:40px; margin-left:30px;}
 #tabs li{display:inline; cursor:pointer; font-style:italic; padding:10px 17px; height:30px; background-color:#642d07; margin-top:40px; font-style:Forte,Cooper,serif; font-size:20px;
 -webkit-border-top-left-radius:20px;-webkit-border-top-right-radius:20px;-webkit-border-bottom-left-radius:0px;-webkit-border-bottom-right-radius:0px;
@@ -115,7 +115,7 @@ Ph: 0491-2534929 <br>E-mail: jaichristo@gmail.com</p>
       
       <p><span class='s_h'>Provincial Superior:</span> Sr. Chriset</p>
       <p>Seraphic Provincial House, 18/415<br>
-West Fort Road, Palakkad – 678 001<br>
+West Fort Road, Palakkad ï¿½ 678 001<br>
 Ph: 0491 2534939, 2504939, 2500436<br>
 </p>
       <table border='1' cellspacing='0' cellpadding='0' width='800'>
@@ -265,7 +265,7 @@ Ph: 0491 2534939, 2504939, 2500436<br>
       <div id='place'>Marian Province, Palakkad</div><br/>
      <p> <span class='s_h'>Provincial Superior:</span> Sr. Pushpa</p>
       <p>Marian Provincial House, Maryland<br>
-Muttikulangara, Palakkad – 678 594<br>
+Muttikulangara, Palakkad ï¿½ 678 594<br>
 Ph: 0491 2555234
 </p>
       <table border='1' cellspacing='0' cellpadding='0' width='800'>
@@ -324,7 +324,7 @@ Ph: 0491 2555234
       <div id='place'>Vimal Rani Adoration Province, Palakkad</div><br/>
       <p><span class='s_h'>Provincial Superior:</span> Sr. Vincentia</p>
       
-      <p>Vimal Rani Provincial House, Mundur,<br> Palakkad – 678 592<br>
+      <p>Vimal Rani Provincial House, Mundur,<br> Palakkad ï¿½ 678 592<br>
 Ph: 0491 2833318
 </p>
       <table border='1' cellspacing='0' cellpadding='0' width='800'>
@@ -471,7 +471,7 @@ Ph: 2426516, 2427344
       <b>CONGREGATION OF SAMARITAN SISTERS</b><br/>
       <div id='place'>Snehodaya Province, Mannuthy</div>
       <p><span class='s_h'>Provincial Superior:</span> Sr. Mary Melani</p> 
-      <p>Snehodaya Provincial House, <br>Mannuthy – 680 651<br>
+      <p>Snehodaya Provincial House, <br>Mannuthy ï¿½ 680 651<br>
 Ph: 0487 2372484</p>
       <table border='1' cellspacing='0' cellpadding='0' width='800'>
         <tr>
@@ -484,7 +484,7 @@ Ph: 0487 2372484</p>
         <tr>
           <td width='61' valign='top'><p class='newp'>1</p></td>
           <td width='174' valign='top'><p class='newp'>Podanur</p></td>
-          <td width='234' valign='top'><p class='newp'>St. Joseph’s    Home</p></td>
+          <td width='234' valign='top'><p class='newp'>St. Josephï¿½s    Home</p></td>
           <td width='102' valign='top'><p class='newp'>1968</p></td>
           <td width='126' valign='top'><p class='newp'>0422 2413298</p></td>
         </tr>
@@ -514,8 +514,8 @@ Ph: 0487 2372484</p>
       <b>CONGREGATION OF SISTERS OF ST. MARTHA</b><br>
       <div id='place'>Nirmala Matha Region, Palakkad</div>
       <p><span class='s_h'>Regional Superior:</span> Sr. Beatha</p>
-      <p>St. Martyha’s Regional House, Puzhakkal <br>
-Kannadi, Palakkad – 678 701<br>
+      <p>St. Martyhaï¿½s Regional House, Puzhakkal <br>
+Kannadi, Palakkad ï¿½ 678 701<br>
 Ph: 9544519739
 </p> 
       <table border='1' cellspacing='0' cellpadding='0' width='800'>
@@ -554,7 +554,7 @@ Ph: 9544519739
 
 <p><span class='s_h'>Provincial Superior:</span> Sr. Gladys CSN</p> 
 <p>Sisters of Nazareth, St. Joseph Provincial House<br>
-Angamaly South – 683 573<br>
+Angamaly South ï¿½ 683 573<br>
 Ph: 0484 2452438
 </p>     
       <table border='1' cellspacing='0' cellpadding='0' width='800'>

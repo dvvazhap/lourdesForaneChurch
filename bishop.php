@@ -1,6 +1,6 @@
 <?php $page='bishop'; ?>
 <style>
-#content_wrapper{background-image:url(images/backg1.jpg); -webkit-border-radius:30px;-moz-border-radius:30px;border-radius:30px;}
+#content_wrapper{background-image:url(images/backg1.jpg); }
 span{margin-left:40px; font-family: 'Times New Roman', Cooper,serif;}
 </style>
 <img style="position:relative;float:left;" src='images/bishop1.png' />		

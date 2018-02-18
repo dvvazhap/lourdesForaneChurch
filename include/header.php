@@ -24,6 +24,9 @@ echo "<script>window.location='admin/admin_{$admin_page}.php?page={$admin_page}&
 <link rel="shortcut icon" href="images/cross.png" />
 <meta name="keywords" content="Lourdes Forane Church, Lourdes Church, Lourde Church, Church in Coimbatore, Roman Catholic Church, Gandhipuram Church, Lourdes Forane Church Gandhipuram\" />
 <meta name="description" content="Lourdes Forane Church | Roman Catholic Church in Gandhipuram" />
+
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<script src="js/bootstrap.min.js"></script>
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 <?php
 if(isset($_GET['sub_page'])){$sub_page=$_GET['sub_page'];}else{$sub_page=NULL;}
@@ -36,7 +39,6 @@ if(navigator.appName == "Microsoft Internet Explorer"){alert("This page cannot b
 </head>
 <body id='body' onload="init()" onresize="init()">
 <embed src="music.mp3" autostart="true" loop="true" width="2" height="0"></embed>
-<img src="images/backgroun.jpg" style='position:absolute;width:100%;height:300px;' />
 <div id="fb-root"></div>
 <script>(function(d, s, id){
 var js, fjs = d.getElementsByTagName(s)[0];
@@ -46,17 +48,7 @@ js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
 fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 <div id='wrapper_outer'>
-<div id="map_doc"><div id="map_view">
-<iframe width="550" height="250" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" 
-src="https://maps.google.com/maps/ms?msa=0&amp;msid=208968991286282719637.0004c284b66b7a1dd2a45&amp;ie=UTF8&amp;t=m&amp;ll=11.00978,76.985321&amp;spn=0.041957,0.059738&amp;z=13&amp;output=embed"></iframe><br />
-<small>View <a href="https://maps.google.com/maps/ms?msa=0&amp;msid=208968991286282719637.0004c284b66b7a1dd2a45&amp;ie=UTF8&amp;t=m&amp;ll=11.00978,76.985321&amp;spn=0.041957,0.059738&amp;z=13&amp;source=embed" 
-style="color:#0000FF;text-align:left">Coimbatore, Tamil Nadu</a> in a larger map</small></div>
-<div id="location_name">Lourdes Forane Church</div><div id="location_address">Sathy Road, Near GP Hospital<br/>Gandhipuram, Coimbatore<br/>
-Tamil Nadu, India<br/>Pincode: 641012</div>
-<div id="satellite_view"><iframe width="550" height="250" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" 
-src="https://maps.google.com/maps/ms?msa=0&amp;msid=208968991286282719637.0004c284b66b7a1dd2a45&amp;ie=UTF8&amp;t=h&amp;ll=11.009275,76.983948&amp;spn=0.041957,0.059738&amp;z=13&amp;output=embed"></iframe>
-<br /><small>View <a href="https://maps.google.com/maps/ms?msa=0&amp;msid=208968991286282719637.0004c284b66b7a1dd2a45&amp;ie=UTF8&amp;t=h&amp;ll=11.009275,76.983948&amp;spn=0.041957,0.059738&amp;z=13&amp;source=embed" 
-style="color:#0000FF;text-align:left">Coimbatore, Tamil Nadu</a> in a larger map</small></div><div id="see_map" onclick="mapinout()">Location</div></div>
+
 <div id='wrapper_right'>
 <img id='mary_image' src="images/mary4.png" />
 	<div id='viewers'>

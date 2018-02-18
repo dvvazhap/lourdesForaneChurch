@@ -14,7 +14,7 @@ $sql = "SELECT * FROM associations_table WHERE id={$sub_page}";
 if($sub_page==0){
 echo"<style>#content_wrapper {
 clear:both;height:100%; position:relative;margin-left:5%;width:1000px; padding: 40px 0px;
-background-image:url(images/backg1.jpg); -webkit-border-radius:30px;-moz-border-radius:30px;border-radius:30px;}
+background-image:url(images/backg1.jpg);}
 #content{padding: 0px 50px;width: 89%;}#content p{margin-bottom: 10px;}</style>";
 if($sub_page==NULL){$sub_pag=0;}
 $sql="SELECT * FROM associations_table ORDER BY name "; 
@@ -36,8 +36,7 @@ echo "</div></a>";
 }}
 if($s_sub_page==1){
 echo"<style>#content_wrapper {clear: both;position:relative;margin-left:5%;
-width:90%;padding: 4% 0%; background-image:url(images/backg1.jpg);
--webkit-border-radius:30px;-moz-border-radius:30px;border-radius:30px;}
+width:90%;padding: 4% 0%; background-image:url(images/backg1.jpg);}
 #content{padding: 0px 50px;width: 89%; text-align:justify;}
 #content p{margin-bottom: 10px;}</style>";
 echo "<h2 id=\"title\"> {$pagename}..!</h2>";

@@ -8,15 +8,14 @@ require_once("include/functions.php");
 #c1{line-height:1em;font-size:30px;margin-top:10px;margin-left:0%;width:45%;height:350px; padding:20px 0% 0px 0%;position:absolute;}
 #contact_detail_wrapper{width:80%;height:250px;margin-left:10%;margin-top:-300px;transform:rotate(355deg);-ms-transform:rotate(355deg);-moz-transform:rotate(355deg);-webkit-transform:rotate(355deg);-o-transform:rotate(355deg);}
 #c2{line-height:1em; font-size:30px; position:absolute; margin-top:10px; margin-left:45%; width:45%; height:350px;padding:20px 0% 0px 0%;}
-#c23{padding:0px; position:absolute; margin-top:60px; margin-left:50px; width:800px; height:250px;
--webkit-border-radius:30px;-moz-border-radius:30px;border-radius:30px;}
+#c23{padding:0px; position:absolute; margin-top:60px; margin-left:50px; width:800px; height:250px;}
 #c23 img{margin-top:-30px; float:left; width:350px; height:350px;}
 #c23 div{width:400px;margin-top:50px;margin-left:330px; font-weight:bold;font-family:'Times New Roman',serif;
 float:right;text-align:center; line-height:1.5em;font-size:25px; font-style:italic; position:absolute;}
 #content{height:1100px;} #name{color:#ff5430; width:100%;} #c1_1,#c1_2,#c2_1,#c2_2{height:280px;width:100%;}
 #contact_details{position:relative;font-size:20px;margin-top:10px;margin-bottom:10px;line-height:1.2em;color:#004748;}
 #address{color:#000032;font-style:italic;height:80px;font-size:20px;padding-top:20px;margin-top:10px;font-family:Cooper,Georgia,Monospace;}
-#content_wrapper {background-image:url(images/backg1.jpg); -webkit-border-radius:30px;-moz-border-radius:30px;border-radius:30px;}
+#content_wrapper {background-image:url(images/backg1.jpg);}
 #name{color:#632c01;}
 </style>
 
