@@ -14,7 +14,7 @@ border-top-left-radius:20px;border-top-right-radius:20px;border-bottom-left-radi
 #tabs li a{color:#fff;}
 .s_h{color:#642d07; font-size:20px; margin-top:30px;}
 b{color:black; font-size:18px; font-style:italic;}
-</style>
+</style>xcx
 
 <?php
 if(isset($_GET['tab'])){
