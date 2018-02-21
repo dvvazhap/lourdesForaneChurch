@@ -1,10 +1,7 @@
 <?php $page='bishop'; ?>
-<style>
-#content_wrapper{background-image:url(images/backg1.jpg); }
-span{margin-left:40px; font-family: 'Times New Roman', Cooper,serif;}
-</style>
 <img style="position:relative;float:left;" src='images/bishop1.png' />		
 <b style="font-size:30px;float:right; margin-right:50px">Our Bishop - <i> Mar Paul Alapatt</i></b><br/><br/>
+<div style="line-height: 2em;">
 <span>He was born as the sixth child and the second son of Mr. Varunny & Mrs. Eliakutty Alappatt Mecherippady at Edathiruthy in the present eparchy of Irinjalakuda on 21st April 1962. He belongs to the parish Porathur in the Archeparchy of Trichur.
  After his primary education at GLPS Alappad, SNMUPS Chazhoor and GHS Peringottukara he joined St. Marys Minor Seminary, Thope, Thrissur on 19th June 1977 for priestly formation. 
  After his Minor seminary formation he was sent to St. Thomas Apostolic Seminary, Kottayam for his Philosophical and Theological formation. 
@@ -38,5 +35,5 @@ He was ordained bishop on the white Sunday, 11th April 2010 at Alvernia school g
 <br/><br/><span>
 His vision of life is <b><i>"Be faithful to the vocation and a man of convictions "</i></b>. 
 The motto of his Episcopal ministry is <b><i>"My grace is sufficient for you "(II Cor. 12:9)</i></b>.
-</span>
+</span></div>
 <div class="cleaner"></div>

@@ -1,7 +1,7 @@
 <style>
 #page_content{background-color:white; padding:20px;line-height:2em;}
-#sub_title{color:black;font-style:italic;font-family:'Times New Roman',Cooper,serif; font-size:30px;}
-#sub_content{color:blue; margin-left:50px;font-style:italic;font-family:'Times New Roman',Cooper,serif; font-size:20px;}
+#sub_title{color:black;font-style:italic;font-size:30px;}
+#sub_content{color:blue; margin-left:50px;font-style:italic;font-size:20px;}
 </style>
 <?php
 $count=0;

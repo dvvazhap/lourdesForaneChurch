@@ -4,17 +4,13 @@ require_once("include/connection.php");
 if(isset($_GET['sub_page'])){$sub_page=$_GET['sub_page'];}else{$sub_page=0;}
 if(isset($_GET['s_sub_page'])){$s_sub_page=$_GET['s_sub_page'];}else{$s_sub_page=0;}
 ?>
-<style type="text/css">#title{color:#632c01;text-align:center;font-family:Forte,Georgia,Fantasy;font-size:50px;}
+<style type="text/css">#title{color:#632c01;text-align:center;font-size:50px;}
 </style>
 <?php $page='associations';
 $sql = "SELECT * FROM associations_table WHERE id={$sub_page}"; 
 	$result=mysqli_query($db,$sql);
 	while($row=mysqli_fetch_array($result)){$pagename = $row['name'];}
 if($sub_page==0){
-echo"<style>#content_wrapper {
-clear:both;height:100%; position:relative;margin-left:5%;width:1000px; padding: 40px 0px;
-background-image:url(images/backg1.jpg);}
-#content{padding: 0px 50px;width: 89%;}#content p{margin-bottom: 10px;}</style>";
 if($sub_page==NULL){$sub_pag=0;}
 $sql="SELECT * FROM associations_table ORDER BY name "; 
 $res=mysqli_query($db,$sql);
@@ -34,10 +30,6 @@ else if($lr=="one_image_centerr"){$lr="one_image_right";}else{$lr="one_image_lef
 echo "</div></a>";
 }}
 if($s_sub_page==1){
-echo"<style>#content_wrapper {clear: both;position:relative;margin-left:5%;
-width:90%;padding: 4% 0%; background-image:url(images/backg1.jpg);}
-#content{padding: 0px 50px;width: 89%; text-align:justify;}
-#content p{margin-bottom: 10px;}</style>";
 echo "<h2 id=\"title\"> {$pagename}..!</h2>";
 echo"<div class=\"hr_divider\"></div>";
 $sql="SELECT * FROM albums WHERE page='associations' && sub_page={$sub_page} && name='page.jpg'";

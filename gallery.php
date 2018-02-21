@@ -1,11 +1,6 @@
 <?php $page ='gallery';
 require_once("include/connection.php");
-?>
-<style type="text/css">
-#content_wrapper{background-image:url(images/backg1.jpg); -webkit-border-radius:30px;-moz-border-radius:30px;border-radius:30px;}
-</style>
 
-<?php
 $sql="SELECT DISTINCT page_name FROM albums WHERE page='gallery'";
 $res=mysqli_query($db,$sql);
 $a=mysqli_num_rows($res);

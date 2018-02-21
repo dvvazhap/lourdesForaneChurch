@@ -8,9 +8,9 @@ if(isset($_GET['user'])){
 
 elseif(!isset($_GET['username'])){
 echo "<div id='password_help'>
-<center><h3>Recover Password</h3></center>
-<table><tr><th>Username :</th><td><input type='text' id='get_username'></td><th>Mobile Number :</th>
-<td><input type='text' id='get_mobile' maxlength='10'></td><td><button onclick='show_question()'>Next Step</button></td></tr></table></div>";
+<center><h3 >Recover Password</h3></center>
+<table><tr><td><input placeholder='Username' type='text' id='get_username'></td>
+<td><input type='text' placeholder='Mobile Number' id='get_mobile' maxlength='10'></td><td><button onclick='show_question()'>Next</button></td></tr></table></div>";
 }
 elseif(isset($_GET['username'])){
 $username = $_GET['username'];
@@ -27,24 +27,25 @@ if($answer==''){$answer="DijilVarghese";}
 if($mobile==$phone){
 echo "<input type='hidden' id='db_answer' value='{$answer}'><input type='hidden' id='db_user' value='{$username}'>
 <div id='password_help'>
-<table><tr><th>Question :</th><td>{$question}</td></tr><tr><th>Answer :</th>
-<td><input type='text' id='get_answer' ><button onclick='validate_pass()'>OK</button></td></tr></table></div>";
+<table><tr><td>{$question}</td><td><input placeholder='Answer' type='text' id='get_answer' ><button onclick='validate_pass()'>OK</button></td></tr></table></div>";
 }
 else{
 echo "<div id='password_help'>
 <center><h3 style='color:red'>Username & Mobile Number do not match</h3></center>
-<table><tr><th>Username :</th><td><input type='text' id='get_username'></td><th>Mobile Number :</th>
-<td><input type='text' id='get_mobile' maxlength='10'></td><td><button onclick='show_question()'>Next Step</button></td></tr></table></div>";
+<table><tr><td><input type='text' placeholder='Username' id='get_username'></td>
+<td><input type='text' placeholder='Mobile Number' id='get_mobile' maxlength='10'></td><td><button onclick='show_question()'>Next</button></td></tr></table></div>";
 }
 
 }
 else{echo "<div id='password_help'>
 <center><h3 style='color:red'>Invalid User..!</h3></center>
-<table><tr><th>Username :</th><td><input type='text' id='get_username'></td><th>Mobile Number :</th>
-<td><input type='text' id='get_mobile' maxlength='10'></td><td><button onclick='show_question()'>Next Step</button></td></tr></table></div>";
+<table><tr><td><input type='text' placeholder='Username' id='get_username'></td>
+<td><input type='text' placeholder='Mobile Number' id='get_mobile' maxlength='10'></td><td><button onclick='show_question()'>Next</button></td></tr></table></div>";
 }
 }
 ?>
 <style>
-#password_help{height:70px; width:700px;padding:10px; color:white; border:5px solid grey; z-index:100; background-color:black; -webkit-border-radius: 30px;-moz-border-radius: 30px;border-radius:30px;}
+#password_help{height:100px; width:600px;padding:10px; border:5px solid grey; z-index:100; -webkit-border-radius: 10px;-moz-border-radius: 10px;border-radius:10px; background-color:black;}
+
+#password_help table{color:#fff;}
 </style>

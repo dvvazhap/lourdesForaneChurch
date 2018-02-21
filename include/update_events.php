@@ -3,10 +3,10 @@ require_once("connection.php");
 ?>
 <style>
 #event_wrapper{ height:80px; margin-bottom:20px; width:600px;}
-.date_wrapper{ width:100px; border:2px solid black; text-align:center; font-family:Forte,Cooper,serif; font-size:25px; color:black;}
+.date_wrapper{ width:100px; border:2px solid black; text-align:center; font-size:25px; color:black;}
 .month{height:35px; background-color:red;}
 .day{ height:35px; background-color:green;}
-.event{position:absolute; border:2px solid black; background-color:white; margin-left:101px; margin-top:-74px; height:70px; width:430px; font-family:"Times New Roman",Cooper,serif; font-size:18px; color:black;}
+.event{position:absolute; border:2px solid black; background-color:white; margin-left:101px; margin-top:-74px; height:70px; width:430px;font-size:18px; color:black;}
 #del_button{width:50px; margin-left:550px; margin-top:-50px;}
 </style>
 <?php

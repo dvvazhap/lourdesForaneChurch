@@ -10,10 +10,6 @@ function init(){
 var myWidth=document.body.offsetWidth;
 if(myWidth<1100){document.getElementById("body").style.width = 1100 + 'px';
 document.getElementById("body").style.position = 'relative';}
-else if(myWidth>1100){
-margin = (myWidth-1100)/2; 
-document.getElementById("map_doc").style.marginLeft =  margin + "px";
-}
 }
 </script>
 </html><?php if(isset($reply)){if($reply==1){echo "<script>alert('Not a valid User...!')</script>";}}if(isset($db)){	mysqli_close($db);} ?>

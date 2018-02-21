@@ -9,6 +9,7 @@
 	position:absolute;
 	border:none;
 	display:none;
+	width:100%;
 	}
 /* the link style (if an image is wrapped in a link) */
 #slider a.imgLink {

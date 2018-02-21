@@ -1,14 +1,9 @@
 <style>
-#content_wrapper{background-image:none; margin-top:-30px;}
-td{color:black;}
-#tab_content table,#tab_content td,#tab_content th{border-color: #b17023; border-style:solid;}
-#tab_content table{margin-bottom:30px;border-width: 1px 1px 1px 1px; border-spacing: 0;border-collapse:collapse;}
-#tab_content th{margin: 0;padding: 0px;border-width: 0px 1px 1px 0px;text-align:center;}
-#tab_content td{color:black; valign:top; height:20px;margin: 0;padding: 0px;border-width: 0px 1px 1px 0px;text-align:center; }
-#tab_content td p{height:30px;text-align:center;margin:0px;padding:0px; color:black;}
-.tab-content{width:800px;  margin-top:-27px; background-color:#c2a677; padding:50px 20px 50px 20px;}
+.tab-content{width:100%;  margin-top:-23px; background-color:#EDE4E4; padding:50px 20px 50px 20px;}
+#tab_content div{line-height:2em;}
 #tabs{text-decoration:none; list-style:none; padding:0px; height:40px; margin-left:30px;}
-#tabs li{display:inline; cursor:pointer; font-style:italic; padding:10px 17px; height:30px; background-color:#642d07; margin-top:40px; font-style:Forte,Cooper,serif; font-size:20px;
+#tabs li{display:inline; cursor:pointer; font-style:italic; padding:10px 17px; height:30px; background-color:#642d07;
+   margin-top:40px; font-style:Forte,Cooper,serif; font-size:20px;
 -webkit-border-top-left-radius:20px;-webkit-border-top-right-radius:20px;-webkit-border-bottom-left-radius:0px;-webkit-border-bottom-right-radius:0px;
 -moz-border-top-left-radius:20px;-moz-border-top-right-radius:20px;-moz-border-bottom-left-radius:10px;-moz-border-bottom-right-radius:0px;
 border-top-left-radius:20px;border-top-right-radius:20px;border-bottom-left-radius:0px;border-bottom-right-radius:0px;}
@@ -24,7 +19,7 @@ $tab=$_GET['tab'];
 echo "<script>alert({$tab});</script>";
 if($tab==1){
 echo"<ul id='tabs'>
-<li style='background-color:#c2a677;' ><a style='color:#000' onclick='show_convents(1)' >CMC</a></li>
+<li style='background-color:#EDE4E4;' ><a style='color:#000' onclick='show_convents(1)' >CMC</a></li>
 <li><a onclick='show_convents(2)' >FCC</a></li>
 <li><a onclick='show_convents(3)' >CHF</a></li>
 <li><a onclick='show_convents(4)' >SABS</a></li>
@@ -100,7 +95,7 @@ Ph: 0491-2534929 <br>E-mail: jaichristo@gmail.com</p>
 	elseif($tab==2){
 	echo "<ul id='tabs'>
 <li><a onclick='show_convents(1)' >CMC</a></li>
-<li style='background-color:#c2a677;' ><a style='color:#000' onclick='show_convents(2)' >FCC</a></li>
+<li style='background-color:#EDE4E4;' ><a style='color:#000' onclick='show_convents(2)' >FCC</a></li>
 <li><a onclick='show_convents(3)' >CHF</a></li>
 <li><a onclick='show_convents(4)' >SABS</a></li>
 <li><a onclick='show_convents(5)' >ASMI</a></li>
@@ -115,7 +110,7 @@ Ph: 0491-2534929 <br>E-mail: jaichristo@gmail.com</p>
       
       <p><span class='s_h'>Provincial Superior:</span> Sr. Chriset</p>
       <p>Seraphic Provincial House, 18/415<br>
-West Fort Road, Palakkad � 678 001<br>
+West Fort Road, Palakkad - 678 001<br>
 Ph: 0491 2534939, 2504939, 2500436<br>
 </p>
       <table border='1' cellspacing='0' cellpadding='0' width='800'>
@@ -252,7 +247,7 @@ Ph: 0491 2534939, 2504939, 2500436<br>
 		echo "<ul id='tabs'>
 <li><a onclick='show_convents(1)' >CMC</a></li>
 <li><a onclick='show_convents(2)' >FCC</a></li>
-<li style='background-color:#c2a677;' ><a style='color:#000' onclick='show_convents(3)' >CHF</a></li>
+<li style='background-color:#EDE4E4;' ><a style='color:#000' onclick='show_convents(3)' >CHF</a></li>
 <li><a onclick='show_convents(4)' >SABS</a></li>
 <li><a onclick='show_convents(5)' >ASMI</a></li>
 <li><a onclick='show_convents(6)' >CSC</a></li>
@@ -265,7 +260,7 @@ Ph: 0491 2534939, 2504939, 2500436<br>
       <div id='place'>Marian Province, Palakkad</div><br/>
      <p> <span class='s_h'>Provincial Superior:</span> Sr. Pushpa</p>
       <p>Marian Provincial House, Maryland<br>
-Muttikulangara, Palakkad � 678 594<br>
+Muttikulangara, Palakkad - 678 594<br>
 Ph: 0491 2555234
 </p>
       <table border='1' cellspacing='0' cellpadding='0' width='800'>
@@ -312,7 +307,7 @@ Ph: 0491 2555234
 <li><a onclick='show_convents(1)' >CMC</a></li>
 <li><a onclick='show_convents(2)' >FCC</a></li>
 <li><a onclick='show_convents(3)' >CHF</a></li>
-<li style='background-color:#c2a677;' ><a style='color:#000' onclick='show_convents(4)' >SABS</a></li>
+<li style='background-color:#EDE4E4;' ><a style='color:#000' onclick='show_convents(4)' >SABS</a></li>
 <li><a onclick='show_convents(5)' >ASMI</a></li>
 <li><a onclick='show_convents(6)' >CSC</a></li>
 <li><a onclick='show_convents(7)' >CSS</a></li>
@@ -324,7 +319,7 @@ Ph: 0491 2555234
       <div id='place'>Vimal Rani Adoration Province, Palakkad</div><br/>
       <p><span class='s_h'>Provincial Superior:</span> Sr. Vincentia</p>
       
-      <p>Vimal Rani Provincial House, Mundur,<br> Palakkad � 678 592<br>
+      <p>Vimal Rani Provincial House, Mundur,<br> Palakkad - 678 592<br>
 Ph: 0491 2833318
 </p>
       <table border='1' cellspacing='0' cellpadding='0' width='800'>
@@ -372,7 +367,7 @@ Ph: 0491 2833318
 <li><a onclick='show_convents(2)' >FCC</a></li>
 <li><a onclick='show_convents(3)' >CHF</a></li>
 <li><a onclick='show_convents(4)' >SABS</a></li>
-<li style='background-color:#c2a677;' ><a  style='color:#000' onclick='show_convents(5)' >ASMI</a></li>
+<li style='background-color:#EDE4E4;' ><a  style='color:#000' onclick='show_convents(5)' >ASMI</a></li>
 <li><a onclick='show_convents(6)' >CSC</a></li>
 <li><a onclick='show_convents(7)' >CSS</a></li>
 <li><a onclick='show_convents(8)' >CSM</a></li>
@@ -424,7 +419,7 @@ Ph: 0484 2393228, 2382286
 <li><a onclick='show_convents(3)' >CHF</a></li>
 <li><a onclick='show_convents(4)' >SABS</a></li>
 <li><a onclick='show_convents(5)' >ASMI</a></li>
-<li style='background-color:#c2a677;' ><a style='color:#000' onclick='show_convents(6)' >CSC</a></li>
+<li style='background-color:#EDE4E4;' ><a style='color:#000' onclick='show_convents(6)' >CSC</a></li>
 <li><a onclick='show_convents(7)' >CSS</a></li>
 <li><a onclick='show_convents(8)' >CSM</a></li>
 <li><a onclick='show_convents(9)' >CSN</a></li>
@@ -463,7 +458,7 @@ Ph: 2426516, 2427344
 <li><a onclick='show_convents(4)' >SABS</a></li>
 <li><a onclick='show_convents(5)' >ASMI</a></li>
 <li><a onclick='show_convents(6)' >CSC</a></li>
-<li style='background-color:#c2a677;' ><a style='color:#000' onclick='show_convents(7)' >CSS</a></li>
+<li style='background-color:#EDE4E4;' ><a style='color:#000' onclick='show_convents(7)' >CSS</a></li>
 <li><a onclick='show_convents(8)' >CSM</a></li>
 <li><a onclick='show_convents(9)' >CSN</a></li>
 <li><a onclick='show_convents(10)' >SKD</a></li>
@@ -471,7 +466,7 @@ Ph: 2426516, 2427344
       <b>CONGREGATION OF SAMARITAN SISTERS</b><br/>
       <div id='place'>Snehodaya Province, Mannuthy</div>
       <p><span class='s_h'>Provincial Superior:</span> Sr. Mary Melani</p> 
-      <p>Snehodaya Provincial House, <br>Mannuthy � 680 651<br>
+      <p>Snehodaya Provincial House, <br>Mannuthy - 680 651<br>
 Ph: 0487 2372484</p>
       <table border='1' cellspacing='0' cellpadding='0' width='800'>
         <tr>
@@ -484,7 +479,7 @@ Ph: 0487 2372484</p>
         <tr>
           <td width='61' valign='top'><p class='newp'>1</p></td>
           <td width='174' valign='top'><p class='newp'>Podanur</p></td>
-          <td width='234' valign='top'><p class='newp'>St. Joseph�s    Home</p></td>
+          <td width='234' valign='top'><p class='newp'>St. Joseph's    Home</p></td>
           <td width='102' valign='top'><p class='newp'>1968</p></td>
           <td width='126' valign='top'><p class='newp'>0422 2413298</p></td>
         </tr>
@@ -507,15 +502,15 @@ Ph: 0487 2372484</p>
 <li><a onclick='show_convents(5)' >ASMI</a></li>
 <li><a onclick='show_convents(6)' >CSC</a></li>
 <li><a onclick='show_convents(7)' >CSS</a></li>
-<li style='background-color:#c2a677;' ><a style='color:#000' onclick='show_convents(8)' >CSM</a></li>
+<li style='background-color:#EDE4E4;' ><a style='color:#000' onclick='show_convents(8)' >CSM</a></li>
 <li><a onclick='show_convents(9)' >CSN</a></li>
 <li><a onclick='show_convents(10)' >SKD</a></li>
 </ul><div class='tab-content' id='tab-content'>
       <b>CONGREGATION OF SISTERS OF ST. MARTHA</b><br>
       <div id='place'>Nirmala Matha Region, Palakkad</div>
       <p><span class='s_h'>Regional Superior:</span> Sr. Beatha</p>
-      <p>St. Martyha�s Regional House, Puzhakkal <br>
-Kannadi, Palakkad � 678 701<br>
+      <p>St. Martyha's Regional House, Puzhakkal <br>
+Kannadi, Palakkad - 678 701<br>
 Ph: 9544519739
 </p> 
       <table border='1' cellspacing='0' cellpadding='0' width='800'>
@@ -546,7 +541,7 @@ Ph: 9544519739
 <li><a onclick='show_convents(6)' >CSC</a></li>
 <li><a onclick='show_convents(7)' >CSS</a></li>
 <li><a onclick='show_convents(8)' >CSM</a></li>
-<li style='background-color:#c2a677;' ><a style='color:#000' onclick='show_convents(9)' >CSN</a></li>
+<li style='background-color:#EDE4E4;' ><a style='color:#000' onclick='show_convents(9)' >CSN</a></li>
 <li><a onclick='show_convents(10)' >SKD</a></li>
 </ul><div class='tab-content' id='tab-content'>
       <b>CONGREGATION OF THE SISTERS OF NAZARETH </b><br>
@@ -554,7 +549,7 @@ Ph: 9544519739
 
 <p><span class='s_h'>Provincial Superior:</span> Sr. Gladys CSN</p> 
 <p>Sisters of Nazareth, St. Joseph Provincial House<br>
-Angamaly South � 683 573<br>
+Angamaly South - 683 573<br>
 Ph: 0484 2452438
 </p>     
       <table border='1' cellspacing='0' cellpadding='0' width='800'>
@@ -586,7 +581,7 @@ Ph: 0484 2452438
 <li><a onclick='show_convents(7)' >CSS</a></li>
 <li><a onclick='show_convents(8)' >CSM</a></li>
 <li><a onclick='show_convents(9)' >CSN</a></li>
-<li style='background-color:#c2a677;' ><a style='color:#000' onclick='show_convents(10)' >SKD</a></li>
+<li style='background-color:#EDE4E4;' ><a style='color:#000' onclick='show_convents(10)' >SKD</a></li>
 </ul><div class='tab-content' id='tab-content'>
       <b>SOCIETY OF KRISTU DASIS</b><br>
       <div id='place'>Kristu Dasi Generalate, Mannuthy</div>

@@ -4,7 +4,6 @@
 <li><a href="admin_parishes.php?page=parishes&sub_page=0">Parishes</a></li>
 <li><a href="admin_associations.php?page=associations&sub_page=0">Associations</a><ul>
 <?php $sql = "SELECT * FROM associations_table ORDER by name"; $result=mysqli_query($db,$sql); if(isset($result)){while($row = mysqli_fetch_array($result)){echo "<li><a href=\"admin_associations.php?page=associations&sub_page={$row['id']} \">{$row['name']}</a></li>";}} ?></ul></li>
-<li><a href="admin_service.php?page=service">Service</a></li>
 <li><a href="admin_wards.php?page=wards&sub_page=0">Wards</a><ul>
 <?php $sql = "SELECT * FROM wards_table ORDER by name"; $result=mysqli_query($db,$sql);
 if(isset($result)){ while($row = mysqli_fetch_array($result)){echo "<li><a href=\"admin_wards.php?page=wards&sub_page={$row['id']} \">{$row['name']}</a></li>";}} ?></ul></li>

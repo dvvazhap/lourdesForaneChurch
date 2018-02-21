@@ -10,7 +10,7 @@
 <style>
 #page_name_bar{ float:left;margin-left:0%;width:40%;height:250px;margin-top:-30px;}
 #page_name{ margin-top:100px;margin-left:1%;height:60px;
-line-height:1.5em;width:100%;text-align:center; font-size:60px; font-family: Forte, Georgia, serif;color:#fff;}
+line-height:1.5em;width:100%;text-align:center; font-size:60px;color:#fff;}
 #page_pic_frame_image{z-index:3;margin:-20px 0px 0px 0px;position:absolute;float:right;width:50%;height:360px;}
 #page_pic{ position:absolute; z-index:1;margin-top:5px;margin-left:530px;height:260px;width:340px;overflow:hidden;}
 #page_pic img{height:255px;width:350px; margin-top:23px;}

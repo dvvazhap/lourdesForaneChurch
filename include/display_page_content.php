@@ -1,7 +1,7 @@
 <style type="text/css">
 #page_content{ margin-top:10px; text-align:justify;}
-#sub_title{	font-size:25px; font-family:"Times New Roman",serif; line-height:1em; color:#000000;}
-#sub_content{color:black; font-style:italic; font-size:20px; line-height:2em; padding-left:100px; font-family:"Times New Roman",serif;margin-right:100px;}
+#sub_title{	font-size:25px; line-height:1em; color:#000000;}
+#sub_content{color:black; font-style:italic; font-size:20px; line-height:2em; padding-left:100px; margin-right:100px;}
 </style>
 <?php
 $query = "SELECT * FROM page_content WHERE page='{$page}' && sub_page={$sub_page}";

@@ -5,7 +5,7 @@
 #pope_content a:hover,#cardinal_content a:hover,#bishop_content a:hover{color:orange;}
 #pope_wrapper{cursor:pointer;-webkit-border-radius:20px;-moz-border-radius:20px;border-radius:20px;padding-left:0px; float:right; width:100%;height:175px;overflow:hidden;margin-bottom:10px;background-color:white;line-height:2em;}
 #pope_wrapper img{ margin-top:-20px; margin-left:20%; height:100px; width:60%;}
-#pope_heading{font-family:Arial,serif;font-size:18px;background-color:#eeeeee;line-height:1.5em; height:15px;margin-left:-2%; margin-top:-18px; padding:20px 0% 20px 1%; text-align:center; width:102%;}
+#pope_heading{font-size:18px;background-color:#eeeeee;line-height:1.5em; height:15px;margin-left:-2%; margin-top:-18px; padding:20px 0% 20px 1%; text-align:center; width:102%;}
 #pope_content{font-style:italic; margin-top: -20px;}
 #pope_content ul{text-decoration:none; line-height:1.4em; width:100%; margin-left:0px; list-style:none;}
 #pope_content ul a:hover,#pope_name a:hover{text-decoration:none;}
@@ -13,7 +13,7 @@
 
 #cardinal_wrapper{cursor:pointer;-webkit-border-radius:20px;-moz-border-radius:20px;border-radius:20px;padding-left:0px;float:right;width:100%;height:175px;overflow:hidden;margin-bottom:10px;background-color:white;line-height:2em;}
 #cardinal_wrapper img{margin-top:-20px; margin-left:20%; height:100px; width:60%;}
-#cardinal_heading{font-family:Arial,serif;font-size:18px;background-color:#eeeeee;line-height:1.5em; height:15px;margin-left:-2%; margin-top:-18px; padding:20px 0% 20px 1%; text-align:center;width:102%;}
+#cardinal_heading{font-size:18px;background-color:#eeeeee;line-height:1.5em; height:15px;margin-left:-2%; margin-top:-18px; padding:20px 0% 20px 1%; text-align:center;width:102%;}
 #cardinal_content{margin:0px;font-style:italic;}
 #cardinal_content ul{text-decoration:none; line-height:1.4em; width:100%; margin-left:0px; list-style:none;}
 #cardinal_content ul a:hover,#cardinal_name a:hover{text-decoration:none;}
@@ -21,7 +21,7 @@
 
 #bishop_wrapper{cursor:pointer;-webkit-border-radius:20px;-moz-border-radius:20px;border-radius:20px;padding-left:0px;float:right;width:100%;height:175px;overflow:hidden;margin-bottom:10px;background-color:white;line-height:2em;}
 #bishop_wrapper img{margin-top:-20px; margin-left:20%; height:100px; width:60%;}
-#bishop_heading{font-family:Arial,serif;font-size:18px;background-color:#eeeeee;line-height:1.5em; height:15px;margin-left:-2%; margin-top:-18px; padding:20px 0% 20px 1%;text-align:center;width:102%;}
+#bishop_heading{font-size:18px;background-color:#eeeeee;line-height:1.5em; height:15px;margin-left:-2%; margin-top:-18px; padding:20px 0% 20px 1%;text-align:center;width:102%;}
 #bishop_content{ margin:0px;font-style:italic;color:orange;}
 #bishop_content ul{text-decoration:none; line-height:1.4em; width:100%; margin-left:0px; list-style:none;}
 #bishop_content ul a:hover,#bishop_name a:hover{text-decoration:none;}
@@ -29,7 +29,6 @@
 #bishop_name a{color:black;margin-left:10px; margin-bottom:10px;}
 #bishop_name{margin-top:0px;}
 
-#content_wrapper{background-image:url(images/backg1.jpg); -webkit-border-radius:30px;-moz-border-radius:30px;border-radius:30px;}
 #pope_content,#cardinal_content,#bishop_content{width:300px;float:right; margin:600px -300px 0px 0px;}
 #details{width:550px; height:500px; position:absolute;}
 #table{color:black; width:550px; font-size:20px; text-align:left; margin-top:50px; margin-left:50px;}
@@ -39,14 +38,14 @@
 #cardinal{ width:620px; height:600px; position:relative;}
 #bishop{ width:620px; height:600px; position:relative;}
 #pope_name_img,#cardinal_name_img,#bishop_name_img{
-color:black; text-align:center; font-family:Algerian,Cooper,serif; font-size:30px;}
+color:black; text-align:center;font-size:30px;}
 #important_links ul{list-style:none; float:left;width:580px;margin-top:-10px; position:relative; margin-left:0px;}
 .one_link{position:relative;}
 .one_link a{margin:0px; margin-right:0px;width:100%; color:black;font-size:20px; line-height:2em;}
 .one_link a:hover{margin:0px; margin-right:0px;width:100%; color:orange;font-size:20px; line-height:2em;}
 </style>
 <div id='pcb'>
-<div id='pope_wrapper' onclick='show_links(1)'><h2 style='color:black'><div id='pope_heading'>HOLY FATHER / VATICAN</div></h2><img src='images/Benedict.jpg' /><br/>
+<div id='pope_wrapper' onclick='show_links(1)'><h2 style='color:black'><div id='pope_heading'>HOLY FATHER / VATICAN</div></h2><img src='images/pope.png' /><br/>
 <div id='pope_name'><b><center><a href='#'>Pope Francis I</a></center></b><br/></div></div>
 <div id='cardinal_wrapper' onclick='show_links(2)' ><h2 style='color:black'><div id='cardinal_heading'>MAJOR ARCHBISHOP</div></h2><img src='images/cardinal1.jpg' />
 <div id='cardinal_name'><b><center><a href='#'>Mar George Cardinal Alencherry </a></center></b><br /></div></div>
@@ -56,8 +55,7 @@ color:black; text-align:center; font-family:Algerian,Cooper,serif; font-size:30p
 <div id='links_wrapper'>
 <?php
 if($tab==0){
-echo "<style>#content_wrapper{height:1440px;}</style>
-<div id='important_links' style='height:1400px;'><h2 style='color:black;margin-bottom:30px;'><b><i>IMPORTANT LINKS</i></b></h2>
+echo "<div id='important_links' style='height:1400px;'><h2 style='color:black;margin-bottom:30px;'><b><i>IMPORTANT LINKS</i></b></h2>
 <br/><br/><ul>
 <li class='one_link'><a href='http://www.pocbible.com' target='_blank'>Malayalam Bible</a></li>
 <li class='one_link'><a href='http://www.vatican.va/phome_en.htm' target='_blank'>Vatican Church</a></li>
@@ -99,7 +97,7 @@ echo "<style>#content_wrapper{height:1440px;}</style>
 </div>";
 }
 else if($tab==1){
-echo "<style>#content_wrapper{height:1100px;}</style><div id='pope'>
+echo "<div id='pope'>
 <div id='pope_name_img'>Pope Francis I</div>
 <img src='images/pope.png' style='margin-left:50px;width:500px;height:500px;'/>
 <div id='details'>
@@ -130,7 +128,7 @@ echo "<style>#content_wrapper{height:1100px;}</style><div id='pope'>
 </div>";
 }
 else if($tab==2){
-echo "<style>#content_wrapper{height:900px;}</style><div id='cardinal'>
+echo "<div id='cardinal'>
 <div id='cardinal_name_img'>Cardinal Mar George Alencherry</div>
 <img src='images/alenchery.png' style='margin-left:100px;width:400px;height:500px;'/>
 <div id='details'>
@@ -150,7 +148,7 @@ echo "<style>#content_wrapper{height:900px;}</style><div id='cardinal'>
 </div>";
 }
 else if($tab==3){
-echo"<style>#content_wrapper{height:840px;}</style><div id='bishop'>
+echo"<div id='bishop'>
 <div id='bishop_name_img'>Mar Paul Alappatt</div>
 <img src='images/bishop1.png' style='margin-left:100px;width:400px;height:500px;' />
 <div id='details'>

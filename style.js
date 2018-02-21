@@ -1,4 +1,7 @@
 window.onload = show_home
+
+var page="";
+
 function val_email () {
   email = document.getElementById('email').value
   if (email != '') {
@@ -11,34 +14,7 @@ function val_email () {
     }
   }
 }
-function val_submit () {
-  var name = document.getElementById('name').value
-  var email = document.getElementById('email').value
-  var subject = document.getElementById('subject').value
-  var detail = document.getElementById('detail').value
-  if ((name != '') && (email != '') && ((subject != '') || (detail != ''))) {
-    var xmlhttp
-    if (window.XMLHttpRequest) { xmlhttp = new XMLHttpRequest();}else { xmlhttp = new ActiveXObject('Microsoft.XMLHTTP');}
-    xmlhttp.onreadystatechange = function () {
-      if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-        document.getElementById('submit_contact').innerHTML = xmlhttp.responseText
-      }
-    }
-    xmlhttp.open('POST', 'service.php?submit=1', true)
-    xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
-    xmlhttp.send('name=' + name + '&email=' + email + '&subject=' + subject + '&detail=' + detail)
-    alert('Your prayers will be answered...! \n\nPeace be with you...!!!')
-    reset()
-  }else {
-    if ((name == '') || (email == '')) {
-      if ((name == '') && (email == ''))alert('Name and Contact field should not be empty...!')
-      else if (name == '')alert('We cannot service you unless you reveal your name...!')
-      else if (email == '')alert('Provide a way to contact you...!')
-      return false
-    }
-    alert('Subject is required...!!!')
-  }
-}
+
 function reset () {
   document.getElementById('name').value = ''
   document.getElementById('email').value = ''
@@ -47,14 +23,14 @@ function reset () {
 }
 
 function remove_tab_color () {
-  document.getElementById('tab_home').style.color = 'white'
-  document.getElementById('tab_diocese').style.color = 'white'
-  document.getElementById('tab_wards').style.color = 'white'
-  document.getElementById('tab_associations').style.color = 'white'
-  document.getElementById('tab_links').style.color = 'white'
-  document.getElementById('tab_gallery').style.color = 'white'
-  document.getElementById('tab_catechism').style.color = 'white'
-  document.getElementById('tab_contact').style.color = 'white'
+  document.getElementById('tab_home').style.color = 'brown'
+  document.getElementById('tab_diocese').style.color = 'brown'
+  document.getElementById('tab_wards').style.color = 'brown'
+  document.getElementById('tab_associations').style.color = 'brown'
+  document.getElementById('tab_links').style.color = 'brown'
+  document.getElementById('tab_gallery').style.color = 'brown'
+  document.getElementById('tab_catechism').style.color = 'brown'
+  document.getElementById('tab_contact').style.color = 'brown'
 }
 function home_top_wrapper () {
   document.getElementById('home_top_wrapper').style.visibility = 'visible'
@@ -71,7 +47,8 @@ function page_top_wrapper () {
   remove_tab_color();}
 function show_home () {
   home_top_wrapper()
-  document.getElementById('tab_home').style.color = 'red'
+  document.getElementById('tab_home').classList.add("currentTab");
+  document.getElementById('tab_home').style.color = "black";
   var xmlhttp
   if (window.XMLHttpRequest) { xmlhttp = new XMLHttpRequest();}else { xmlhttp = new ActiveXObject('Microsoft.XMLHTTP');}
   xmlhttp.onreadystatechange = function () {
@@ -96,7 +73,7 @@ function show_detail () {
 
 function show_parishes (t) {
   page_top_wrapper()
-  document.getElementById('tab_diocese').style.color = 'red'
+  document.getElementById('tab_diocese').style.color = 'black'
   var xmlhttp
   if (window.XMLHttpRequest) {xmlhttp = new XMLHttpRequest();}else {xmlhttp = new ActiveXObject('Microsoft.XMLHTTP');}
   xmlhttp.onreadystatechange = function () {if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {document.getElementById('content').innerHTML = xmlhttp.responseText;}}
@@ -105,7 +82,7 @@ function show_parishes (t) {
 
 function show_convents (t) {
   page_top_wrapper()
-  document.getElementById('tab_diocese').style.color = 'red'
+  document.getElementById('tab_diocese').style.color = 'black'
   var xmlhttp
   if (window.XMLHttpRequest) { xmlhttp = new XMLHttpRequest();}else { xmlhttp = new ActiveXObject('Microsoft.XMLHTTP');}
   xmlhttp.onreadystatechange = function () {if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {document.getElementById('content').innerHTML = xmlhttp.responseText;}}
@@ -113,7 +90,7 @@ function show_convents (t) {
 }
 function show_institutions (t) {
   page_top_wrapper()
-  document.getElementById('tab_diocese').style.color = 'red'
+  document.getElementById('tab_diocese').style.color = 'black'
   var xmlhttp
   if (window.XMLHttpRequest) { xmlhttp = new XMLHttpRequest();}else { xmlhttp = new ActiveXObject('Microsoft.XMLHTTP');}
   xmlhttp.onreadystatechange = function () {if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {document.getElementById('content').innerHTML = xmlhttp.responseText;}}
@@ -122,11 +99,11 @@ function show_institutions (t) {
 function show_tab (tab) {
   page_top_wrapper()
   if ((tab == 'history') || (tab == 'bishop'))
-    document.getElementById('tab_diocese').style.color = 'red'
+    document.getElementById('tab_diocese').style.color = 'black'
   else if (tab == 'gallery')
-    document.getElementById('tab_gallery').style.color = 'red'
+    document.getElementById('tab_gallery').style.color = 'black'
   else if (tab == 'contact')
-    document.getElementById('tab_contact').style.color = 'red'
+    document.getElementById('tab_contact').style.color = 'black'
 
   var xmlhttp
   if (window.XMLHttpRequest) { xmlhttp = new XMLHttpRequest();}else { xmlhttp = new ActiveXObject('Microsoft.XMLHTTP');}
@@ -150,7 +127,7 @@ function show_album_image (src) {
 
 function show_catechism (t) {
   page_top_wrapper()
-  document.getElementById('tab_catechism').style.color = 'red'
+  document.getElementById('tab_catechism').style.color = 'black'
   var xmlhttp
   if (window.XMLHttpRequest) { xmlhttp = new XMLHttpRequest();}else { xmlhttp = new ActiveXObject('Microsoft.XMLHTTP');}
   xmlhttp.onreadystatechange = function () {if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {document.getElementById('content').innerHTML = xmlhttp.responseText;}}
@@ -168,7 +145,7 @@ function show_wards (sub_page, s_sub_page) {
     show_page_top_wrapper(sub_page, s_sub_page, page)
     remove_tab_color()
   }
-  document.getElementById('tab_wards').style.color = 'red'
+  document.getElementById('tab_wards').style.color = 'black'
   var xmlhttp
   if (window.XMLHttpRequest) { xmlhttp = new XMLHttpRequest();}else { xmlhttp = new ActiveXObject('Microsoft.XMLHTTP');}
   xmlhttp.onreadystatechange = function () {if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {document.getElementById('content').innerHTML = xmlhttp.responseText;}}
@@ -187,7 +164,7 @@ function show_associations (sub_page, s_sub_page) {
     show_page_top_wrapper(sub_page, s_sub_page, page)
     remove_tab_color()
   }
-  document.getElementById('tab_associations').style.color = 'red'
+  document.getElementById('tab_associations').style.color = 'black'
   var xmlhttp
   if (window.XMLHttpRequest) { xmlhttp = new XMLHttpRequest();}else { xmlhttp = new ActiveXObject('Microsoft.XMLHTTP');}
   xmlhttp.onreadystatechange = function () {if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {document.getElementById('content').innerHTML = xmlhttp.responseText;}}
@@ -203,7 +180,7 @@ function show_page_top_wrapper (sub_page, s_sub_page, page) {
 
 function show_links (tab) {
   page_top_wrapper()
-  document.getElementById('tab_links').style.color = 'red'
+  document.getElementById('tab_links').style.color = 'black'
   var xmlhttp
   if (window.XMLHttpRequest) { xmlhttp = new XMLHttpRequest();}else { xmlhttp = new ActiveXObject('Microsoft.XMLHTTP');}
   xmlhttp.onreadystatechange = function () {if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {document.getElementById('content').innerHTML = xmlhttp.responseText;}}
@@ -233,31 +210,13 @@ function validate_pass () {
     xmlhttp.onreadystatechange = function () {if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {document.getElementById('forgot').innerHTML = xmlhttp.responseText;}}
     xmlhttp.open('GET', 'include/forgot_pass.php?user=' + username + '&c=' + c, true)
     xmlhttp.send();}else {alert('Invalid Answer');}}
-var moveinout = 1
-var x = 0
-var dest_x = 120
-var interval = 1
+
 function moveout () {
-  if (x < dest_x) {	x = x + interval
-    document.getElementById('admin_input').style.top = x + 'px';}
-  if (x + interval < dest_x) {window.setTimeout('moveout()', 5);}else {document.getElementById('admin_input_wrapper').style.zIndex = 21
-    x = 120;dest_x = 0;}
+    document.getElementById('admin_input').style.visibility = 'visible';
 }
 function movein () {
-  if (x > dest_x) x = x - interval
-  document.getElementById('admin_input').style.top = x + 'px'
-  if (x - interval > dest_x) {window.setTimeout('movein()', 5);}else {document.getElementById('admin_input_wrapper').style.zIndex = 20; x = 0;dest_x = 125;}
+  document.getElementById('admin_input').style.visibility = 'hidden';
 }
-var mapcheck = 1
-var m = 0
-var dest_m = 350
-var map = 5
-function mapout () {if (m < dest_m) m = m + map; document.getElementById('map_doc').style.top = m + 'px'
-  if (m + map < dest_m) {window.setTimeout('mapout()', 50);}else {m = 350;dest_m = 0;mapcheck = 2;document.getElementById('see_map').innerHTML = 'Close';}}
-function mapin () {if (m > dest_m) m = m - map; document.getElementById('map_doc').style.top = m + 'px'
-  if (m - map > dest_m) {window.setTimeout('mapin()', 50);}else {m = 0;dest_m = 360;mapcheck = 1;document.getElementById('see_map').innerHTML = 'Location';}}
-function mapinout () {if (mapcheck == 1)mapout()
-  else if (mapcheck == 2)mapin();}
 function check_user () {var user = document.getElementById('username').value
   var pass = document.getElementById('password').value
   if ((user == '') || (pass == '')) {alert('Enter Username and Password');}}

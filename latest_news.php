@@ -5,19 +5,15 @@ require_once("include/connection.php");
 <body>
 <script type="text/javascript" src="js/jquery-1.3.2.js"></script>
 <style>
-#latest_news_wrapper{width:90%;min-height:250px; z-index:3; overflow:hidden;}
-#latest_news_heading{color:black; font-style:italic; font-size:30px;line-height:1.5em; height:30px; margin-left:0px; margin-top:-6%; padding:3% 1% 7% 7%; width:120%; overflow:hidden; }
-#latest_news_content{width:90%;position:absolute; margin-top:10px;z-index:2;cursor:pointer;}
-#latest_news_content a{font-size:20px; font-family: 'Times New Roman', Cooper Black, serif; color:black;}
-#latest_news_content {font-size:20px; font-family: 'Times New Roman', Cooper Black, serif; color:black;}
+#latest_news_wrapper{width:100%;z-index:3; height:400px; overflow:hidden;}
+#latest_news_content{width:100%;position:absolute; margin-top:10px;z-index:2;cursor:pointer;}
+#latest_news_content a{font-size:20px; color:black;}
+#latest_news_content {font-size:20px; color:black;}
 #latest_space{clear:both;height:0px;}
 #link a{text-decoration:none;}
 #link a:hover{color:#500050; text-decoration:underline;}
 #no_link a:hover{color:black;}
-
 #latest_news_content a:link{text-decoration:none;}</style>
-
-<div id="latest_news_heading"><b>LATEST UPDATES</b></div>
 <div id="latest_news_wrapper"><div id="latest_news_content" onmouseover='stopnews()' onmouseout='rollnews()'>
 <?php $sql="SELECT * FROM latest_news WHERE visible=1";
 $result=mysqli_query($db,$sql);

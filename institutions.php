@@ -1,11 +1,7 @@
 <style>
-#content_wrapper{background-image:none; margin-top:-30px;}
-#tab_content table,#tab_content td,#tab_content th{border-color: #b17023; border-style:solid;}
-#tab_content table{margin-bottom:30px;border-width: 1px 1px 1px 1px; border-spacing: 0;border-collapse:collapse;}
-#tab_content th{margin: 0;padding: 0px;border-width: 0px 1px 1px 0px;text-align:center;}
-#tab_content td{color:black; valign:top; height:20px;margin: 0;padding: 0px;border-width: 0px 1px 1px 0px;text-align:center; }
-#tab_content td p{height:30px;text-align:center;margin:0px;padding:0px; color:black;}
-.tab-content{width:800px;  margin-top:-27px; background-color:#c2a677; padding:50px 20px 50px 20px; -webkit-border-radius: 30px;-moz-border-radius: 30px;border-radius:30px;}
+.tab-content{width:100%;  margin-top:-23px; background-color:#EDE4E4; padding:50px 20px 50px 20px; 
+    -webkit-border-radius: 30px;-moz-border-radius: 30px;border-radius:30px;}
+#tab_content div{line-height:2em;}
 #tabs{text-decoration:none; list-style:none; padding:0px; height:40px; margin-left:50px;}
 #tabs li{display:inline; cursor:pointer; font-style:italic; padding:10px 20px; height:30px; background-color:#642d07; margin-top:40px; font-style:Forte,Cooper,serif; font-size:20px;
 -webkit-border-top-left-radius:20px;-webkit-border-top-right-radius:20px;-webkit-border-bottom-left-radius:0px;-webkit-border-bottom-right-radius:0px;
@@ -21,7 +17,7 @@ if(isset($_GET['tab'])){
 $tab=$_GET['tab'];
 if($tab==1){
 echo"<ul id='tabs'>
-<li style='background-color:#c2a677;' ><a style='color:#000' onclick='show_institutions(1)' >Ecclesiastical</a></li>
+<li style='background-color:#EDE4E4;' ><a style='color:#000' onclick='show_institutions(1)' >Ecclesiastical</a></li>
 <li><a onclick='show_institutions(2)' >Educational</a></li>
 <li><a onclick='show_institutions(3)' >Medical</a></li>
 <li><a onclick='show_institutions(4)' >Charitable</a></li>
@@ -31,11 +27,23 @@ echo"<ul id='tabs'>
 <p><span class='s_h'>i)	Minor Seminaries</span><br>
 </p>
 <table border='1' cellspacing='0' cellpadding='0' align='left' width='800'>
-<tr><td width='100'><p><strong>S. No.</strong></p></td><td width='174'><p><strong>Place</strong></p></td><td width='300'><p><strong>Name</strong></p></td><td width='102'><p><strong>Estd.</strong></p></td><td width='200'><p><strong>Phone</strong></p></td></tr>
-<tr><td width='100'><p>1</p></td><td width='174'><p>Edayapalayam</p></td><td width='300'><p>St. Mary</p></td><td width='102'><p>2011</p></td><td width='200'><p>0422 3300972</p></td></tr>
+<tr>
+<td width='100'><p><strong>S. No.</strong></p></td>
+<td width='174'><p><strong>Place</strong></p></td>
+<td width='300'><p><strong>Name</strong></p></td>
+<td width='102'><p><strong>Estd.</strong></p></td>
+<td width='200'><p><strong>Phone</strong></p></td>
+</tr>
+<tr>
+<td width='100'><p>1</p></td>
+<td width='174'><p>Edayapalayam</p></td>
+<td width='300'><p>St. Mary</p></td>
+<td width='102'><p>2011</p></td>
+<td width='200'><p>0422 3300972</p></td>
+</tr>
 </table>
-<p>
-<span class='s_h'>ii)	Retreat Centres</span><br>
+<br/><br/><br/>
+<p><span class='s_h'>ii) Retreat Centres</span>
 </p>
 <table border='1' cellspacing='0' cellpadding='0' width='800'>
 <tr>
@@ -53,6 +61,7 @@ echo"<ul id='tabs'>
 <td width='200'><p>0422 237080</p></td>
 </tr>
 </table>
+<br/>
 <p><span class='s_h'>iii)	Animation Centres</span><br>
 </p>
 <table border='1' cellspacing='0' cellpadding='0' width='800'>
@@ -78,6 +87,7 @@ echo"<ul id='tabs'>
 <td width='200'><p>04254 272873</p></td>
 </tr>
 </table>
+<br/>
 <p><span class='s_h'>iv)	Perpetual Adoration Centres</span><br>
 </p>
 <table border='1' cellspacing='0' cellpadding='0' width='800'>
@@ -101,7 +111,7 @@ echo"<ul id='tabs'>
 if($tab==2){
 echo"<ul id='tabs'>
 <li><a onclick='show_institutions(1)'>Ecclesiastical</a></li>
-<li style='background-color:#c2a677'><a style='color:#000' onclick='show_institutions(2)'>Educational</a></li>
+<li style='background-color:#EDE4E4'><a style='color:#000' onclick='show_institutions(2)'>Educational</a></li>
 <li><a onclick='show_institutions(3)'>Medical</a></li>
 <li><a onclick='show_institutions(4)'>Charitable</a></li>
 <li><a onclick='show_institutions(5)'>Social</a></li>
@@ -525,7 +535,7 @@ if($tab==3){
 echo"<ul id='tabs'>
 <li><a onclick='show_institutions(1)'>Ecclesiastical</a></li>
 <li><a onclick='show_institutions(2)'>Educational</a></li>
-<li style='background-color:#c2a677'><a style='color:#000' onclick='show_institutions(3)'>Medical</a></li>
+<li style='background-color:#EDE4E4'><a style='color:#000' onclick='show_institutions(3)'>Medical</a></li>
 <li><a onclick='show_institutions(4)'>Charitable</a></li>
 <li><a onclick='show_institutions(5)'>Social</a></li>
 </ul>
@@ -568,7 +578,7 @@ echo"<ul id='tabs'>
 <li><a onclick='show_institutions(1)'>Ecclesiastical</a></li>
 <li><a onclick='show_institutions(2)'>Educational</a></li>
 <li><a onclick='show_institutions(3)'>Medical</a></li>
-<li  style='background-color:#c2a677'><a style='color:#000' onclick='show_institutions(4)'>Charitable</a></li>
+<li  style='background-color:#EDE4E4'><a style='color:#000' onclick='show_institutions(4)'>Charitable</a></li>
 <li><a onclick='show_institutions(5)'>Social</a></li>
 </ul>";
 
@@ -720,7 +730,7 @@ echo"<ul id='tabs'>
 <li><a onclick='show_institutions(2)'>Educational</a></li>
 <li><a onclick='show_institutions(3)'>Medical</a></li>
 <li><a onclick='show_institutions(4)'>Charitable</a></li>
-<li style='background-color:#c2a677' ><a style='color:#000' onclick='show_institutions(5)'>Social</a></li>
+<li style='background-color:#EDE4E4' ><a style='color:#000' onclick='show_institutions(5)'>Social</a></li>
 </ul><div class='tab-content' id='tab_content'>
 <span class='s_h'> Welfare Centres</span><br>
 <p><table border='1' cellspacing='0' cellpadding='0' width='800'>

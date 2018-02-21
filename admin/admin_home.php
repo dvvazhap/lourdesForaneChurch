@@ -2,7 +2,7 @@
 <div id='content'>
 <style>
 #create_event_button{margin-left:700px; position:absolute;}
-#create_event{width:350px; margin-left:800px; padding:0px; position:absolute; font-size:30px; -webkit-border-radius:20px;-moz-border-radius:20px;border-radius:20px; background-color:black; color:red; font-family:Forte,Cooper,serif;}
+#create_event{width:350px; margin-left:800px; padding:0px; position:absolute; font-size:30px; -webkit-border-radius:20px;-moz-border-radius:20px;border-radius:20px; background-color:black; color:red;}
 th{color:white;}
 #flash_news{ margin-left:10px;}
 #important_news{margin-left:400px;}
