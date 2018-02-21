@@ -2,16 +2,15 @@
 require_once("include/connection.php");
 ?>
 <style>
-#title{color:#632c01;text-align:center;font-size:50px;}
-#class_wrapper{position:relative; height:500px; width:800px; margin-bottom:100px;}
+#class_wrapper{position:relative; width:100%; height:100%;}
 #class{font-size:50px; margin-bottom:30px; margin-left:50px; color:black;}
-#class_wrapper img{border:2px solid black; height:500px; width:880px;}
+#class_wrapper img{border:2px solid black; width:100%; height:100%; margin-left: auto;	margin-right: auto;	display: block;}
 </style>
 <?php
 if(isset($_GET['tab'])){$tab=$_GET['tab'];}else{$tab=0;}
 		if($tab==0){
 		$sub_page=0;
-		echo "<h2 id=\"title\"> Catechism..!</h2><div class='hr_divider'></div>";
+		echo "<h2 class='heading'> CATECHISM</h2>";
 		echo "<div id='class_wrapper'><img src='images/teachers.jpg' /></div>";
 		include("include/display_page_content.php"); }
 		elseif($tab==1){
@@ -56,19 +55,19 @@ if(isset($_GET['tab'])){$tab=$_GET['tab'];}else{$tab=0;}
 			echo"<br/></p><br/></div>";
 }}
 elseif($tab==2){
-	echo "<div id='class_wrapper'><div id='class'>XII</div><img src='cat_pics/12.jpg' /></div>";
-	echo "<div id='class_wrapper'><div id='class'>XI</div><img src='cat_pics/11.jpg' /></div>";
-	echo "<div id='class_wrapper'><div id='class'>X</div><img src='cat_pics/10.jpg' /></div>";
-	echo "<div id='class_wrapper'><div id='class'>VIII-A</div><img src='cat_pics/8a.jpg' /></div>";
-	echo "<div id='class_wrapper'><div id='class'>VIII-B</div><img src='cat_pics/8b.jpg' /></div>";
-	echo "<div id='class_wrapper'><div id='class'>VII</div><img src='cat_pics/7.jpg' /></div>";
-	echo "<div id='class_wrapper'><div id='class'>VI</div><img src='cat_pics/6.jpg' /></div>";
-	echo "<div id='class_wrapper'><div id='class'>V</div><img src='cat_pics/5.jpg' /></div>";
-	echo "<div id='class_wrapper'><div id='class'>IV</div><img src='cat_pics/4.jpg' /></div>";
-	echo "<div id='class_wrapper'><div id='class'>III</div><img src='cat_pics/3.jpg' /></div>";
-	echo "<div id='class_wrapper'><div id='class'>II</div><img src='cat_pics/2.jpg' /></div>";
-	echo "<div id='class_wrapper'><div id='class'>I</div><img src='cat_pics/1.jpg' /></div>";
-	echo "<div id='class_wrapper'><div id='class'>Malayalam</div><img src='cat_pics/mal.jpg' /></div>";
-    echo "<div id='class_wrapper'><div id='class'>Tamil</div><img src='cat_pics/tam.jpg' /></div>";
+	echo "<div id='class_wrapper'><div id='class'>XII</div><img src='cat_pics/12.jpg' /></div><br/><br/><br/><br/><br/>";
+	echo "<div id='class_wrapper'><div id='class'>XI</div><img src='cat_pics/11.jpg' /></div><br/><br/><br/><br/><br/>";
+	echo "<div id='class_wrapper'><div id='class'>X</div><img src='cat_pics/10.jpg' /></div><br/><br/><br/><br/><br/>";
+	echo "<div id='class_wrapper'><div id='class'>VIII-A</div><img src='cat_pics/8a.jpg' /></div><br/><br/><br/><br/><br/>";
+	echo "<div id='class_wrapper'><div id='class'>VIII-B</div><img src='cat_pics/8b.jpg' /></div><br/><br/><br/><br/><br/>";
+	echo "<div id='class_wrapper'><div id='class'>VII</div><img src='cat_pics/7.jpg' /></div><br/><br/><br/><br/><br/>";
+	echo "<div id='class_wrapper'><div id='class'>VI</div><img src='cat_pics/6.jpg' /></div><br/><br/><br/><br/><br/>";
+	echo "<div id='class_wrapper'><div id='class'>V</div><img src='cat_pics/5.jpg' /></div><br/><br/><br/><br/><br/>";
+	echo "<div id='class_wrapper'><div id='class'>IV</div><img src='cat_pics/4.jpg' /></div><br/><br/><br/><br/><br/>";
+	echo "<div id='class_wrapper'><div id='class'>III</div><img src='cat_pics/3.jpg' /></div><br/><br/><br/><br/><br/>";
+	echo "<div id='class_wrapper'><div id='class'>II</div><img src='cat_pics/2.jpg' /></div><br/><br/><br/><br/><br/>";
+	echo "<div id='class_wrapper'><div id='class'>I</div><img src='cat_pics/1.jpg' /></div><br/><br/><br/><br/><br/>";
+	echo "<div id='class_wrapper'><div id='class'>Malayalam</div><img src='cat_pics/mal.jpg' /></div><br/><br/><br/><br/><br/>";
+    echo "<div id='class_wrapper'><div id='class'>Tamil</div><img src='cat_pics/tam.jpg' /></div><br/><br/><br/><br/><br/>";
 }?>
 <div class="cleaner"></div>

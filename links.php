@@ -58,8 +58,6 @@ if($tab==0){
 echo "<div id='important_links' style='height:1400px;'><h2 style='color:black;margin-bottom:30px;'><b><i>IMPORTANT LINKS</i></b></h2>
 <br/><br/><ul>
 <li class='one_link'><a href='http://www.pocbible.com' target='_blank'>Malayalam Bible</a></li>
-<li class='one_link'><a href='http://www.vatican.va/phome_en.htm' target='_blank'>Vatican Church</a></li>
-<li class='one_link'><a href='http://' target='_blank'>Vatican Radio</a></li>
 <li class='one_link'><a href='http://www.syromalabarchurch.in' target='_blank'>Syro Malabar Church</a></li>
 <li class='one_link'><a href='http://www.syromalabarmatrimony.org' target='_blank'>Syro Malabar Matrimony</a></li>
 <li class='one_link'><a href='http://www.apostolicnunciatureindia.com/' target='_blank'>The Apostolic Nunciature, India</a></li>
@@ -75,12 +73,12 @@ echo "<div id='important_links' style='height:1400px;'><h2 style='color:black;ma
 <li class='one_link'><a href='http://www.syromalabarchurch.in/' target='_blank'>Syro Malabar Bishop's Synod</a></li>
 <li class='one_link'><a href='http://www.ucanews.com/' target='_blank'>Union of Catholic Asian News</a></li>
 </ul>
-<div style='height:50px; position:relative; margin-top:10px; font-size:20px; color:black;'><b><i>RETREAT CENTRES :</i></b></div>
+<div style='height:50px; margin-top:10px; font-size:20px; color:black;'><b><i>RETREAT CENTRES :</i></b></div>
 <ul style='margin-top:30px'>
 <li class='one_link'><a href='http://www.sehion.org' target='_blank'>Sehion</a></li>
 <li class='one_link'><a href='http://www.drcm.org/' target='_blank'>Divine Retreat Centre, Chalakudy</a></li>
 </ul>
-<div style='height:30px; position:relative; margin-top:250px; font-size:20px; color:black;'><b><i>DIOCESES :</i></b></div>
+<div style='height:30px; margin-top:250px; font-size:20px; color:black;'><b><i>DIOCESES :</i></b></div>
 <ul style='margin-top:30px'>
 <li class='one_link'><a href='http://www.ramanathapuramdiocese.org/home.php' target='_blank'>Diocese of Ramanathapuram</a></li>
 <li class='one_link'><a href='http://www.archdiocesechanganacherry.org/' target='_blank'>Archdiocese of Changanacherry</a></li>
