@@ -3,7 +3,7 @@
 	if(isset($_GET['page'])){$page=$_GET['page'];}
 	if(isset($_GET['sub_page'])){$sub_page=$_GET['sub_page'];}
 	if(isset($_GET['page_name'])){$page_name=$_GET['page_name'];}
-	echo "<h1 style='color:black'>{$page_name}</h1>";
+	echo "<h1 style='color:#272727'>{$page_name}</h1>";
 	?>
 	<style>
 	a#next_page_button,a#prev_page_button{border:solid red;
@@ -14,7 +14,7 @@ a#next_page_button{right:0px;background-position:-41px -40px; position:relative;
 a#next_page_button:hover{background-position:-41px 0px;}
 a#prev_page_button:hover{background-position:0px 0px;}
 .book_wrapper{margin:0 auto;padding:0px; position:relative;background:none; overflow:scoll;}
-.book_wrapper img{cursor:pointer; margin:10px 0px 5px 15px;width:20%;height:80px;
+.book_wrapper img{cursor:pointer; margin:10px 0px 5px 15px;height:120px;
 padding:4px;border:1px solid #ddd;-moz-box-shadow:1px 1px 1px #fff;-webkit-box-shadow:1px 1px 1px #fff;box-shadow:1px 1px 1px #fff;}
 /*.book_wrapper h1{color:#13386a;margin:5px 5px 5px 15px;font-size:26px;background:transparent url(../images/h1.png) no-repeat bottom left;padding-bottom:7px;}
 .book_wrapper p{font-size:16px;margin:5px 5px 5px 15px;}
@@ -27,7 +27,7 @@ background:transparent url(../images/circle.png) no-repeat 50% 0px;display:block
 */
 	</style>
 	<div class="book_wrapper">
-<a id="next_page_button" style="border:2px solid black"></a><a id="prev_page_button" style="border:2px solid black"></a>
+<a id="next_page_button" style="border:2px solid #272727"></a><a id="prev_page_button" style="border:2px solid #272727"></a>
 <?php
 $sql="SELECT * FROM albums WHERE page_name='{$page_name}'"; $res=mysqli_query($db,$sql);
 while($row=mysqli_fetch_array($res)){

@@ -1,6 +1,6 @@
 <?php include("admin_header.php")?>
 <div id="content"><style type='text/css'>
-#parish_wrapper{font-size:15px;color:black;margin:1% 1%;position:relative;height:230px;}
+#parish_wrapper{font-size:15px;color:#272727;margin:1% 1%;position:relative;height:230px;}
 #image_wrapper{height:200px;width:40%;z-index:3;}
 #image_wrapper:hover{z-index:-2;cursor:pointer;}
 #image_wrapper img{height:220px;width:100%;}

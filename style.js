@@ -48,7 +48,7 @@ function page_top_wrapper () {
 function show_home () {
   home_top_wrapper()
   document.getElementById('tab_home').classList.add("currentTab");
-  document.getElementById('tab_home').style.color = "black";
+  document.getElementById('tab_home').style.color = "#272727";
   var xmlhttp
   if (window.XMLHttpRequest) { xmlhttp = new XMLHttpRequest();}else { xmlhttp = new ActiveXObject('Microsoft.XMLHTTP');}
   xmlhttp.onreadystatechange = function () {
@@ -59,21 +59,10 @@ function show_home () {
   xmlhttp.open('GET', 'index_default.php', true)
   xmlhttp.send()
 }
-function show_detail () {
-  var xmlhttp
-  if (window.XMLHttpRequest) { xmlhttp = new XMLHttpRequest();}else { xmlhttp = new ActiveXObject('Microsoft.XMLHTTP');}
-  xmlhttp.onreadystatechange = function () {
-    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-      document.getElementById('content').innerHTML = xmlhttp.responseText
-    }
-  }
-  xmlhttp.open('GET', 'include/show_detail_history.php', true)
-  xmlhttp.send()
-}
 
 function show_parishes (t) {
   page_top_wrapper()
-  document.getElementById('tab_diocese').style.color = 'black'
+  document.getElementById('tab_diocese').style.color = '#272727'
   var xmlhttp
   if (window.XMLHttpRequest) {xmlhttp = new XMLHttpRequest();}else {xmlhttp = new ActiveXObject('Microsoft.XMLHTTP');}
   xmlhttp.onreadystatechange = function () {if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {document.getElementById('content').innerHTML = xmlhttp.responseText;}}
@@ -82,7 +71,7 @@ function show_parishes (t) {
 
 function show_convents (t) {
   page_top_wrapper()
-  document.getElementById('tab_diocese').style.color = 'black'
+  document.getElementById('tab_diocese').style.color = '#272727'
   var xmlhttp
   if (window.XMLHttpRequest) { xmlhttp = new XMLHttpRequest();}else { xmlhttp = new ActiveXObject('Microsoft.XMLHTTP');}
   xmlhttp.onreadystatechange = function () {if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {document.getElementById('content').innerHTML = xmlhttp.responseText;}}
@@ -90,7 +79,7 @@ function show_convents (t) {
 }
 function show_institutions (t) {
   page_top_wrapper()
-  document.getElementById('tab_diocese').style.color = 'black'
+  document.getElementById('tab_diocese').style.color = '#272727'
   var xmlhttp
   if (window.XMLHttpRequest) { xmlhttp = new XMLHttpRequest();}else { xmlhttp = new ActiveXObject('Microsoft.XMLHTTP');}
   xmlhttp.onreadystatechange = function () {if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {document.getElementById('content').innerHTML = xmlhttp.responseText;}}
@@ -99,11 +88,11 @@ function show_institutions (t) {
 function show_tab (tab) {
   page_top_wrapper()
   if ((tab == 'history') || (tab == 'bishop'))
-    document.getElementById('tab_diocese').style.color = 'black'
+    document.getElementById('tab_diocese').style.color = '#272727'
   else if (tab == 'gallery')
-    document.getElementById('tab_gallery').style.color = 'black'
+    document.getElementById('tab_gallery').style.color = '#272727'
   else if (tab == 'contact')
-    document.getElementById('tab_contact').style.color = 'black'
+    document.getElementById('tab_contact').style.color = '#272727'
 
   var xmlhttp
   if (window.XMLHttpRequest) { xmlhttp = new XMLHttpRequest();}else { xmlhttp = new ActiveXObject('Microsoft.XMLHTTP');}
@@ -127,7 +116,7 @@ function show_album_image (src) {
 
 function show_catechism (t) {
   page_top_wrapper()
-  document.getElementById('tab_catechism').style.color = 'black'
+  document.getElementById('tab_catechism').style.color = '#272727'
   var xmlhttp
   if (window.XMLHttpRequest) { xmlhttp = new XMLHttpRequest();}else { xmlhttp = new ActiveXObject('Microsoft.XMLHTTP');}
   xmlhttp.onreadystatechange = function () {if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {document.getElementById('content').innerHTML = xmlhttp.responseText;}}
@@ -138,14 +127,13 @@ function show_wards (sub_page, s_sub_page) {
   page = 'wards'
   if (sub_page == 0) {page_top_wrapper();}
   else if (sub_page != 0) {
-    document.getElementById('page_top_wrapper').style.position = 'relative'
-    document.getElementById('page_top_wrapper').style.visibility = 'visible'
-    document.getElementById('home_top_wrapper').style.position = 'absolute'
-    document.getElementById('home_top_wrapper').style.visibility = 'hidden'
-    show_page_top_wrapper(sub_page, s_sub_page, page)
-    remove_tab_color()
+    document.getElementById('page_top_wrapper').style.position = 'absolute';
+    document.getElementById('page_top_wrapper').style.visibility = 'hidden';
+    document.getElementById('home_top_wrapper').style.position = 'absolute';
+    document.getElementById('home_top_wrapper').style.visibility = 'hidden';
+    remove_tab_color();
   }
-  document.getElementById('tab_wards').style.color = 'black'
+  document.getElementById('tab_wards').style.color = '#272727'
   var xmlhttp
   if (window.XMLHttpRequest) { xmlhttp = new XMLHttpRequest();}else { xmlhttp = new ActiveXObject('Microsoft.XMLHTTP');}
   xmlhttp.onreadystatechange = function () {if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {document.getElementById('content').innerHTML = xmlhttp.responseText;}}
@@ -157,30 +145,22 @@ function show_associations (sub_page, s_sub_page) {
     page_top_wrapper()
   }
   else if (sub_page != 0) {
-    document.getElementById('page_top_wrapper').style.position = 'relative'
-    document.getElementById('page_top_wrapper').style.visibility = 'visible'
-    document.getElementById('home_top_wrapper').style.position = 'absolute'
-    document.getElementById('home_top_wrapper').style.visibility = 'hidden'
-    show_page_top_wrapper(sub_page, s_sub_page, page)
-    remove_tab_color()
+    document.getElementById('page_top_wrapper').style.position = 'absolute';
+    document.getElementById('page_top_wrapper').style.visibility = 'hidden';
+    document.getElementById('home_top_wrapper').style.position = 'absolute';
+    document.getElementById('home_top_wrapper').style.visibility = 'hidden';
+    remove_tab_color();
   }
-  document.getElementById('tab_associations').style.color = 'black'
+  document.getElementById('tab_associations').style.color = '#272727'
   var xmlhttp
   if (window.XMLHttpRequest) { xmlhttp = new XMLHttpRequest();}else { xmlhttp = new ActiveXObject('Microsoft.XMLHTTP');}
   xmlhttp.onreadystatechange = function () {if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {document.getElementById('content').innerHTML = xmlhttp.responseText;}}
   xmlhttp.open('GET', page + '.php?sub_page=' + sub_page + '&s_sub_page=' + s_sub_page, true);xmlhttp.send()
 }
-function show_page_top_wrapper (sub_page, s_sub_page, page) {
-  var xmlhttp
-  if (window.XMLHttpRequest) { xmlhttp = new XMLHttpRequest();}else { xmlhttp = new ActiveXObject('Microsoft.XMLHTTP');}
-  xmlhttp.onreadystatechange = function () {if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {document.getElementById('page_top_wrapper').innerHTML = xmlhttp.responseText
-    }}
-  xmlhttp.open('GET', 'iframe.php?page=' + page + '&sub_page=' + sub_page + '&s_sub_page=' + s_sub_page, true);xmlhttp.send()
-}
 
 function show_links (tab) {
   page_top_wrapper()
-  document.getElementById('tab_links').style.color = 'black'
+  document.getElementById('tab_links').style.color = '#272727'
   var xmlhttp
   if (window.XMLHttpRequest) { xmlhttp = new XMLHttpRequest();}else { xmlhttp = new ActiveXObject('Microsoft.XMLHTTP');}
   xmlhttp.onreadystatechange = function () {if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {document.getElementById('content').innerHTML = xmlhttp.responseText;}}

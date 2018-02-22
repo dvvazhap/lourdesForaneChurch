@@ -24,15 +24,15 @@ $path=$path.$image;
 ?>
 <style>
 body{background-color:#86D5E5;}
-#parish_wrapper{width:860px; height:400px;position:relative; color:black;}
+#parish_wrapper{width:860px; height:400px;position:relative; color:#272727;}
 #name{height:100px;
-text-align:center; font-size:30px; color:#000000;}
+text-align:center; font-size:30px; color:#272727;}
 #image_wrapper img{width:300px;height:400px; border:3px solid #642d07;}
 #image_wrapper{overflow:hidden;width:306px; height:406px; margin-top:0px;}
 #parish_content{height:400px; width:650px; margin-top:-400px;line-height:1.5em; margin-left:320px; 
 font-size:20px; color:#ade450;}
-#parish_priest td{color:#000000;font-style:italic;font-size:20px;}
-#parish_address{color:#000038; padding-left:10%;width:400px;text-align:center;line-height:1.5em;}
+#parish_priest td{color:#272727;font-style:italic;font-size:20px;}
+#parish_address{color:#272727038; padding-left:10%;width:400px;text-align:center;line-height:1.5em;}
 </style>
 <html>
 <head><title><?php echo $name; ?></title></head>

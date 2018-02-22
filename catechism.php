@@ -3,8 +3,8 @@ require_once("include/connection.php");
 ?>
 <style>
 #class_wrapper{position:relative; width:100%; height:100%;}
-#class{font-size:50px; margin-bottom:30px; margin-left:50px; color:black;}
-#class_wrapper img{border:2px solid black; width:100%; height:100%; margin-left: auto;	margin-right: auto;	display: block;}
+#class{font-size:50px; margin-bottom:30px; margin-left:50px; color:#272727;}
+#class_wrapper img{border:2px solid #272727; width:100%; height:100%; margin-left: auto;	margin-right: auto;	display: block;}
 </style>
 <?php
 if(isset($_GET['tab'])){$tab=$_GET['tab'];}else{$tab=0;}
@@ -16,10 +16,10 @@ if(isset($_GET['tab'])){$tab=$_GET['tab'];}else{$tab=0;}
 		elseif($tab==1){
 		echo "<style>
 #council_info{height:250px;}
-#photo img{float:right; border:3px solid black; width:120px; height:160px; margin-left:50px; margin-top:10px; margin-right:150px; -webkit-border-radius:5px;-moz-border-radius:5px; border-radius:5px;}
+#photo img{float:right; border:3px solid #272727; width:120px; height:160px; margin-left:50px; margin-top:10px; margin-right:150px; -webkit-border-radius:5px;-moz-border-radius:5px; border-radius:5px;}
 #info{margin-left:180px;font-size:20px;}
 #name{margin-left:180px;color:#001132;font-size:28px; text-align:center; width:250px;}
-#post{margin-left:70px;font-style:italic;color:#000000;font-size:25px;}
+#post{margin-left:70px;font-style:italic;color:#272727;font-size:25px;}
 #address{margin-left:180px; font-style:italic; color:#632c01;width:250px;font-size:22px;line-height:1.5em; text-align:center;}
 #phone{	margin-left:180px;font-style:italic;color:#002453;text-align:center;width:250px;font-size:16px;}
 </style>";

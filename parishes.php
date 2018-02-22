@@ -11,8 +11,8 @@ position:relative; height:90%;}
 -moz-border-top-left-radius:20px;-moz-border-top-right-radius:20px;-moz-border-bottom-left-radius:10px;-moz-border-bottom-right-radius:0px;
 border-top-left-radius:20px;border-top-right-radius:20px;border-bottom-left-radius:0px;border-bottom-right-radius:0px;}
 #tabs li a{color:#fff;}
-b{color:black; font-size:18px; font-style:italic;}
-#link_parish a{color:black; cursor:pointer; text-decoration:underline;}
+b{color:#272727; font-size:18px; font-style:italic;}
+#link_parish a{color:#272727; cursor:pointer; text-decoration:underline;}
 #link_parish a:hover{text-decoration:none;}
 #link_parish a:link{text-decoration:underline;}
 </style>
@@ -22,17 +22,17 @@ if(isset($_GET['tab'])){
 $tab=$_GET['tab'];
 echo"<div id='tabs_wrapper'><ul id='tabs'>";
 if($tab==1){
-echo "<li style='background-color:#EDE4E4;'><a style='color:#000' onclick='show_parishes(1)'>Ramanathapuram</a></li>
+echo "<li style='background-color:#EDE4E4;'><a style='color:#272727' onclick='show_parishes(1)'>Ramanathapuram</a></li>
 <li><a onclick='show_parishes(2)' >Gandhipuram</a></li>
 <li><a onclick='show_parishes(3)' >Erode</a></li> ";}
 elseif($tab==2){
 echo "<li><a onclick='show_parishes(1)' >Ramanathapuram</a></li>
-<li style='background-color:#EDE4E4;'><a style='color:#000' onclick='show_parishes(2)' >Gandhipuram</a></li>
+<li style='background-color:#EDE4E4;'><a style='color:#272727' onclick='show_parishes(2)' >Gandhipuram</a></li>
 <li><a onclick='show_parishes(3)' >Erode</a></li> ";}
 elseif($tab==3){
 echo "<li><a onclick='show_parishes(1)' >Ramanathapuram</a></li>
 <li><a onclick='show_parishes(2)' >Gandhipuram</a></li>
-<li style='background-color:#EDE4E4;'><a style='color:#000' onclick='show_parishes(3)' >Erode</a></li> ";}
+<li style='background-color:#EDE4E4;'><a style='color:#272727' onclick='show_parishes(3)' >Erode</a></li> ";}
 echo "</ul>
 <div id='tab_content' class='container-fluid'>
     <div class='row'>

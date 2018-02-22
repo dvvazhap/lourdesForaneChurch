@@ -6,4 +6,4 @@ require_once("include/connection.php");
 	<hr/>";
 	
 ?>
-<style>#show_album_image_big{width:880px; height:500px;}</style>
+<style>#show_album_image_big{ position:relative; width:100%; margin-left: auto;	margin-right: auto;	display: block;}</style>

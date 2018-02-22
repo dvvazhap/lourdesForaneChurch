@@ -1,15 +1,13 @@
 <style type="text/css">
 #council_info{height:250px;}
-#photo img{border:3px solid black; float:right; width:120px; height:160px; margin-left:50px; margin-top:10px;margin-right:150px; -webkit-border-radius:10px;-moz-border-radius:10px; border-radius:10px;}
-#post{margin-left:70px;font-style:italic;color:#000000;font-size:25px;}
+#photo img{border:3px solid #272727; float:right; width:120px; height:160px; margin-left:50px; margin-top:10px;margin-right:150px; -webkit-border-radius:10px;-moz-border-radius:10px; border-radius:10px;}
+#post{margin-left:70px;font-style:italic;color:#272727;font-size:25px;}
 #info{margin-left:180px;font-size:20px;}
 #name{	margin-left:180px;color:#001132;font-size:28px; text-align:center; width:250px;}
 #address{	margin-left:180px; font-style:italic; color:#632c01;width:250px;font-size:22px; text-align:center;}
 #phone{	margin-left:180px;font-style:italic;color:#002453;text-align:center;width:250px;font-size:16px;}
-#title{color:#632c01;}
 </style>
 <?php
-echo"<h2 id=\"title\">Council members</h2><div class=\"hr_divider\"></div>";
 $count=0;
 $sql = "SELECT * FROM council_members WHERE page='{$page}'&&sub_page={$sub_page}";
 $result=mysqli_query($db,$sql);

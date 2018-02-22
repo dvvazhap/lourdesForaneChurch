@@ -9,7 +9,7 @@
 border-top-left-radius:20px;border-top-right-radius:20px;border-bottom-left-radius:0px;border-bottom-right-radius:0px;}
 #tabs li a{color:#fff;}
 .s_h{color:#642d07; font-size:20px; margin-top:30px;}
-b{color:black; font-size:18px; font-style:italic;}
+b{color:#272727; font-size:18px; font-style:italic;}
 </style>
 
 <?php
@@ -17,7 +17,7 @@ if(isset($_GET['tab'])){
 $tab=$_GET['tab'];
 if($tab==1){
 echo"<ul id='tabs'>
-<li style='background-color:#EDE4E4;' ><a style='color:#000' onclick='show_institutions(1)' >Ecclesiastical</a></li>
+<li style='background-color:#EDE4E4;' ><a style='color:#272727' onclick='show_institutions(1)' >Ecclesiastical</a></li>
 <li><a onclick='show_institutions(2)' >Educational</a></li>
 <li><a onclick='show_institutions(3)' >Medical</a></li>
 <li><a onclick='show_institutions(4)' >Charitable</a></li>
@@ -111,7 +111,7 @@ echo"<ul id='tabs'>
 if($tab==2){
 echo"<ul id='tabs'>
 <li><a onclick='show_institutions(1)'>Ecclesiastical</a></li>
-<li style='background-color:#EDE4E4'><a style='color:#000' onclick='show_institutions(2)'>Educational</a></li>
+<li style='background-color:#EDE4E4'><a style='color:#272727' onclick='show_institutions(2)'>Educational</a></li>
 <li><a onclick='show_institutions(3)'>Medical</a></li>
 <li><a onclick='show_institutions(4)'>Charitable</a></li>
 <li><a onclick='show_institutions(5)'>Social</a></li>
@@ -535,7 +535,7 @@ if($tab==3){
 echo"<ul id='tabs'>
 <li><a onclick='show_institutions(1)'>Ecclesiastical</a></li>
 <li><a onclick='show_institutions(2)'>Educational</a></li>
-<li style='background-color:#EDE4E4'><a style='color:#000' onclick='show_institutions(3)'>Medical</a></li>
+<li style='background-color:#EDE4E4'><a style='color:#272727' onclick='show_institutions(3)'>Medical</a></li>
 <li><a onclick='show_institutions(4)'>Charitable</a></li>
 <li><a onclick='show_institutions(5)'>Social</a></li>
 </ul>
@@ -578,7 +578,7 @@ echo"<ul id='tabs'>
 <li><a onclick='show_institutions(1)'>Ecclesiastical</a></li>
 <li><a onclick='show_institutions(2)'>Educational</a></li>
 <li><a onclick='show_institutions(3)'>Medical</a></li>
-<li  style='background-color:#EDE4E4'><a style='color:#000' onclick='show_institutions(4)'>Charitable</a></li>
+<li  style='background-color:#EDE4E4'><a style='color:#272727' onclick='show_institutions(4)'>Charitable</a></li>
 <li><a onclick='show_institutions(5)'>Social</a></li>
 </ul>";
 
@@ -730,7 +730,7 @@ echo"<ul id='tabs'>
 <li><a onclick='show_institutions(2)'>Educational</a></li>
 <li><a onclick='show_institutions(3)'>Medical</a></li>
 <li><a onclick='show_institutions(4)'>Charitable</a></li>
-<li style='background-color:#EDE4E4' ><a style='color:#000' onclick='show_institutions(5)'>Social</a></li>
+<li style='background-color:#EDE4E4' ><a style='color:#272727' onclick='show_institutions(5)'>Social</a></li>
 </ul><div class='tab-content' id='tab_content'>
 <span class='s_h'> Welfare Centres</span><br>
 <p><table border='1' cellspacing='0' cellpadding='0' width='800'>

@@ -7,12 +7,12 @@ require_once("include/connection.php");
 <style>
 #latest_news_wrapper{width:100%;z-index:3; height:400px; overflow:hidden;}
 #latest_news_content{width:100%;position:absolute; margin-top:10px;z-index:2;cursor:pointer;}
-#latest_news_content a{font-size:20px; color:black;}
-#latest_news_content {font-size:20px; color:black;}
+#latest_news_content a{font-size:20px; color:#272727;}
+#latest_news_content {font-size:20px; color:#272727;}
 #latest_space{clear:both;height:0px;}
 #link a{text-decoration:none;}
 #link a:hover{color:#500050; text-decoration:underline;}
-#no_link a:hover{color:black;}
+#no_link a:hover{color:#272727;}
 #latest_news_content a:link{text-decoration:none;}</style>
 <div id="latest_news_wrapper"><div id="latest_news_content" onmouseover='stopnews()' onmouseout='rollnews()'>
 <?php $sql="SELECT * FROM latest_news WHERE visible=1";

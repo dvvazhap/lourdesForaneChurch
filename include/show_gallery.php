@@ -31,7 +31,7 @@ if($page=='gallery'){
 		echo"<button  class='album' onclick='show_album(this.value)' value=\"{$display['page_name']}\" >{$display['page_name']}</button>";
 	}
 	echo "</div>";
-	echo"<h4><div style='color:black'>*Upload a jpg/jpeg Image of size less than 1 Mb</div></h4>";
+	echo"<h4><div style='color:#272727'>*Upload a jpg/jpeg Image of size less than 1 Mb</div></h4>";
 	echo"<div id='one_image'>";
 	if($page=="gallery"){echo "<h3>Album Name :".$page_name."</h3>";}
 	$query="SELECT * FROM albums WHERE page='{$page}' && page_name='{$page_name}' && sub_page={$sub_page}";
@@ -66,8 +66,8 @@ if($page=='gallery'){
 }
 
 elseif($page!='gallery'){
-	if($page=='home'){echo"<h4><div style='color:black'>*Upload a 660x280 jpg/jpeg Image of size less than 1 Mb</div></h4>";}
-	else{echo"<h4><div style='color:black'>*Upload a jpg/jpeg Image of size less than 1 Mb</div></h4>";}
+	if($page=='home'){echo"<h4><div style='color:#272727'>*Upload a 660x280 jpg/jpeg Image of size less than 1 Mb</div></h4>";}
+	else{echo"<h4><div style='color:#272727'>*Upload a jpg/jpeg Image of size less than 1 Mb</div></h4>";}
 	echo"<div id='one_image'>";
 	$query="SELECT * FROM albums WHERE page='{$page}' && sub_page={$sub_page}";
 	$res=mysqli_query($db,$query);

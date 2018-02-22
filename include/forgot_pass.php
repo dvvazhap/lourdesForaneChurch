@@ -45,7 +45,7 @@ else{echo "<div id='password_help'>
 }
 ?>
 <style>
-#password_help{height:100px; width:600px;padding:10px; border:5px solid grey; z-index:100; -webkit-border-radius: 10px;-moz-border-radius: 10px;border-radius:10px; background-color:black;}
+#password_help{height:100px; width:600px;padding:10px; border:5px solid grey; z-index:100; -webkit-border-radius: 10px;-moz-border-radius: 10px;border-radius:10px; background-color:#272727;}
 
 #password_help table{color:#fff;}
 </style>

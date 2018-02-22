@@ -37,14 +37,7 @@ include("include/header.php");
 		</div>
     </div>
 </div>
-<!-- <div class="row" style="border:solid red;">
-	<div id="bible_verse" class="col-md-12" >
-		<script type="text/javascript">window.setTimeout('bible1()',1)
-		function bible1(){document.getElementById("bible_verse").innerHTML = "He was in the beginnning with God (John 1:1)";window.setTimeout('bible2()',3000);}
-		function bible2(){document.getElementById("bible_verse").innerHTML = "The mighty one has done many great things";window.setTimeout('bible3()',3000);}
-		function bible3(){document.getElementById("bible_verse").innerHTML = "In the beginning God created the Universe";window.setTimeout('bible1()',3000)}</script>			
-	</div>
-</div> -->
+
 </div>
 <div id="page_top_wrapper" ></div>
 <div id="content_wrapper">

@@ -8,9 +8,9 @@
 -moz-border-top-left-radius:20px;-moz-border-top-right-radius:20px;-moz-border-bottom-left-radius:10px;-moz-border-bottom-right-radius:0px;
 border-top-left-radius:20px;border-top-right-radius:20px;border-bottom-left-radius:0px;border-bottom-right-radius:0px;}
 #tabs li a{color:#fff;}
-#place{color:#000;}
+#place{color:#272727;}
 .s_h{color:#642d07; font-size:20px; margin-top:30px;}
-b{color:black; font-size:18px; font-style:italic;}
+b{color:#272727; font-size:18px; font-style:italic;}
 </style>
 <?php
 $page='convents';
@@ -19,7 +19,7 @@ $tab=$_GET['tab'];
 echo "<script>alert({$tab});</script>";
 if($tab==1){
 echo"<ul id='tabs'>
-<li style='background-color:#EDE4E4;' ><a style='color:#000' onclick='show_convents(1)' >CMC</a></li>
+<li style='background-color:#EDE4E4;' ><a style='color:#272727' onclick='show_convents(1)' >CMC</a></li>
 <li><a onclick='show_convents(2)' >FCC</a></li>
 <li><a onclick='show_convents(3)' >CHF</a></li>
 <li><a onclick='show_convents(4)' >SABS</a></li>
@@ -95,7 +95,7 @@ Ph: 0491-2534929 <br>E-mail: jaichristo@gmail.com</p>
 	elseif($tab==2){
 	echo "<ul id='tabs'>
 <li><a onclick='show_convents(1)' >CMC</a></li>
-<li style='background-color:#EDE4E4;' ><a style='color:#000' onclick='show_convents(2)' >FCC</a></li>
+<li style='background-color:#EDE4E4;' ><a style='color:#272727' onclick='show_convents(2)' >FCC</a></li>
 <li><a onclick='show_convents(3)' >CHF</a></li>
 <li><a onclick='show_convents(4)' >SABS</a></li>
 <li><a onclick='show_convents(5)' >ASMI</a></li>
@@ -247,7 +247,7 @@ Ph: 0491 2534939, 2504939, 2500436<br>
 		echo "<ul id='tabs'>
 <li><a onclick='show_convents(1)' >CMC</a></li>
 <li><a onclick='show_convents(2)' >FCC</a></li>
-<li style='background-color:#EDE4E4;' ><a style='color:#000' onclick='show_convents(3)' >CHF</a></li>
+<li style='background-color:#EDE4E4;' ><a style='color:#272727' onclick='show_convents(3)' >CHF</a></li>
 <li><a onclick='show_convents(4)' >SABS</a></li>
 <li><a onclick='show_convents(5)' >ASMI</a></li>
 <li><a onclick='show_convents(6)' >CSC</a></li>
@@ -307,7 +307,7 @@ Ph: 0491 2555234
 <li><a onclick='show_convents(1)' >CMC</a></li>
 <li><a onclick='show_convents(2)' >FCC</a></li>
 <li><a onclick='show_convents(3)' >CHF</a></li>
-<li style='background-color:#EDE4E4;' ><a style='color:#000' onclick='show_convents(4)' >SABS</a></li>
+<li style='background-color:#EDE4E4;' ><a style='color:#272727' onclick='show_convents(4)' >SABS</a></li>
 <li><a onclick='show_convents(5)' >ASMI</a></li>
 <li><a onclick='show_convents(6)' >CSC</a></li>
 <li><a onclick='show_convents(7)' >CSS</a></li>
@@ -367,7 +367,7 @@ Ph: 0491 2833318
 <li><a onclick='show_convents(2)' >FCC</a></li>
 <li><a onclick='show_convents(3)' >CHF</a></li>
 <li><a onclick='show_convents(4)' >SABS</a></li>
-<li style='background-color:#EDE4E4;' ><a  style='color:#000' onclick='show_convents(5)' >ASMI</a></li>
+<li style='background-color:#EDE4E4;' ><a  style='color:#272727' onclick='show_convents(5)' >ASMI</a></li>
 <li><a onclick='show_convents(6)' >CSC</a></li>
 <li><a onclick='show_convents(7)' >CSS</a></li>
 <li><a onclick='show_convents(8)' >CSM</a></li>
@@ -419,7 +419,7 @@ Ph: 0484 2393228, 2382286
 <li><a onclick='show_convents(3)' >CHF</a></li>
 <li><a onclick='show_convents(4)' >SABS</a></li>
 <li><a onclick='show_convents(5)' >ASMI</a></li>
-<li style='background-color:#EDE4E4;' ><a style='color:#000' onclick='show_convents(6)' >CSC</a></li>
+<li style='background-color:#EDE4E4;' ><a style='color:#272727' onclick='show_convents(6)' >CSC</a></li>
 <li><a onclick='show_convents(7)' >CSS</a></li>
 <li><a onclick='show_convents(8)' >CSM</a></li>
 <li><a onclick='show_convents(9)' >CSN</a></li>
@@ -458,7 +458,7 @@ Ph: 2426516, 2427344
 <li><a onclick='show_convents(4)' >SABS</a></li>
 <li><a onclick='show_convents(5)' >ASMI</a></li>
 <li><a onclick='show_convents(6)' >CSC</a></li>
-<li style='background-color:#EDE4E4;' ><a style='color:#000' onclick='show_convents(7)' >CSS</a></li>
+<li style='background-color:#EDE4E4;' ><a style='color:#272727' onclick='show_convents(7)' >CSS</a></li>
 <li><a onclick='show_convents(8)' >CSM</a></li>
 <li><a onclick='show_convents(9)' >CSN</a></li>
 <li><a onclick='show_convents(10)' >SKD</a></li>
@@ -502,7 +502,7 @@ Ph: 0487 2372484</p>
 <li><a onclick='show_convents(5)' >ASMI</a></li>
 <li><a onclick='show_convents(6)' >CSC</a></li>
 <li><a onclick='show_convents(7)' >CSS</a></li>
-<li style='background-color:#EDE4E4;' ><a style='color:#000' onclick='show_convents(8)' >CSM</a></li>
+<li style='background-color:#EDE4E4;' ><a style='color:#272727' onclick='show_convents(8)' >CSM</a></li>
 <li><a onclick='show_convents(9)' >CSN</a></li>
 <li><a onclick='show_convents(10)' >SKD</a></li>
 </ul><div class='tab-content' id='tab-content'>
@@ -541,7 +541,7 @@ Ph: 9544519739
 <li><a onclick='show_convents(6)' >CSC</a></li>
 <li><a onclick='show_convents(7)' >CSS</a></li>
 <li><a onclick='show_convents(8)' >CSM</a></li>
-<li style='background-color:#EDE4E4;' ><a style='color:#000' onclick='show_convents(9)' >CSN</a></li>
+<li style='background-color:#EDE4E4;' ><a style='color:#272727' onclick='show_convents(9)' >CSN</a></li>
 <li><a onclick='show_convents(10)' >SKD</a></li>
 </ul><div class='tab-content' id='tab-content'>
       <b>CONGREGATION OF THE SISTERS OF NAZARETH </b><br>
@@ -581,7 +581,7 @@ Ph: 0484 2452438
 <li><a onclick='show_convents(7)' >CSS</a></li>
 <li><a onclick='show_convents(8)' >CSM</a></li>
 <li><a onclick='show_convents(9)' >CSN</a></li>
-<li style='background-color:#EDE4E4;' ><a style='color:#000' onclick='show_convents(10)' >SKD</a></li>
+<li style='background-color:#EDE4E4;' ><a style='color:#272727' onclick='show_convents(10)' >SKD</a></li>
 </ul><div class='tab-content' id='tab-content'>
       <b>SOCIETY OF KRISTU DASIS</b><br>
       <div id='place'>Kristu Dasi Generalate, Mannuthy</div>

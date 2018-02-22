@@ -1,10 +1,19 @@
 <?php $page='history'; ?>
 
-<img style="position:absolute;margin-top:30px; height:200px; width:200px;" src="images/alphonsa.png" />		
-<b style="font-size:40px;margin-left:30%; margin-top:100px; position:absolute;"><i>Diocese of Ramanathapuram </i></b><br/><br/>
-<img style="position:absolute;right:0;margin-top:-40px; height:200px; width:200px;" src="images/thomas.png" />
-<br/><br/><br/><br/><br/><br/><br/><br/><br/>
-<div style="line-height: 2em;">
+<div class="container-fluid">
+<div class="row">
+	<div class="col-md-3" >
+    <img style="height:200px; width:200px;" src="images/alphonsa.png" />
+    </div>
+    <div class="col-md-6" >
+        <h2 class="heading" style="margin-top:100px;">DIOCESE OF RAMANATHAPURAM</h2>
+    </div>
+    <div class="col-md-3" >
+    <img style="height:200px; width:200px;" src="images/thomas.png" />
+    </div>
+</div>
+<div class="row">
+<br/><br/><br/><div style="line-height: 2em;">
 <span>The Syrian Catholics, mostly the Syro-Malabar Catholics, from various parts of Kerala had started migrating to different areas of Tamil Nadu years back, i.e., in the first half of the 20th century, for the purpose of job, business etc. 
 The Syrian Catholics who thus came in the beginning were going to the churches of the Latin Rite for fulfilling their spiritual needs. 
 But as the territory of the undivided eparchy of Trichur was extended on 29th April 1955 to the areas of Tamil Nadu, co extensive with those of the diocese of Coimbatore they got opportunity to get their spiritual needs fulfilled according to their own Mother rite.  
@@ -26,3 +35,4 @@ Thus the new eparchy has its territory comprising the four civil districts of Ta
 </span>
 </div>
 <div class="cleaner"></div>
+</div>

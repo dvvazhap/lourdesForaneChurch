@@ -1,20 +1,19 @@
 #home_top_wrapper{height:400px; position:relative;}
-#show_mass{color:black;  font-family: Superior Title Black,Georgia,serif; line-height: 1.5em;font-size:20px;}
-#bible_verse{font-style:italic; color:#000; font-size:18px;margin:0;height:30px;text-align:center;}
+#show_mass{color:#272727;  font-family: Superior Title Black,Georgia,serif; line-height: 1.5em;font-size:20px;}
 #latestNewsFrame{min-height:400px;width:100%;background-color:#EDE4E4;padding:5px; -webkit-border-radius:20px;-moz-border-radius:20px;border-radius:20px;}
 #important{margin-top:-30px;position:relative;width:100%;height:260px;}
 #important img{position:relative;width:100%;margin: 0px 1% 0px 0%;height:300px;}
-#important_text{color:#000000;position:absolute;padding-left:30px;margin:-205px 0% 0px 10%;font-size:20px;width:77%;height:140px;transform:rotate(353deg);-ms-transform:rotate(353deg); /* IE 9 */-moz-transform:rotate(353deg); /* Firefox */-webkit-transform:rotate(353deg); /* Safari and Chrome */-o-transform:rotate(353deg); /* Opera */}
+#important_text{color:#272727;position:absolute;padding-left:30px;margin:-205px 0% 0px 10%;font-size:20px;width:77%;height:140px;transform:rotate(353deg);-ms-transform:rotate(353deg); /* IE 9 */-moz-transform:rotate(353deg); /* Firefox */-webkit-transform:rotate(353deg); /* Safari and Chrome */-o-transform:rotate(353deg); /* Opera */}
 #important_text span{line-height:1.5em;}
 #history{margin:0px;}
 #read_more{ float:right; margin-right:40px; cursor:pointer;}
 #history_content{font-style:italic;  height:220px; margin-top:-20px; overflow:hidden;}
 #history h2{font-size:25px;line-height:1em;}
-#history_wrapper{ border:2px solid black;padding:10px;margin-top:90px;float:left;width:440px;height:310px;
+#history_wrapper{ border:2px solid #272727;padding:10px;margin-top:90px;float:left;width:440px;height:310px;
 overflow:hidden;background-color:#fada89;line-height:2em;}
 
 #history_wrapper span{line-height:1.5em;}
-#latest_news{border:2px solid black; z-index:5; position:relative; margin-top:90px; height:300px;
+#latest_news{border:2px solid #272727; z-index:5; position:relative; margin-top:90px; height:300px;
 padding:0px;float:right;line-height:1em;font-size:25px; width:350px; overflow:hidden;}
 #events{float:right; width:380px;position:relative;margin-top:70px;margin-left:10px;}
 #event_wrapper{height:80px; margin-bottom:10px; width:100%;}
@@ -23,10 +22,10 @@ padding:0px;float:right;line-height:1em;font-size:25px; width:350px; overflow:hi
 }
 .month{font-size:20px;}
 .day{ font-size:60px;}
-.event{ font-style:italic; position:absolute; margin-left:120px; margin-top:-65px; height:70px; width:300px; font-size:20px; color:black;}
+.event{ font-style:italic; position:absolute; margin-left:120px; margin-top:-65px; height:70px; width:300px; font-size:20px; color:#272727;}
 
-#gen_topic{color:black; font-size:30px;line-height:1.5em; height:50px; margin-top:0%; width:100%; overflow:hidden; }
-#gen_content{font-style:italic; padding:10px; line-height:1.3em; min-height:150px; overflow-y:auto; font-size:20px; color:black;}
+#gen_topic{color:#272727; font-size:30px;line-height:1.5em; height:50px; margin-top:0%; width:100%; overflow:hidden; }
+#gen_content{font-style:italic; padding:10px; line-height:1.3em; min-height:150px; overflow-y:auto; font-size:20px; color:#272727;}
 #gen_content span{margin-left:100px;}
 .contact{
     line-height: 1.5em;

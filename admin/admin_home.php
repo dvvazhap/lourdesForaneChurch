@@ -2,13 +2,13 @@
 <div id='content'>
 <style>
 #create_event_button{margin-left:700px; position:absolute;}
-#create_event{width:350px; margin-left:800px; padding:0px; position:absolute; font-size:30px; -webkit-border-radius:20px;-moz-border-radius:20px;border-radius:20px; background-color:black; color:red;}
+#create_event{width:350px; margin-left:800px; padding:0px; position:absolute; font-size:30px; -webkit-border-radius:20px;-moz-border-radius:20px;border-radius:20px; background-color:#272727; color:red;}
 th{color:white;}
 #flash_news{ margin-left:10px;}
 #important_news{margin-left:400px;}
 #wrapper{height:270px; border:solid white;}
 #button{float:left;}
-#show_tables{height:270px; width:700px; float:right;background-color:black;}
+#show_tables{height:270px; width:700px; float:right;background-color:#272727;}
 #change_password_button,#add_user_button,#view_users_button,#show_gallery_button,#show_information_button{width:250px;}
 div{color:white;}
 th{color:white;}
@@ -116,7 +116,7 @@ $c=mysqli_num_rows($result);
 if($c==0){$sql="INSERT into page_content(`page`,`sub_page`,`sub_no`,`temp_id`) VALUES('home',2,1,1)"; $res=mysqli_query($db,$sql);}
 confirm_query($result);
 if(isset($result)){ while($display = mysqli_fetch_array($result)){
-echo "<form id='flash_news' method='post'><b style='color:black'>Main Heading:</b><br/>
+echo "<form id='flash_news' method='post'><b style='color:#272727'>Main Heading:</b><br/>
 <textarea name='flash_content' rows='2' cols='50'>{$display['sub_content']}</textarea>
 <input type='submit' name='submit_flash_news' value= 'Save' /></form>";}}
 if(isset($_POST['submit_flash_news'])){
@@ -135,7 +135,7 @@ echo "<div id='events'></div>";
 echo "<div id='del'></div>";
 
 
-echo"<hr/><b style='color:black'>Latest News :</b><br/>";
+echo"<hr/><b style='color:#272727'>Latest News :</b><br/>";
 $count=0;
 $query = "SELECT * FROM latest_news";
 $result = mysqli_query($db,$query);

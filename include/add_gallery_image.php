@@ -54,11 +54,11 @@ if(a==1){show_gallery();}else{show_album(a);}
 #show_gallery_button{float:right;}
 #show_gallery .album{
 height:60px; width:500px; padding:10px;
-color:#000; font-size:30px;
+color:#272727; font-size:30px;
 }
 #show_album{
 -webkit-border-radius:45px;-moz-border-radius:45px;border-radius:45px;
-background-color:#000; padding:30px;}
+background-color:#272727; padding:30px;}
 
 </style>
 <?php

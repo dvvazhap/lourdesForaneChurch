@@ -4,14 +4,12 @@ require_once("include/connection.php");
 if(isset($_GET['sub_page'])){$sub_page=$_GET['sub_page'];}else{$sub_page=0;}
 if(isset($_GET['s_sub_page'])){$s_sub_page=$_GET['s_sub_page'];}else{$s_sub_page=0;}
 ?>
-<style type="text/css">#title{color:#632c01;text-align:center;font-size:50px;}
-</style>
 <?php $page='associations';
 $sql = "SELECT * FROM associations_table WHERE id={$sub_page}"; 
 	$result=mysqli_query($db,$sql);
 	while($row=mysqli_fetch_array($result)){$pagename = $row['name'];}
-if($sub_page==0){
 if($sub_page==NULL){$sub_pag=0;}
+if($sub_page==0){
 $sql="SELECT * FROM associations_table ORDER BY name "; 
 $res=mysqli_query($db,$sql);
 $lr="one_image_left"; 
@@ -24,20 +22,25 @@ echo "<div id='page_pic_agw'>"; while($row1=mysqli_fetch_array($res1)){if($row['
 echo"<div><img src=\"images/no_image.jpg\" /></div>";}else echo"<div><img src=\"images/{$page}_table/{$row1['image']}\" /></div>";
 }
 echo "</div></div>";
-if($lr=="one_image_left"){$lr="one_image_centerl";}else if($lr=="one_image_centerl"){$lr="one_image_centerr";}
-else if($lr=="one_image_centerr"){$lr="one_image_right";}else{$lr="one_image_left";}
+if($lr=="one_image_left"){$lr="one_image_left1";}else if($lr=="one_image_left1"){$lr="one_image_center";}
+else if($lr=="one_image_center"){$lr="one_image_right1";}else if($lr=="one_image_right1"){$lr="one_image_right";}else{$lr="one_image_left";}
 
 echo "</div></a>";
 }}
+if($s_sub_page!=0){
+	echo "<div class='container-fluid'>
+			<div class='row'>
+				<div class='col-md-12' style='text-align:center'><h2 class='heading'> {$pagename}</h2></div>
+			</div>
+			</div>";
+}
 if($s_sub_page==1){
-echo "<h2 id=\"title\"> {$pagename}..!</h2>";
-echo"<div class=\"hr_divider\"></div>";
 $sql="SELECT * FROM albums WHERE page='associations' && sub_page={$sub_page} && name='page.jpg'";
 $c=0;
 $result=mysqli_query($db,$sql);
 $c=mysqli_num_rows($result);
 if($c==1){
-echo "<img style=\"width:880px;border:2px solid black; height:400px;position:relative\" src='images/gallery/associations/{$sub_page}/page.jpg'>";
+echo "<img style='width:80%;border:2px solid #272727; margin-left: auto;	margin-right: auto;	display: block; height:400px;position:relative' src='images/gallery/associations/{$sub_page}/page.jpg'>";
 }
 include("include/display_page_content.php");
 }

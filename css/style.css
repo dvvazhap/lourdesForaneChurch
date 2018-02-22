@@ -1,11 +1,11 @@
 /*******Designed by Dijil Varghese********/
 @font-face {font-family: "PencilBox";src: url(pencil.ttf) format("truetype");}
 body {margin: 0 auto;padding:0px; background-color:#86D5E5; font-family: Arial, Helvetica, sans-serif; font-size: 13px;line-height: 1.5em; width:90%; }
-a, a:link, a:visited {color: #000; text-decoration: none;}
+a, a:link, a:visited {color: #272727; text-decoration: none;}
 a:hover {text-decoration: underline;}
 p {margin: 0px;padding: 0;}
 img {border: none;}
-h1, h2, h3, h4, h5, h6 {color: black;}
+h1, h2, h3, h4, h5, h6 {color: #272727;}
 h1 {font-size: 40px;font-weight: normal;margin: 0 0 30px 0;padding: 5px 0; }
 h2 {font-size: 28px;font-weight: normal;margin: 0 0 20px 0;padding: 0;}
 h3 {font-size: 21px;margin: 0 0 15px 0;padding:0;}
@@ -22,46 +22,46 @@ h6 {font-size: 14px;margin: 0 0 5px 0;padding: 0;color: #ccc;}
 .float_l {float: left;}
 .float_r {float: right;}
 em {color:#fff;}
-.heading{font-family: "Segoe UI", Arial, sans-serif;background-color: #000;
-    color: #fff; display: inline-block; padding-left: 8px; padding-right: 8px; text-align: center;}
-.hr_divider {clear: both;padding-bottom: 10px;margin-bottom: 10px;background: url(../images/templatemo_hr_divider.png) bottom repeat-x;}
-#wrapper_outer {z-index:2; margin: 0 auto;}
-#wrapper_right{margin: 0 auto; z-index:2;border:solid black; width:100%;}
+.heading{font-family: "Segoe UI", Arial, sans-serif;background-color: #272727;
+    color: #fff; display: inline-block; padding-left: 8px; padding-right: 8px; text-align: center;opacity:0.9;}
+wrapper_outer {z-index:2; margin: 0 auto;}
+#wrapper_right{margin: 0 auto; z-index:2; width:100%;}
 .church_title{font-size:50px;font-weight: bold;padding-top:20px;height:60px;}
 #admin_panel{text-align: right; z-index:21; color:#ee3344;font-size:20px;cursor:pointer;height:30px;width:60px;margin-top:20px;}
 #admin_input{
-background-color:#c4ac80;color:white;border:2px solid #262626;
+background-color:#c4ac80;color:white;border:2px solid #272727;
 position:absolute;cursor:pointer;padding-left:20px;padding-top:0px;padding-bottom:10px;
 height:100px;width:280px;margin-top:0;margin-left:75%;z-index:35;visibility: hidden;}
 #admin_input td{color:white;}
-#admin_input input{color:black;font-size:15px;width:130px;}
+#admin_input input{color:#272727;font-size:15px;width:130px;}
 #forgot{position:absolute; margin-top:30px; margin-left:2%;}
-#wrapper{width:1080px; height:220px;padding: 0 10px;margin:0 auto;position:relative; z-index:20;}
+#wrapper{width:100%; height:220px;position:relative; z-index:20;}
 /* header */
 #social_box {float: right;display: inline-block;padding: 0;list-style: none;z-index:30;}
 #social_box a {width: 46px;height: 46px;margin-right: 5px;cursor:pointer;}
 /* end of header */
 /* Navigation menu  */
-.currentTab{color:black;}
-#nav {cursor:pointer; width:100%;height:60px;line-height:100%;list-style:none;display:inline-block;z-index:100;}
+.currentTab{color:#272727;}
+#nav {cursor:pointer; width:100%;height:60px;line-height:100%;list-style:none;display:inline-block;z-index:100;padding-left: 0;}
 #nav li {width:auto;  height:40px; position: relative;list-style: none;display: inline-block;}
-#nav li:hover{background:black;}
+#nav li:hover{background:#272727;}
 #nav li:hover > a{color:white !important;}
 #nav ul li:hover > a{color:red !important;}
 
-#nav li a{margin: 12px 5px; display:block;font-size:14px; 
+#nav li a{margin: 12px 5px; display:block;font-size:16px; 
     color:brown;text-decoration:none;font-weight:bold;outline:none;}
-#nav li ul li {width:180px;} 
+#nav li ul li {width:220px;} 
 #nav li:hover > ul {display: block;}
-#nav ul li:hover{ width:180px; }
+#nav ul li:hover{ width:220px; }
 #nav ul li a{color:#fff;}
 #nav ul li{height:30px;}
-#nav ul {text-align:left;display: none; padding-left: 0px; position: absolute;top: 40px;background:#000;}
-#nav ul ul {overflow:hidden;left: 180px; top:0px; width:180px; padding-left: 0px;}
+#nav ul {text-align:left;display: none; padding-left: 0px; position: absolute;top: 40px;background:#272727;}
+#nav ul ul {overflow:hidden;left: 220px; top:0px; width:250px; padding-left: 0px;}
+#nav ul ul a{width:250px;}
 /* End of navigation */
 
 #content_wrapper {position:relative;width:100%; overflow:hidden; padding: 10px;}
-#content{padding: 0px;width: 100%; font-size:20px; line-height:1.2em; color:black;text-align:justify;}
+#content{padding: 0px;width: 100%; font-size:20px; line-height:1.2em; color:#272727;text-align:justify;}
 #content p{margin-bottom: 10px;}
 
 #fb_like{margin-left:3%;position:relative;color:white; padding-top:20px;padding-left:50px;}

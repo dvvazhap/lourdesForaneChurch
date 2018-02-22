@@ -47,7 +47,7 @@ require_once("include/connection.php");
 </div>
 <div class="cleaner_h40"></div>
 <div class="row">
-	<div class="col-md-12">
+	<div class="col-md-12" >
 		<h2 class="heading">CONTACT US<h2>
 		<hr/>
 	</div>

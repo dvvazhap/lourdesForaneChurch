@@ -19,8 +19,8 @@ echo"<div id='page_aw_wrapper' class='{$lr}'>
 			break;
 		}
 	echo "</div></div>";
-if($lr=="one_image_left"){$lr="one_image_centerl";}else if($lr=="one_image_centerl"){$lr="one_image_centerr";}
-else if($lr=="one_image_centerr"){$lr="one_image_right";}else{$lr="one_image_left";}
+	if($lr=="one_image_left"){$lr="one_image_left1";}else if($lr=="one_image_left1"){$lr="one_image_center";}
+	else if($lr=="one_image_center"){$lr="one_image_right1";}else if($lr=="one_image_right1"){$lr="one_image_right";}else{$lr="one_image_left";}	
 echo "</div></div>";
 } 
 
@@ -51,8 +51,8 @@ echo"<div><img src=\"images/gallery/wards/{$row1['sub_page']}/{$row1['name']}\" 
 break;
 }
 echo "</div></div>";
-if($lr=="one_image_left"){$lr="one_image_centerl";}else if($lr=="one_image_centerl"){$lr="one_image_centerr";}
-else if($lr=="one_image_centerr"){$lr="one_image_right";}else{$lr="one_image_left";}
+if($lr=="one_image_left"){$lr="one_image_left1";}else if($lr=="one_image_left1"){$lr="one_image_center";}
+else if($lr=="one_image_center"){$lr="one_image_right";}else{$lr="one_image_left";}
 echo "</div></div>";
 }
 
@@ -80,8 +80,8 @@ echo"<div><img src=\"images/gallery/associations/{$row1['sub_page']}/{$row1['nam
 break;
 }
 echo"</div></div>";
-if($lr=="one_image_left"){$lr="one_image_centerl";}else if($lr=="one_image_centerl"){$lr="one_image_centerr";}
-else if($lr=="one_image_centerr"){$lr="one_image_right";}else{$lr="one_image_left";}
+if($lr=="one_image_left"){$lr="one_image_left1";}else if($lr=="one_image_left1"){$lr="one_image_center";}
+else if($lr=="one_image_center"){$lr="one_image_right";}else{$lr="one_image_left";}
 echo "</div></div>";}
 
 ?>

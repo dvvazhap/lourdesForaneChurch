@@ -90,10 +90,11 @@ fjs.parentNode.insertBefore(js, fjs);
 			<ul><?php $query = "SELECT * FROM wards_table ORDER by name";$result = mysqli_query($db,$query);
 			while($row=mysqli_fetch_array($result)){
 			$id=$row['id'];
-			echo "<li><a href='#' onclick='show_wards({$id},1)'>{$row['name']}</a><ul>
-			<li><a href='#' onclick='show_wards({$id},1)'>{$row['name']} Ward </a></li>
-			<li><a href='#' onclick='show_wards({$id},2)'>Council Members</a></li>
-			<li><a href='#' onclick='show_wards({$id},3)'>Prayer Meeting</a></li></ul></li>";}
+			echo "<li><a href='#' onclick='show_wards({$id},1)'>{$row['name']}</a>
+				<ul>
+					<li><a href='#' onclick='show_wards({$id},1)'>{$row['name']} Ward </a></li>
+					<li><a href='#' onclick='show_wards({$id},2)'>Council Members</a></li>
+				</ul></li>";}
 			?></ul></li>
 			<li><a id="tab_gallery" href="#" onclick="show_tab('gallery')">GALLERY</a></li>
 			<li><a id="tab_catechism" href="#" onclick="show_catechism(0)">CATECHISM</a>
