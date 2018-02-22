@@ -8,10 +8,10 @@ if(isset($_POST['username'])){$username=mysqli_prep($db,$_POST['username']);}
 if(isset($_POST['password'])){$password=mysqli_prep($db,$_POST['password']);}
 if(isset($_GET['logout']))
 {session_destroy();
-echo "<script>window.location='../home.php'</script>";}
+echo "<script>window.location='../'</script>";}
 if(($_SESSION['user']!=NULL)&&($_SESSION['pass']!=NULL)){
 $username=mysqli_prep($db,$_SESSION['user']);$password=mysqli_prep($db,$_SESSION['pass']);$admin_right = $_SESSION['admin_right'];
 $sql = "SELECT * FROM security WHERE username='{$username}' && password='{$password}'";$result = mysqli_query($db,$sql);
 while($row=mysqli_fetch_array($result)){$admin_page = $row['admin_page'];$admin_sub_page = $row['admin_sub_page'];$admin_right = $row['admin_right'];}}
-else{echo "<script>window.location= '../home.php'</script>";die;}
+else{echo "<script>window.location= '../'</script>";die;}
 echo "Welcome {$username}...!";?>

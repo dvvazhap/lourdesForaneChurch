@@ -1,7 +1,7 @@
 <div class="cleaner"></div></div>
 
 <div id="fb_like" class="fb-like" data-href="https://www.facebook.com/LourdesForaneChurch" data-send="true" data-width="450" data-show-faces="true" data-font="verdana"></div>
-<div id="footer">Copyright 2012 <a href="#">Lourdes Forane Church</a> | Website Designed by DESIGN TREE - Dijil Varghese - +91-9894985156</div>
+<div id="footer">Copyright 2018 <a href="#">Lourdes Forane Church</a> | Website Designed by DESIGN TREE - Dijil Varghese - +91-9894985156 / +91-9739091906</div>
 <?php if(isset($_GET['page_name'])){ echo"<script>document.getElementById('content_wrapper').style.visibility='hidden';document.getElementById('fb_like').style.visibility='hidden';document.getElementById('footer').style.visibility='hidden';</script>";}?></div></div></div>
 <?php if((($page=='associations')||($page=='wards')||($page=='gallery'))&&($sub_page==0)) include("include/alter_page_height.php"); ?>
 </body><script type='text/javascript'>
