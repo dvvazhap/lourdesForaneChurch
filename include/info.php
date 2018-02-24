@@ -59,41 +59,65 @@ if($info==1){
 	$name = $_SESSION['user'];
 	$res = mysqli_query($db,"SELECT * FROM security WHERE username='{$name}'");
 	while($row = mysqli_fetch_array($res)){
-		echo "<h3>Username :{$row['username']}</h3><br/>";
-		echo "Phone :<input type='text' id='mobile_no' onchange='val_phone(this.value)' "; if(($row['phone']=='')||($row['phone']==NULL)) echo"value=''"; else echo"value='{$row['phone']}'"; echo "maxlength='10'><br/><br/>";
-		echo "<table><tr><td>Security Question </td><td>:</td><td><select id='question' ><option "; if(($row['question']=="")||($row['question']==NULL)) echo"value=''"; else echo"value='{$row['question']}'"; echo " >{$row['question']}</option>
-		<option value='Name of your first grade teacher'>Name of your first grade teacher</option>
-		<option value='Name of the School you studied'>Name of the School you studied</option>
-		<option value='Your favourite pet'>Your favourite pet</option>
-		<option value='The person whom you like the most'>The person whom you like the most</option>
-		<option value='The person whom you hate'>The person whom you hate</option>
-		<option value='Your lucky colour'>Your lucky colour</option>
-		<option value='Your son/daughter name'>Your son/daughter name</option>
-		<option value='Your spouce name'>Your spouce name</option>
-		<option value='Your first mobile number'>Your first mobile number</option>
-		<option value='Your favourite sport'>Your favourite sport</option>
-		<option value='The car you wished to have'>The car you wished to have</option>
-		<option value='Your character'>Your character</option>
-		<option value='Your chatnote email id'>Your chatnote email id</option>
-		<option value='Your gmail id'>Your gmail id</option>
-		<option value='Your mothers native'>Your mothers native</option>
-		<option value='Your hometown'>Your hometown</option>
-		<option value='Your son in law name'>Your son in law name</option>
-		<option value='The class in which your child study'>The class in which your child study</option>
-		<option value='The name of the school you are studying'>The name of the school you are studying</option>
-		<option value='The College you got your graduation'>The College you got your graduation</option>
-		<option value='The school in which your son/daughter study'>The school in which your son/daughter study</option>
-		<option value='Number of rooms in your house'>Number of rooms in your house</option>
-		<option value='The year which you can never forget'>The year which you can never forget</option>
-		<option value='The city you were born'>The city you were born</option>
-		<option value='The name you like the most'>The name you like the most</option>
-		<option value='Your role model'>Your role model</option>
-		<option value='The model of your mobile phone'>The model of your mobile phone</option>
-		<option value='Your wife phone number'>Your wife phone number</option>
-		</select></td><td></td></tr>";
-		echo "<tr><td>Answer </td><td>:</td><td><textarea id='answer' rows='3' cols='30'>"; if(($row['answer']=="")||($row['answer']==NULL)) echo""; else echo"{$row['answer']}"; echo "</textarea></td>
-		<td><button onclick='save_information()'>Save Information</button></td>
-		</tr></table>";
+		echo"<div class='container-fluid'>
+			<div class='row'>
+				<div class='col-md-4'>Phone:</div>
+				<div class='col-md-6'><input type='text' id='mobile_no' onchange='val_phone(this.value)' "; 
+				if(($row['phone']=='')||($row['phone']==NULL)) echo"value=''"; 
+				else echo"value='{$row['phone']}'"; 
+				echo "maxlength='10'><br/></div>
+			</div>
+			<div class='row'>
+				<div class='col-md-4'>Security Question:</div>
+				<div class='col-md-6'>
+					<select id='question' ><option "; 
+					if(($row['question']=="")||($row['question']==NULL)) echo"value=''"; 
+					else echo"value='{$row['question']}'"; 
+					echo " >{$row['question']}</option>
+					<option value='Name of your first grade teacher'>Name of your first grade teacher</option>
+					<option value='Name of the School you studied'>Name of the School you studied</option>
+					<option value='Your favourite pet'>Your favourite pet</option>
+					<option value='The person whom you like the most'>The person whom you like the most</option>
+					<option value='The person whom you hate'>The person whom you hate</option>
+					<option value='Your lucky colour'>Your lucky colour</option>
+					<option value='Your son/daughter name'>Your son/daughter name</option>
+					<option value='Your spouce name'>Your spouce name</option>
+					<option value='Your first mobile number'>Your first mobile number</option>
+					<option value='Your favourite sport'>Your favourite sport</option>
+					<option value='The car you wished to have'>The car you wished to have</option>
+					<option value='Your character'>Your character</option>
+					<option value='Your chatnote email id'>Your chatnote email id</option>
+					<option value='Your gmail id'>Your gmail id</option>
+					<option value='Your mothers native'>Your mothers native</option>
+					<option value='Your hometown'>Your hometown</option>
+					<option value='Your son in law name'>Your son in law name</option>
+					<option value='The class in which your child study'>The class in which your child study</option>
+					<option value='The name of the school you are studying'>The name of the school you are studying</option>
+					<option value='The College you got your graduation'>The College you got your graduation</option>
+					<option value='The school in which your son/daughter study'>The school in which your son/daughter study</option>
+					<option value='Number of rooms in your house'>Number of rooms in your house</option>
+					<option value='The year which you can never forget'>The year which you can never forget</option>
+					<option value='The city you were born'>The city you were born</option>
+					<option value='The name you like the most'>The name you like the most</option>
+					<option value='Your role model'>Your role model</option>
+					<option value='The model of your mobile phone'>The model of your mobile phone</option>
+					<option value='Your wife phone number'>Your wife phone number</option>
+					</select>
+				</div>
+			</div>
+			<div class='row'>
+				<div class='col-md-4'>Answer:</div>
+				<div class='col-md-6'>
+				<input id='answer' type='text' value='"; 
+				if(($row['answer']=="")||($row['answer']==NULL)) echo""; 
+				else echo"{$row['answer']}"; 
+				echo "'/>
+				</div>
+			</div>
+			<div class='row'>
+				<div class='col-md-6'><button onclick='save_information()'>Save Information</button></div>
+			</div>
+		</div>";
 	}
 }
 elseif($info==2){

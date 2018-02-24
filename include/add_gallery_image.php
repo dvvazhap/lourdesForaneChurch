@@ -131,36 +131,54 @@ if(isset($_POST['upload_image'])){
 			}
 			else
 			{
-				echo"Sorry ! ".mysqli_error()."<br/> Go to home page and retry...";
+				echo"Sorry ! ".mysqli_error($db)."<br/> Go to home page and retry...";
 			}
 		}
 	}
 }
 
+if($page=="gallery"){
+	echo"<h3 class='heading'>Create a new Album</h3>
+	<div class='container-fluid'>
+		<div class='row'>
+		<div class='col-md-12'>
+			<form method='post'>
+			<div class='row'>
+				<div class='col-md-3'>Enter the album Name :</div>
+				<div class='col-md-4'><input type='text' maxlength='50' name='album_name' /></div>
+				<div class='col-md-2'><input type='submit' name='album_name_submit' value='Create' /></div>
+				<div class='col-md-3'></div>
+			</div>
+			</form>
+		</div>		
+		</div>
+	</div><br/><br/>";
+}
+if(isset($_POST['album_name_submit'])){
+	echo"<div class='container-fluid'>
+		<div class='row'>
+			<div class='col-md-3'>
+				<h3>Upload images to ".$_POST['album_name']." album</h3>
+				<h4>Upload a new Image...!</h4>
+				<form method='post' enctype='multipart/form-data'>
+				<input type='hidden' value=\"{$_POST['album_name']}\" name='album_name' />
+				<input type='file' name='file' />
+				<input type='submit' name='upload_image' value='Upload'>
+				</form>
+			</div>
+		</div>
+	</div>";
+}
 if($page!='gallery'){
 	echo "<div id='show_gallery'></div>";
 }
 elseif($page=='gallery'){
-	$sql1="SELECT DISTINCT page_name FROM albums WHERE page='{$page}' && sub_page={$sub_page} ORDER BY page_name";
+	$sql1="SELECT DISTINCT page_name FROM albums WHERE page='gallery' && sub_page=0 ORDER BY page_name";
 	$res1=mysqli_query($db,$sql1);
 	echo "<div id='show_album'>";
 	while($display = mysqli_fetch_array($res1)){
 	echo"<button  class='album' onclick='show_album(this.value)' value=\"{$display['page_name']}\" >{$display['page_name']}</button>";
 	}
 	echo"</div>";
-}
-if(isset($_POST['album_name_submit'])){
-	echo"<h3>Upload images to ".$_POST['album_name']." album</h3>";
-	echo"<h4>Upload a new Image...!";
-	echo"<form method='post' enctype='multipart/form-data'>
-	<input type='hidden' value=\"{$_POST['album_name']}\" name='album_name' />
-	<input type='file' name='file' />
-	<input type='submit' name='upload_image' value='Upload'>";
-	echo"</form></h4><hr/>";
-}
-if($page=="gallery"){
-	echo"<h3>Create a new Album</h3>";
-	echo"<form method='post' >Enter the album Name :<input type='text' maxlength='50' name='album_name' />
-	<input type='submit' name='album_name_submit' value='Create' /></form>";
 }
 ?>

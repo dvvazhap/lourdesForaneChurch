@@ -60,9 +60,9 @@ require_once("include/connection.php");
 	<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15665.119239035694!2d76.96981929666941!3d11.017620532050037!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba85853e2d5501d%3A0x221ec16d5881ee34!2sLourdes+Forane+Church!5e0!3m2!1sen!2sin!4v1519182694742" width="100%" height="200" frameborder="0" style="border:0" allowfullscreen></iframe>
 	</div>
 	<div class="col-md-4 contact">
-	<?php $sql="SELECT * FROM contact WHERE position=1"; $result=mysqli_query($db,$sql); confirm_query($result);
+	<?php $sql="SELECT * FROM contact WHERE position=1"; $result=mysqli_query($db,$sql); if(!$result){ die("Error ".mysqli_connect_error());}
 		while($row=mysqli_fetch_array($result)){echo "<h3 style='color:#002537'>{$row['name']}</h3>";if($row['phone']!=""){echo "Phone: +91-{$row['phone']}<br/>";} if($row['email']!=""){echo "EMail: {$row['email']}<br/>";}echo "<br/><br/><br/>";}
-		$sql="SELECT * FROM contact WHERE position=2"; $result=mysqli_query($db,$sql); confirm_query($result);
+		$sql="SELECT * FROM contact WHERE position=2"; $result=mysqli_query($db,$sql); if(!$result){ die("Error ".mysqli_connect_error());}
 		while($row=mysqli_fetch_array($result)){ echo "<h3 style='color:#002537'>{$row['name']}</h3>";if($row['phone']!=""){echo "Phone: +91-{$row['phone']}<br/>";} if($row['email']!=""){echo "EMail: {$row['email']}<br/>";}} ?>
 	</div>
 </div>

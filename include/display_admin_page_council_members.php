@@ -7,9 +7,9 @@ if(isset($_GET['admin_right'])){$admin_right=$_GET['admin_right'];}
 
 $query="SELECT * FROM council_members WHERE page='{$page}' && sub_page={$sub_page} ORDER by position";
 $result=mysqli_query($db,$query);
-confirm_query($result);
+if(!$result){ die("Error ".mysqli_connect_error());}
 if(!isset($result)){
-	echo"Sorry ! ".mysqli_error()."<br/> Go to home page and retry...";
+	echo"Sorry ! ".mysqli_error($db)."<br/> Go to home page and retry...";
 }
 echo"<h3><center>{$page_name} Council Members</center></h3>";
 	while($display = mysqli_fetch_array($result)){

@@ -1,12 +1,8 @@
 <?php include("admin_header.php")?>
 <div id="content">
 <style>
-#wrapper{height:270px; border:solid white;}
 #button{float:left;}
-#show_tables{height:270px; color:white; width:700px; float:right;background-color:#272727; margin-top:-272px;}
 #change_password_button,#add_user_button,#view_users_button,#show_gallery_button,#show_information_button{width:250px;}
-div{color:white;}
-th{color:white;}
 #show_information{margin-left:300px;position:absolute; width:690px; margin-top:-290px; }
 #view_users{margin-left:300px;position:absolute; width:685px; margin-top:-300px; overflow-y:scroll; height:270px;}
 #password_table{margin-left:280px; position:absolute; width:640px; margin-top:-290px; padding:30px;}
@@ -43,7 +39,7 @@ elseif($action==23){   //Delete a ward from wards_table,ward_info,council_member
 elseif($action==24){ include("../include/aw_admin_one_post.php");}
 elseif(($action==NULL)&&($sub_page!=0)){
 	
-	if($admin_right==2){echo "<div id='wrapper'>";}
+	if($admin_right==2){echo "<div id='adminWrapper'>";}
 	echo"<table>";
 	if($admin_right>1){	echo"<tr><td><button id='change_password_button' onclick='show_change_password()'>Change Password</button></td></tr>
 	<tr><td><button id='show_information_button' onclick='show_information()'>Edit Information</button></td></tr>";}
@@ -52,7 +48,6 @@ elseif(($action==NULL)&&($sub_page!=0)){
 	echo "<tr><td><button id='view_users_button' onclick='show_users()'>Show Additional Users</button></td></tr>";
 	}
 	echo "<tr><td><button id='show_gallery_button' class='album' onclick='show_gallery()'>Show Gallery</button></td></tr></table>";
-	if($admin_right==2) echo "<div id='show_tables'></div>";
 	if($admin_right==2){echo"</div>";}
 
 	if($admin_right>1){include("../include/change_password.php");include("../include/info.php");}
@@ -72,8 +67,8 @@ elseif(($action==NULL)&&($sub_page!=0)){
 
 	$query="SELECT * FROM ward_info WHERE sub_page={$sub_page}";
 	$result=mysqli_query($db,$query);
-	confirm_query($result);
-	if(!isset($result)){echo"Sorry ! ".mysqli_error()."<br/> Go to home page and retry...";}
+	if(!$result){ die("Error ".mysqli_connect_error());}
+	if(!isset($result)){echo"Sorry ! ".mysqli_error($db)."<br/> Go to home page and retry...";}
 	echo"<br/>About {$page_name} Ward :";
 	
 	echo"<table cellpadding=10 cellspacing=4>";
@@ -114,7 +109,7 @@ elseif($action==0){     //Save the contents of wards info
 		echo "<script>window.location='admin_{$page}.php?page={$page}&sub_page={$sub_page}'</script>";
 		exit;
 	}
-	else{echo"Sorry ! ".mysqli_error()."<br/> Go to home page and retry...";}
+	else{echo"Sorry ! ".mysqli_error($db)."<br/> Go to home page and retry...";}
 }
 
 elseif($action==2){  // Save the contents of prayer meeting
@@ -127,9 +122,9 @@ elseif($action==2){  // Save the contents of prayer meeting
 				SET date='{$date}',time='{$time}',name='{$name}',address='{$address}',information='{$information}' 
 				WHERE sub_page={$sub_page}";
 	$result=mysqli_query($db,$query);
-	confirm_query($result);
+	if(!$result){ die("Error ".mysqli_connect_error());}
 	if(isset($result)){echo "<script>window.location='admin_{$page}.php?page={$page}&sub_page={$sub_page}'</script>";}
-	else{echo"Sorry ! ".mysqli_error()."<br/> Go to home page and retry...";}
+	else{echo"Sorry ! ".mysqli_error($db)."<br/> Go to home page and retry...";}
 }
 elseif($action==11){  /* Insert Content Form */ include("../include/insert_form_admin_page_content.php");}
 elseif($action==13){  /*Update the page_content */ include("../include/update_admin_page_content.php");}

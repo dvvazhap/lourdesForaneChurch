@@ -7,8 +7,8 @@
 $query = "SELECT * FROM page_content WHERE page='{$page}' && sub_page={$sub_page}";
 $result=mysqli_query($db,$query);
 $count=0;
-confirm_query($result);
-if(!isset($result)){echo"Sorry ! ".mysqli_error()." Go to home page and retry...";}
+if(!$result){ die("Error ".mysqli_connect_error());}
+if(!isset($result)){echo"Sorry ! ".mysqli_error($db)." Go to home page and retry...";}
 while($row = mysqli_fetch_array($result)){$count++;}
 echo "<div id=\"page_content\">";
 
@@ -22,8 +22,8 @@ if($page == "wards"){
 for($i=1;$i<=$count;$i++){
 	$query = "SELECT * FROM page_content WHERE page='{$page}' && sub_page={$sub_page} && sub_no={$i}";
 	$result=mysqli_query($db,$query);
-	confirm_query($result);
-	if(!isset($result)){echo"Sorry ! ".mysqli_error()." Go to home page and retry...";}
+	if(!$result){ die("Error ".mysqli_connect_error());}
+	if(!isset($result)){echo"Sorry ! ".mysqli_error($db)." Go to home page and retry...";}
 	while($row = mysqli_fetch_array($result)){
 		echo "<b><span id=\"sub_title\">{$row['sub_title']}</span></b><br/>";
 		echo "<span id=\"sub_content\">{$row['sub_content']}</span><br/><br/>";

@@ -25,9 +25,13 @@ echo "<table>
 <option value=\"29\">29</option><option value=\"30\">30</option>
 </select></td></tr>
 <tr><th></th><td></td><td><input type=\"submit\" value=\"NEXT STEP\"></td></tr></form></table>";}
-else{ $sql="SELECT * FROM security WHERE username='{$temp_username}'";
+else{ 
+$sql="SELECT * FROM security WHERE username='{$temp_username}'";
 $result=mysqli_query($db,$sql);
-while($row=mysqli_fetch_array($result)){echo "<script>window.location='admin_{$page}.php?page={$page}&id={$count}&action=20&name={$post_name}&reply=1'</script>";}
+while($row=mysqli_fetch_array($result)){
+    echo "<script>window.location='admin_{$page}.php?page={$page}&id={$count}&action=20&name={$post_name}&reply=1'</script>";
+}
+
 echo "<table><form action=\"admin_{$page}.php?page={$page}&action=21\" method=\"post\">
 <tr><th>{$page} Name :</th><td><input type=\"hidden\" name=\"name\" value=\"{$post_name}\" />{$post_name}</td></tr>
 <tr><input type=\"hidden\" name=\"nop\" value=\"{$nop}\" /></tr>

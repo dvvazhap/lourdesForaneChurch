@@ -8,11 +8,15 @@ include("admin_verify.php");?>
 <title>Lourdes Forane Church</title>
 <link rel="shortcut icon" href="../images/cross.png" />
 <link href="admin.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../css/bootstrap.min.css">
+<script src="../js/bootstrap.min.js"></script>
+<link href="../css/style.css" rel="stylesheet" type="text/css" />
+
 <style type="text/css">
 #pass_notify{color:green;}
 #error_notify{color:red;}
 </style>
 </head>
-<body><div id="header">Lourdes Forane Church<div id='logout'><form action="admin_verify.php?logout=1" method="post" /><input class='button' type="submit" value="Logout" /></form></div></div>
+<body><div id="header">Lourdes Forane Church</div>
 <div id="body">
-<?php if($admin_right<=1){ include("admin_navigate.php");}?>
+<?php include("admin_navigate.php");?>

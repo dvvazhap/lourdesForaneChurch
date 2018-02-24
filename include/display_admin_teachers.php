@@ -78,6 +78,8 @@ if(isset($_GET['id'])){
 	if(isset($_POST['delete'])){
 		$query="SELECT * FROM teachers WHERE id={$id}";
 		$result=mysqli_query($db,$query);
+		if(!$result){ die("Error ".mysqli_connect_error());}
+		
 		while($row=mysqli_fetch_array($result)){
 			unlink("../images/catechism/{$row['image']}");
 		}

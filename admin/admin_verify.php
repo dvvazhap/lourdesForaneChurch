@@ -1,5 +1,6 @@
 <?php 
 if(!isset($_SESSION['user'])){session_start();}
+$username = "";
 require_once("../include/connection.php");
 if(isset($_GET['reply'])){$reply=$_GET['reply'];}else{$reply=NULL;}
 if(isset($_GET['page'])){$page=$_GET['page'];}else{$page=NULL;}
@@ -14,4 +15,5 @@ $username=mysqli_prep($db,$_SESSION['user']);$password=mysqli_prep($db,$_SESSION
 $sql = "SELECT * FROM security WHERE username='{$username}' && password='{$password}'";$result = mysqli_query($db,$sql);
 while($row=mysqli_fetch_array($result)){$admin_page = $row['admin_page'];$admin_sub_page = $row['admin_sub_page'];$admin_right = $row['admin_right'];}}
 else{echo "<script>window.location= '../'</script>";die;}
-echo "Welcome {$username}...!";?>
+
+?>

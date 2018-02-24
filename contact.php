@@ -1,8 +1,6 @@
 <?php $page = 'contact';
 require_once("include/connection.php");
-?><style type="text/css">
-
-</style>
+?>
 
 <div class="container-fluid">
     <div class="row">

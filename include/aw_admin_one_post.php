@@ -13,7 +13,7 @@ else{
 $count=0;
 $query="SELECT * FROM council_members WHERE page='{$page}' && sub_page={$id}";
 $res=mysqli_query($db,$query);
-confirm_query($res);
+if(!$res){ die("Error ".mysqli_connect_error());}
 while($row = mysqli_fetch_array($res)){ $count++;}
 echo $count;
 for($i=1;$i<=$count;$i++){
@@ -31,7 +31,7 @@ for($i=$position;$i<=$count;$i++){
 $tid=$i+1;
 $query = "UPDATE council_members SET position={$i} WHERE temp_id={$tid} && page='{$page}' && sub_page={$id}";
 $result= mysqli_query($db,$query);
-confirm_query($result);
+if(!$result){ die("Error ".mysqli_connect_error());}
 }	
 $sql="UPDATE council_members SET temp_id={$id} WHERE page='{$page}' && sub_page={$id}";
 $res=mysqli_query($db,$sql);
@@ -41,7 +41,7 @@ echo "<script>window.location='admin_{$page}.php?page={$page}&id={$id}&action=24
 else{
 $sql="SELECT * FROM {$page}_table WHERE id={$id}";
 $result=mysqli_query($db,$sql);
-confirm_query($result);
+if(!$result){ die("Error ".mysqli_connect_error());}
 while($row = mysqli_fetch_array($result)){
 $selected=$row['name'];
 }
@@ -49,7 +49,7 @@ echo "<br/>{$selected} Edit page :<hr/>";
 echo "<br/>Page :".$page;
 $sql="SELECT * FROM council_members WHERE page='{$page}' && sub_page={$id} ORDER by position";
 $result=mysqli_query($db,$sql);
-confirm_query($result);
+if(!$result){ die("Error ".mysqli_connect_error());}
 echo "<table border><tr><th>Post</th></tr>";
 while($row = mysqli_fetch_array($result)){
 echo "<tr>
@@ -72,7 +72,7 @@ if(isset($_POST['new_post'])){$new_post=mysqli_prep($db,$_POST['new_post']);}els
 $count=1;
 $query="SELECT * FROM council_members WHERE page='{$page}' && sub_page={$id}";
 $res=mysqli_query($db,$query);
-confirm_query($res);
+if(!$res){ die("Error ".mysqli_connect_error());}
 while($row = mysqli_fetch_array($res)){
 $count++;
 }

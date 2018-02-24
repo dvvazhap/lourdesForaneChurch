@@ -32,12 +32,13 @@ echo "<table><tr><th style='text-align:left'>Name </th><th>:</th><td><input type
 ?>
 <script>
 function add_teacher_submit(){
-document.getElementById('add_teacher_button').style.visibility='visible';
 	var n = document.getElementById('teacher_name').value;
+	if(n == "")return;
 	var p = document.getElementById('teacher_phone').value;
 	var l = document.getElementById('teacher_landline').value;
 	var c = document.getElementById('teacher_class').value;
 	var a = document.getElementById('teacher_address').value;
+	document.getElementById('add_teacher_button').style.visibility='visible';
 	var xmlhttp;
 	if (window.XMLHttpRequest){ xmlhttp=new XMLHttpRequest();}
 	else{ xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");}

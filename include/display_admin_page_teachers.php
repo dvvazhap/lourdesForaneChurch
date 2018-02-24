@@ -4,8 +4,8 @@ if(isset($_GET['admin_right'])){$admin_right=$_GET['admin_right'];}
 
 $query="SELECT * FROM teachers ORDER by class";
 $result=mysqli_query($db,$query);
-confirm_query($result);
-if(!isset($result)){echo"Sorry ! ".mysqli_error()."<br/> Go to home page and retry...";}
+if(!$result){ die("Error ".mysqli_connect_error());}
+if(!isset($result)){echo"Sorry ! ".mysqli_error($db)."<br/> Go to home page and retry...";}
 echo"<h3><center>Catechism Teachers</center></h3>";
 	while($display = mysqli_fetch_array($result)){
 	$class = $display['class'];

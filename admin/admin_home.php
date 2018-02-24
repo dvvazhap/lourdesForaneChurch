@@ -6,12 +6,8 @@
 th{color:white;}
 #flash_news{ margin-left:10px;}
 #important_news{margin-left:400px;}
-#wrapper{height:270px; border:solid white;}
 #button{float:left;}
-#show_tables{height:270px; width:700px; float:right;background-color:#272727;}
 #change_password_button,#add_user_button,#view_users_button,#show_gallery_button,#show_information_button{width:250px;}
-div{color:white;}
-th{color:white;}
 #show_information{margin-left:300px;position:absolute; width:690px; margin-top:-290px; height:250px;}
 #view_users{margin-left:300px; position:absolute; width:690px; margin-top:-305px; overflow-y:scroll; height:270px;}
 #password_table{margin-left:280px; position:absolute; width:640px; margin-top:-290px; padding:30px;}
@@ -94,13 +90,13 @@ var xmlhttp;
 <?php
 if(isset($_GET['action'])){$action=$_GET['action'];}else{$action=NULL;}
 if(($sub_page==0) && ($action==NULL)){
-echo"<div id='wrapper'><table id='button'><tr><td><button id='change_password_button' onclick='show_change_password()'>Change Password</button></td></tr>
+echo"<div id='adminWrapper'><table id='button'><tr><td><button id='change_password_button' onclick='show_change_password()'>Change Password</button></td></tr>
 <tr><td><button id='show_information_button' onclick='show_information()'>Edit Information</button></td></tr>";
 if($admin_right<=1){
 echo "<tr><td><button id='add_user_button' onclick='add_user_table()'>Add User</button></td></tr>";
 echo "<tr><td><button id='view_users_button' onclick='show_users()'>Show Additional Users</button></td></tr>";
 }echo "<tr><td><button id='show_gallery_button' onclick='show_gallery()'>Show Gallery</button></td></tr></table>";
-echo "<div id='show_tables'></div></div>";
+echo "</div>";
 include("../include/change_password.php");
 include("../include/info.php");
 if($admin_right<=1){
@@ -114,7 +110,7 @@ $query = "SELECT * FROM page_content WHERE page='home' && sub_page=2";
 $result = mysqli_query($db,$query);
 $c=mysqli_num_rows($result);
 if($c==0){$sql="INSERT into page_content(`page`,`sub_page`,`sub_no`,`temp_id`) VALUES('home',2,1,1)"; $res=mysqli_query($db,$sql);}
-confirm_query($result);
+if(!$result){ die("Error ".mysqli_connect_error());}
 if(isset($result)){ while($display = mysqli_fetch_array($result)){
 echo "<form id='flash_news' method='post'><b style='color:#272727'>Main Heading:</b><br/>
 <textarea name='flash_content' rows='2' cols='50'>{$display['sub_content']}</textarea>
@@ -171,7 +167,7 @@ echo"Latest News<br/>";
 $count=0;
 $query = "SELECT * FROM latest_news";
 $result = mysqli_query($db,$query);
-confirm_query($result);
+if(!$result){ die("Error ".mysqli_connect_error());}
 while($row=mysqli_fetch_array($result)){$count++;}
 if($count>0){
 echo"<table cellpadding=10 cellspacing=2>
@@ -179,7 +175,7 @@ echo"<table cellpadding=10 cellspacing=2>
 else{echo "There are no files in latest news";}
 $query = "SELECT * FROM latest_news";
 $result = mysqli_query($db,$query);
-confirm_query($result);
+if(!$result){ die("Error ".mysqli_connect_error());}
 while($display = mysqli_fetch_array($result)){
 if ($display['new_file']==1)
 {$check_n= "checked='checked'";}
@@ -212,26 +208,26 @@ $result = mysqli_query($db,$query);
 if($result){
 /*-----count the no of rows----*/
 $count=0;
-$query="SELECT * FROM latest_news";$res=mysqli_query($db,$query);confirm_query($res);
+$query="SELECT * FROM latest_news";$res=mysqli_query($db,$query);if(!$res){ die("Error ".mysqli_connect_error());}
 while($row = mysqli_fetch_array($res)){$count++;}
 /* -----$count==> No of rows----- */
 for($i=$file_id;$i<=$count;$i++){
 $tid=$i+1;
 $query = "UPDATE latest_news SET file_id={$i} WHERE temp_id={$tid}";
 $result= mysqli_query($db,$query);
-confirm_query($result);
+if(!$result){ die("Error ".mysqli_connect_error());}
 if(isset($result)){
 $sql="SELECT * FROM latest_news";
 $res=mysqli_query($db,$sql);
-confirm_query($res);
+if(!$res){ die("Error ".mysqli_connect_error());}
 while($row = mysqli_fetch_array($res)){
 $sql_query = "UPDATE latest_news SET temp_id={$row['file_id']} WHERE file_id={$row['file_id']}";
 $result= mysqli_query($db,$sql_query);}
-}else{echo"Sorry ! ".mysqli_error()." Go to home page and retry...";}}
+}else{echo"Sorry ! ".mysqli_error($db)." Go to home page and retry...";}}
 echo "<script>window.location='admin_home.php?sub_page=0&page={$page}'</script>";
 die;
 }
-else{echo"Sorry ! ".mysqli_error()." Go to home page and retry...";}
+else{echo"Sorry ! ".mysqli_error($db)." Go to home page and retry...";}
 }
 elseif(($sub_page==3) && ($action==NULL)){ //Edit the file
 $file_id=mysqli_prep($db,$_GET['file_id']);
@@ -249,7 +245,7 @@ if($result){
 echo "<script>window.location='admin_home.php?sub_page=0&page={$page}'</script>";
 exit;
 }
-else{echo"Sorry ! ".mysqli_error()." Go to home page and retry...";}
+else{echo"Sorry ! ".mysqli_error($db)." Go to home page and retry...";}
 }
 
 elseif(($sub_page==4) && ($action==NULL)){   //Submit Insert Button
@@ -267,15 +263,15 @@ if(!isset($_POST['visible'])){$visible=0;}else{$visible=1;}
 $file_id=1;
 $query="SELECT * FROM latest_news";
 $res=mysqli_query($db,$query);
-confirm_query($res);
-if(!isset($res)){echo"Sorry ! ".mysqli_error()." Go to home page and retry...";}
+if(!$res){ die("Error ".mysqli_connect_error());}
+if(!isset($res)){echo"Sorry ! ".mysqli_error($db)." Go to home page and retry...";}
 while($row = mysqli_fetch_array($res)){$file_id++;}
 $query = "INSERT INTO latest_news (`page`,`file_id`,`temp_id`,`file_desc`,`file_name`, `visible`, `new_file`) 
 VALUES ('{$page}',{$file_id},{$file_id},'{$file_desc}', '{$name}', {$visible}, {$new_file})";
 $result = mysqli_query($db,$query);
 if($result){echo "<script>window.location='admin_home.php?sub_page=0&page={$page}'</script>";
 exit;}
-else{echo"Sorry ! ".mysqli_error()." Go to home page and retry...";}
+else{echo"Sorry ! ".mysqli_error($db)." Go to home page and retry...";}
 }
 elseif($action==11){/*Insert Content Form*/ echo "<br/><h3>Add contents into your History page :</h3>";
 include("../include/insert_form_admin_page_content.php");}

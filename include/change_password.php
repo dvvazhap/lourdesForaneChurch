@@ -4,12 +4,28 @@ echo "<div id='change_password'></div>";
 
 if($admin_right==3){echo "<div id='password_table' style='margin-top:-180px;'>";}
 else{echo "<div id='password_table'>";}
-echo"Password should contain characters such as ' \" $ / \ & % ? 
-<table><tr><th align='left'>Enter the old password</th><td>:</td><td><input type='password' id='old_pass' size='40' maxlength='30'></td></tr>
-<tr><th align='left'>Enter the new password</th><td>:</td><td><input type='password' id='pass1' size='40' maxlength='30' ></td></tr>
-<tr><th align='left'>Confirm password</th><td>:</td><td><input type='password' id='pass2' size='40' maxlength='30'></td></tr>
-<tr><th></th><td></td><td><button id='submit_change_password' OnClick='change_password()'>Change Password</button></td></tr>
-</table></div>";
+
+echo"
+<div class='container-fluid'>
+	<div class='row'>
+		<div class='col-md-12'>Password should contain characters such as ' \" $ / \ & % ?</div>
+	</div>
+	<div class='row'>
+	<div class='col-md-6'>Enter the old password:</div>
+	<div class='col-md-6'><input type='password' id='old_pass' size='40' maxlength='30'></div>
+	</div>
+	<div class='row'>
+	<div class='col-md-6'>Enter the new password:</div>
+	<div class='col-md-6'><input type='password' id='pass1' size='40' maxlength='30' ></div>
+	</div>
+	<div class='row'>
+	<div class='col-md-6'>Confirm password</div>
+	<div class='col-md-6'><input type='password' id='pass2' size='40' maxlength='30'></div>
+	</div>
+	<div class='row'>
+	<div class='col-md-6'><button id='submit_change_password' OnClick='change_password()'>Change Password</button></div>
+	</div>
+</div>";
 $actual_pass = mysqli_prep($db,$_SESSION['pass']);
 echo"<input type='hidden' id='actual_pass' value=$actual_pass >";
 }

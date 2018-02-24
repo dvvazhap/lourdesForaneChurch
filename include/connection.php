@@ -11,8 +11,4 @@
 		} 
 		return $value; 
 	}
-
-	function confirm_query($result){
-		if(!$result){ die("Database not connected ".mysqli_error());}
-	}
 ?>

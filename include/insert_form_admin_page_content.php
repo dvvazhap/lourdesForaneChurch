@@ -13,7 +13,7 @@ echo "<br/> No contents in the page...";}
 else {
 $query = "SELECT * FROM page_content WHERE page='{$page}' && sub_page={$sub_page}";
 $result = mysqli_query($db,$query);
-confirm_query($result);
+if(!$result){ die("Error ".mysqli_connect_error());}
 while($display = mysqli_fetch_array($result)){
 	echo"<div id='page_content'><div id='sub_title'>{$display['sub_title']}</div>
 	<span id='sub_content'>{$display['sub_content']}</span></div>";
@@ -34,8 +34,8 @@ if(isset($_POST['insert_submit_admin_page_content'])){
 	$count=1;
 	$query="SELECT * FROM page_content WHERE page='{$page}' && sub_page={$sub_page}";
 	$res=mysqli_query($db,$query);
-	confirm_query($res);
-	if(!isset($res)){echo"Sorry ! ".mysqli_error()." Go to home page and retry...";}
+	if(!$res){ die("Error ".mysqli_connect_error());}
+	if(!isset($res)){echo"Sorry ! ".mysqli_error($db)." Go to home page and retry...";}
 	while($row = mysqli_fetch_array($res)){
 	$count++;
 	}
@@ -48,6 +48,6 @@ if(isset($_POST['insert_submit_admin_page_content'])){
 	echo "<script>window.location='admin_{$page}.php?sub_page={$sub_page}&page={$page}'</script>";
 	exit;
 	}
-	else{echo"Sorry ! ".mysqli_error()." Go to home page and retry...";}
+	else{echo"Sorry ! ".mysqli_error($db)." Go to home page and retry...";}
 }
 ?>

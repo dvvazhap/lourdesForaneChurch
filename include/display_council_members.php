@@ -11,7 +11,7 @@
 $count=0;
 $sql = "SELECT * FROM council_members WHERE page='{$page}'&&sub_page={$sub_page}";
 $result=mysqli_query($db,$sql);
-if(!isset($result)){echo "Error :".mysqli_error();}
+if(!isset($result)){echo "Error :".mysqli_error($db);}
 while($dis=mysqli_fetch_array($result)){$count++;}
 for($i=1;$i<=$count;$i++){
 	$query="SELECT * FROM council_members WHERE page='{$page}' && sub_page={$sub_page} && position={$i} ORDER by position";
