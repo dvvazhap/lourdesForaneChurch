@@ -25,7 +25,7 @@ echo"
 	<div class='row'>
 	<div class='col-md-6'><button id='submit_change_password' OnClick='change_password()'>Change Password</button></div>
 	</div>
-</div>";
+</div></div>";
 $actual_pass = mysqli_prep($db,$_SESSION['pass']);
 echo"<input type='hidden' id='actual_pass' value=$actual_pass >";
 }
