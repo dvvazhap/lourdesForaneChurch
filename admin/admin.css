@@ -24,8 +24,8 @@ ul{list-style:none;}
 /* #content{position:absolute;margin-left:auto;float:none;width:90%;padding:10px 10px 0px 30px;font-size:20px;color:#272727;} */
 #content input,#content textarea,#content select{width:100%;}
 input[type='file'],input[type='submit']{cursor:pointer;}
-#change_password_button,#add_user_button,#view_users_button,#show_gallery_button,#show_information_button{width:100% !important;}
-#password_table, #show_information, #add_user_table, #view_users{position:absolute; width:100%;}
+#change_password_button,#add_user_button,#view_users_button,#show_gallery_button,#show_information_button,#add_teacher_button,#del_teacher_button{width:100% !important;}
+#password_table, #show_information, #add_user_table, #view_users, #add_teacher, #delete_teacher{position:absolute; width:100%;}
 #one_image{position:relative;}#one_image_wrapper{margin-left:0px;margin-top:10px; position:relative; width:200px; height:250px;}
 #one_image img{height:200px; width:100%; border:solid #262626;}
 button{height:50px; width:auto; cursor:pointer; padding:5px; color:#272727; font-size:18px;}

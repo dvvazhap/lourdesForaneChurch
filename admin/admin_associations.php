@@ -40,7 +40,7 @@ elseif(($action==NULL)&&($sub_page!=0)){
 	include("../include/add_gallery_image.php"); /*---------Add Gallery Image-----------*/
 	
 	$query = "SELECT * FROM {$page}_table WHERE id={$sub_page}";$result=mysqli_query($db,$query);
-while($row = mysqli_fetch_array($result)){$page_name = $row['name'];echo "<br/><br/><br/><h4>Welcome to {$row['name']} Association</h4><br/>";
+while($row = mysqli_fetch_array($result)){$page_name = $row['name'];echo "<br/><br/><br/><h2 class='heading'>{$row['name']} Association</h2>";
 include("../include/page_table_image.php");}
 
 include("../include/display_admin_page_content.php");echo"<hr/>";

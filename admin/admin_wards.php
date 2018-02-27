@@ -65,7 +65,7 @@ elseif(($action==NULL)&&($sub_page!=0)){
 	$result=mysqli_query($db,$query);
 	while($row = mysqli_fetch_array($result)){
 	$page_name = $row['name'];
-	echo "<br/><br/><br/><h4>Welcome to {$row['name']} Ward</h4><br/>";
+	echo "<br/><br/><br/><h2 class='heading'>{$row['name']} Ward</h2><br/>";
 	include("../include/page_table_image.php"); /*------ Page Table Image ----*/
 	}
 	include("../include/display_admin_page_content.php");

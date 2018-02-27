@@ -19,19 +19,24 @@ echo "<div id='add_user' ></div>
 <script>
 function add_user_table(){
 
-document.getElementById('add_user_button').style.visibility='hidden';
-document.getElementById('add_user_table').style.visibility='visible';
-	document.getElementById('show_information').style.visibility='hidden';
-	document.getElementById('show_information_button').style.visibility='visible';
-	document.getElementById('password_table').style.visibility='hidden';
-	document.getElementById('change_password').style.visibility='hidden';
-	document.getElementById('change_password_button').style.visibility='visible';
-	document.getElementById('view_users_button').style.visibility='visible';
-	var admin_right= document.getElementById('admin_right').value;
-	if(admin_right<=2){
-	document.getElementById('view_users').style.visibility='hidden';
-	document.getElementById('view_users_button').style.visibility='visible';
-}
+var aub = document.getElementById('add_user_button'); if(aub) document.getElementById('add_user_button').style.visibility='hidden';
+var au = document.getElementById('add_user'); if(au) document.getElementById('add_user').style.visibility='visible';
+var aut = document.getElementById('add_user_table'); if(aut) document.getElementById('add_user_table').style.visibility='visible';
+
+var sib = document.getElementById('show_information_button'); if(sib) document.getElementById('show_information_button').style.visibility='visible';
+var si = document.getElementById('show_information'); if(si) document.getElementById('show_information').style.visibility='hidden';
+
+var cpb= document.getElementById('change_password_button'); if(cpb) document.getElementById('change_password_button').style.visibility='visible';
+var pt = document.getElementById('password_table'); if(pt) document.getElementById('password_table').style.visibility='hidden';
+
+var vub = document.getElementById('view_users_button'); if(vub) document.getElementById('view_users_button').style.visibility='visible';
+var vu = document.getElementById('view_users'); if(vu) document.getElementById('view_users').style.visibility='hidden';
+
+var atb = document.getElementById('add_teacher_button'); if(atb) document.getElementById('add_teacher_button').style.visibility='visible';
+var at = document.getElementById('add_teacher'); if(at) document.getElementById('add_teacher').style.visibility='hidden';
+
+var dtb = document.getElementById('del_teacher_button'); if(dtb) document.getElementById('del_teacher_button').style.visibility='visible';
+var dt = document.getElementById('delete_teacher'); if(dt) document.getElementById('delete_teacher').style.visibility='hidden';
 }
 function add_user(){
 	var add_user = document.getElementById('add_username').value;

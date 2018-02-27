@@ -1,28 +1,12 @@
 <?php include("admin_header.php")?>
 <div id="content">
-<style>
-/* #show_gallery_button{float:right;}
-#change_password_button,#add_user_button,#view_users_button,#show_gallery_button,#show_information_button{width:250px;} */
- #add_teacher_button,#del_teacher_button,#show_teachers_button{width:100%;}
-/* #show_information{margin-left:300px;position:absolute; width:690px; margin-top:-290px; height:250px;}
-#view_users{margin-left:300px;position:absolute; width:685px; margin-top:-300px; height:270px;}
-#password_table{margin-left:280px; position:absolute; width:640px; margin-top:-290px; padding:30px;}
-#add_user_table{margin-left:280px; position:absolute; width:640px; margin-top:-290px; padding:30px;} */
-</style>
 <script>
 window.onload=init;
 function init(){
 var pt = document.getElementById('password_table');
-if(pt){
-	document.getElementById('password_table').style.visibility='hidden';
-	console.log("password_table :",document.getElementById('password_table').style.visibility);
-} 
-
+if(pt){document.getElementById('password_table').style.visibility='hidden';} 
 var aut = document.getElementById('add_user_table'); 
-if(aut){
-	document.getElementById('add_user_table').style.visibility='hidden';
-	console.log("add_user_table :",document.getElementById('add_user_table').style.visibility);
-} 
+if(aut){document.getElementById('add_user_table').style.visibility='hidden';} 
 
 }
 </script>

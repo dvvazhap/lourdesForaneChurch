@@ -30,4 +30,4 @@ $path="../images/no-photo.png";
 echo"<img src='{$path}'/>
 </div>";}
 echo"<h4>Image for {$row['name']} Ward...!<form method='post' enctype='multipart/form-data'>
-<input type='file' name='file' /><input type='submit' name='upload_page_image' value='Upload'></form></h4><hr/>"; ?>
+<input type='file' name='file' /><input type='submit' style='width:115px;' name='upload_page_image' value='Upload'></form></h4><hr/>"; ?>

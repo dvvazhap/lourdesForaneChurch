@@ -1,6 +1,26 @@
 <?php require_once("connection.php"); ?>
 <script>
 function del_teacher(){
+var cpb= document.getElementById('change_password_button'); if(cpb) document.getElementById('change_password_button').style.visibility='visible';
+var pt = document.getElementById('password_table'); if(pt) document.getElementById('password_table').style.visibility='hidden';
+
+var sib = document.getElementById('show_information_button'); if(sib) document.getElementById('show_information_button').style.visibility='visible';
+var si = document.getElementById('show_information'); if(si) document.getElementById('show_information').style.visibility='hidden';
+
+var aub = document.getElementById('add_user_button'); if(aub) document.getElementById('add_user_button').style.visibility='visible';
+var au = document.getElementById('add_user'); if(au) document.getElementById('add_user').style.visibility='hidden';
+var aut = document.getElementById('add_user_table'); if(aut) document.getElementById('add_user_table').style.visibility='hidden';
+
+var vub = document.getElementById('view_users_button'); if(vub) document.getElementById('view_users_button').style.visibility='visible';
+var vu = document.getElementById('view_users'); if(vu) document.getElementById('view_users').style.visibility='hidden';
+
+var atb = document.getElementById('add_teacher_button'); if(atb) document.getElementById('add_teacher_button').style.visibility='visible';
+var at = document.getElementById('add_teacher'); if(at) document.getElementById('add_teacher').style.visibility='hidden';
+
+var dtb = document.getElementById('del_teacher_button'); if(dtb) document.getElementById('del_teacher_button').style.visibility='hidden';
+var dt = document.getElementById('delete_teacher'); if(dt) document.getElementById('delete_teacher').style.visibility='visible';
+
+
 	document.getElementById('del_teacher_button').style.visibility='hidden';
 	var xmlhttp;
 	if (window.XMLHttpRequest){ xmlhttp=new XMLHttpRequest();}
