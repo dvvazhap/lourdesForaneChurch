@@ -2,14 +2,11 @@
 if(!isset($_GET['change'])){
 echo "<div id='change_password'></div>";
 
-if($admin_right==3){echo "<div id='password_table' style='margin-top:-180px;'>";}
+if($admin_right==3){echo "<div id='password_table'>";}
 else{echo "<div id='password_table'>";}
 
 echo"
 <div class='container-fluid'>
-	<div class='row'>
-		<div class='col-md-12'>Password should contain characters such as ' \" $ / \ & % ?</div>
-	</div>
 	<div class='row'>
 	<div class='col-md-6'>Enter the old password:</div>
 	<div class='col-md-6'><input type='password' id='old_pass' size='40' maxlength='30'></div>
@@ -42,24 +39,32 @@ $query="SELECT * FROM security WHERE username='{$session_user}' ";
 $res=mysqli_query($db,$query);
 while($row=mysqli_fetch_array($res)){$sub_page=$row['admin_sub_page'];$admin_right=$row['admin_right'];}
 $_SESSION['pass'] = $pass1;
-echo "<div id='pass_notify' style='width:500px; font-size:30px; margin-left:300px;'>Password changed successfully...!</div>";
+echo "<script>window.alert('Password changed successfully...!')</script>";
 }}
 }
 ?>
 <script>
 function show_change_password(){
-document.getElementById('password_table').style.visibility='visible';
-document.getElementById('show_information').style.visibility='hidden';
-document.getElementById('show_information_button').style.visibility='visible';
-document.getElementById('change_password_button').style.visibility='hidden';
-var admin_right= document.getElementById('admin_right').value;
-if(admin_right<=2){
-document.getElementById('add_user').style.visibility='hidden';
-document.getElementById('add_user_table').style.visibility='hidden';
-document.getElementById('add_user_button').style.visibility='visible';
-document.getElementById('view_users').style.visibility='hidden';
-document.getElementById('view_users_button').style.visibility='visible';
-}
+var cpb= document.getElementById('change_password_button'); if(cpb) document.getElementById('change_password_button').style.visibility='hidden';
+var pt = document.getElementById('password_table'); if(pt) document.getElementById('password_table').style.visibility='visible';
+
+var sib = document.getElementById('show_information_button'); if(sib) document.getElementById('show_information_button').style.visibility='visible';
+var si = document.getElementById('show_information'); if(si) document.getElementById('show_information').style.visibility='hidden';
+
+var aub = document.getElementById('add_user_button'); if(aub) document.getElementById('add_user_button').style.visibility='visible';
+var au = document.getElementById('add_user'); if(au) document.getElementById('add_user').style.visibility='hidden';
+var aut = document.getElementById('add_user_table'); if(aut) document.getElementById('add_user_table').style.visibility='hidden';
+
+var vub = document.getElementById('view_users_button'); if(vub) document.getElementById('view_users_button').style.visibility='visible';
+var vu = document.getElementById('view_users'); if(vu) document.getElementById('view_users').style.visibility='hidden';
+
+var atb = document.getElementById('add_teacher_button'); if(vub) document.getElementById('add_teacher_button').style.visibility='visible';
+var at = document.getElementById('add_teacher'); if(vu) document.getElementById('add_teacher').style.visibility='hidden';
+
+var dtb = document.getElementById('del_teacher_button'); if(vub) document.getElementById('del_teacher_button').style.visibility='visible';
+var dt = document.getElementById('delete_teacher'); if(vu) document.getElementById('delete_teacher').style.visibility='hidden';
+
+
 }
 function change_password(){
 var actual_pass = document.getElementById('actual_pass').value;

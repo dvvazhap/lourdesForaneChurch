@@ -42,6 +42,8 @@ require_once("include/connection.php");
 			<div class='event'><b>{$row['event']}</b></div>
 			</div>";
 			}
+
+			
 		?>
 	</div>
 </div>

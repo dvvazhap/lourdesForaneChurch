@@ -1,8 +1,5 @@
-<?php
-echo"<div id='show_teachers'></div>
-<button id='show_teachers_button' onclick='show_admin_teachers()'>Show Teachers</button>";
-?>
-<script>
+
+<!-- <script>
 function show_admin_teachers(){
 document.getElementById('show_teachers_button').style.visibility='hidden';
 var adminright= document.getElementById('admin_right').value;
@@ -17,10 +14,8 @@ var xmlhttp;
 	xmlhttp.open("GET","../include/display_admin_page_teachers.php?admin_right="+adminright,true);
 	xmlhttp.send();
 }
-</script>
-<style>
-#show_teachers_button{float:right;}
-</style>
+show_admin_teachers();
+</script> -->
 <?php
 echo "<input type='hidden' value='{$admin_right}' id='admin_right'>";
 if(isset($_GET['council'])){

@@ -6,7 +6,9 @@ $query="SELECT * FROM teachers ORDER by class";
 $result=mysqli_query($db,$query);
 if(!$result){ die("Error ".mysqli_connect_error());}
 if(!isset($result)){echo"Sorry ! ".mysqli_error($db)."<br/> Go to home page and retry...";}
-echo"<h3><center>Catechism Teachers</center></h3>";
+echo"<h2 class='heading'>Catechism Teachers</h2>
+<div class='container-fluid'>";
+
 	while($display = mysqli_fetch_array($result)){
 	$class = $display['class'];
 	if($class==0){$class="Non-Teaching Staff";}
@@ -24,42 +26,70 @@ echo"<h3><center>Catechism Teachers</center></h3>";
 	elseif($class==33){$class="XI";}elseif($class==34){$class="XI-A";}elseif($class==35){$class="XI-B";}
 	elseif($class==36){$class="XII";}elseif($class==37){$class="XII-A";}elseif($class==38){$class="XII-B";}
 	elseif($class==39){$class="Malayalam";}elseif($class==40){$class="Tamil";}
-	echo"<div id='one_council_member'>
-		<form action =\"admin_catechism.php?page=catechism&id={$display['id']}\" method='post' enctype='multipart/form-data'>
-			<h3 id='one_council_member_post'>{$class}</h3>
-			<div id='one_council_member_wrapper'>
-				<div id=\"photo_council_members\" >";
+	echo "
+	<div class='row' id='one_council_member'>
+	<div class='col-md-12'>
+	<form action =\"admin_catechism.php?page=catechism&id={$display['id']}\" method='post' enctype='multipart/form-data'>
+		<div class='row'>
+		
+			<div class='col-md-2'><br/><br/>
+				<h3 id='one_council_member_post'>{$class}</h3>
+				
+			</div>
+			<div class='col-md-10' id='one_council_member_wrapper'>
+				<div class='row'>
+				<div class='col-md-3' id='photo_council_members'>";
 					if(!is_dir("../images/catechism")){mkdir("../images/catechism");}
 					$path="../images/catechism/".$display['image'];
 					if((!file_exists($path))||($display['image']=="0")||($display['image']==""))
 					$path="../images/no-photo.png";
-					echo"<img src='{$path}'/></div><div id=\"photo_edit_council_members\" >
-					<input type='file' name='file' /><input type='submit' value='Upload' name='upload'/>
-					<input type='submit' value='Delete' name='delete'/></div>
-					<div id='one_council_member_details'>
-					<table id='one_council_member_name'>
-					<tr>
-						<th width='90' align='left'>Name :</th>
-						<td><input type='text' placeholder='Name' name='name' size='54' value=\"{$display['name']}\" maxlength='30'/></td>
-					</tr>
-					</table>
-					<table>
-						<tr>
-							<th align='left'>Address :<br/><br/><br/></th>
-							<td><textarea name='address' placeholder='Address' rows='4' cols='17'>{$display['address']}</textarea></td>
-							<th align='left'>Phone :<br/><br/>Landline :</th>
-							<td><input type='text' name='phone' placeholder='Phone' size='10' value=\"{$display['phone']}\" maxlength='10'/><br/><br/>
-								<input type='text' name='landline' placeholder='Landline' size='7' value=\"{$display['landline']}\" maxlength='7'/>
-							</td>
-						</tr>
-						<tr><br/></tr>
-						<tr><td></td>
-							<td><input type='submit' value=' Save ' name='update'/></td>
-						</tr>
-					</table>
+					echo"<img src='{$path}'/>
+					<input type='file' name='file' /><input type='submit' class='upload' value='Upload photo' name='upload'/>
+					<input type='submit' value='Delete photo' class='delete' name='delete'/>
+				</div>
+				<div class='col-md-9' id='one_council_member_details'>
+					<div class='row'>
+						<div class='col-md-9'>
+						<br/>
+							<div class='row'>
+								<div class='col-md-3'>Name:</div>
+								<div class='col-md-9'><input type='text' placeholder='Name' name='name' size='54' value=\"{$display['name']}\" maxlength='30'/><br/><br/></div>
+								
+							</div>
+						</div>
+						<div class='col-md-3'>
+						<br/>
+							<input type='submit' value=' Save ' name='update'/>
+						</div>
+					</div>
+
+					<div class='row'>
+						<div class='col-md-6'>
+						Address:<br/>
+						<textarea name='address' placeholder='Address' rows='3' cols='17'>{$display['address']}</textarea>
+						</div>
+						<div class='col-md-6'>
+							<div class='row'>
+								<br/>
+								<div class='col-md-3'>Phone:</div>
+								<div class='col-md-9'><input type='text' name='phone' placeholder='Phone' size='10' value=\"{$display['phone']}\" maxlength='10'/></div>
+								<br/><br/>
+							</div>
+							<div class='row'>
+							<div class='col-md-3'>Landline:</div>
+							<div class='col-md-9'><input type='text' name='landline' placeholder='Landline' size='11' value=\"{$display['landline']}\" maxlength='7'/></div>
+						</div>
+						</div>
+					</div>
+				</div>
 				</div>
 			</div>
-		</form>
-	</div>";
-}echo"<hr/>"; 
+			
+		</div>
+		
+	</form>
+	</div>
+	</div><br/>";
+}
+echo "</div><hr/>";
 ?>

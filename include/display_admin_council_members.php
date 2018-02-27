@@ -1,6 +1,7 @@
 <?php
-echo"<div id='show_council_members'></div>
-<button id='show_council_members_button' onclick='show_admin_council_members()'>Show Council Members</button>";
+echo"<div id='show_council_members'>
+<button id='show_council_members_button' onclick='show_admin_council_members()'>Show Council Members</button>
+</div>";
 ?>
 <script>
 function show_admin_council_members(){
@@ -23,9 +24,7 @@ var xmlhttp;
 	
 }
 </script>
-<style>
-#show_council_members_button{float:right;}
-</style>
+
 <?php
 echo "<input type='hidden' value='{$page}' id='page'>";
 echo "<input type='hidden' value='{$sub_page}' id='sub_page'>";

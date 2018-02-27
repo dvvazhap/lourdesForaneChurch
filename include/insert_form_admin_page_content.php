@@ -1,5 +1,5 @@
 <style>
-#page_content{background-color:white; padding:20px;line-height:2em;}
+#page_content{ padding:20px;line-height:2em;}
 #sub_title{color:#272727;font-style:italic;font-size:30px;}
 #sub_content{color:blue; margin-left:50px;font-style:italic;font-size:20px;}
 </style>
@@ -18,14 +18,9 @@ while($display = mysqli_fetch_array($result)){
 	echo"<div id='page_content'><div id='sub_title'>{$display['sub_title']}</div>
 	<span id='sub_content'>{$display['sub_content']}</span></div>";
 }
-echo "</table>";
 }
 
-echo"<br/><br/><br/>Insert new Content";
-echo"<form method='post'>
-	<br/>Sub Title :<input type='textbox' size='50' name='sub_title' maxlength='50' /><br/>
-	<br/>Content :<textarea rows='5' cols='100' name='sub_content'></textarea>
-	<input type='submit' value='Insert' name='insert_submit_admin_page_content' /></form>";
+echo"<br/><br/>Insert new content to this page <br/><br/><div class='container-fluid'><div class='row'><div class='col-md-12'><form method='post'><div class='row'><div class='col-md-2'>Sub Title:</div><div class='col-md-6'><input type='textbox' size='50' name='sub_title' maxlength='50' /></div><div class='col-md-2'><input type='submit' value='Insert' name='insert_submit_admin_page_content' /></div></div><div class='row'><div class='col-md-2'>Content:</div><div class='col-md-10'><textarea rows='5' cols='100' name='sub_content'></textarea></div></div></form></div></div></div><br><br>";
 
 if(isset($_POST['insert_submit_admin_page_content'])){
 	if(isset($_POST['sub_title'])){$sub_title=mysqli_prep($db,$_POST['sub_title']);}else{$sub_title=NULL;}

@@ -1,11 +1,19 @@
 <?php
 if(!isset($_GET['add'])){
-echo "<div id='add_user' style='width:auto'></div>
-<table id='add_user_table'>
-	<tr><th>Username</th><th>:</th><td><input type='text' id='add_username' size='40' maxlength ='30' /></td></tr>
-	<tr><th>Password</th><th>:</th><td><input type='password' id='add_password' size='40' maxlength ='30' /></td></tr>
-	<tr><th></th><td></td><td><button onclick='add_user()'>Add User</button></td></tr>
-</table>";
+echo "<div id='add_user' ></div>
+<div class='container-fluid' id='add_user_table'>
+<div class='row'>
+<div class='col-md-4'>Username:</div>
+<div class='col-md-6'><input type='text' id='add_username' size='40' maxlength ='30' /></div>
+</div>
+<div class='row'>
+<div class='col-md-4'>Password:</div>
+<div class='col-md-6'><input type='password' id='add_password' size='40' maxlength ='30' /></div>
+</div>
+<div class='row'>
+<div class='col-md-4'><button onclick='add_user()'>Add User</button></div>
+</div>
+</div>";
 }
 ?>
 <script>
@@ -18,6 +26,7 @@ document.getElementById('add_user_table').style.visibility='visible';
 	document.getElementById('password_table').style.visibility='hidden';
 	document.getElementById('change_password').style.visibility='hidden';
 	document.getElementById('change_password_button').style.visibility='visible';
+	document.getElementById('view_users_button').style.visibility='visible';
 	var admin_right= document.getElementById('admin_right').value;
 	if(admin_right<=2){
 	document.getElementById('view_users').style.visibility='hidden';
@@ -55,11 +64,28 @@ $add_pass=mysqli_prep($db,$_POST['add_pass']);
 	$sql="SELECT * FROM security where username='{$add_user}'";
 	$result=mysqli_query($db,$sql);
 	while($row=mysqli_fetch_array($result)){
-		echo "<div id='error_notify'>Sorry..! Someone have already registered with that username<br/>Try with an altername username<br/></div>
-		<table id='add_user_table'>
-		<tr><th>Username</th><th>:</th><td><input type='text' id='add_username' size='40' maxlength ='30' /></td></tr>
-		<tr><th>Password</th><th>:</th><td><input type='password' id='add_password' size='40' maxlength ='30' /></td></tr>
-		<tr><th></th><td></td><td><button onclick='add_user()'>Add User</button></td></tr></table>";
+		echo "<div ></div>";
+
+
+
+		echo"<div class='container-fluid' id='add_user_table'>
+		<div class='row'>
+		<div class='col-md-12' id='error_notify'>
+			Sorry..! Someone have already registered with that username. Try with an altername username.
+		</div>
+		</div>
+		<div class='row'>
+		<div class='col-md-4'>Username:</div>
+		<div class='col-md-6'><input type='text' id='add_username' size='40' maxlength ='30' /></div>
+		</div>
+		<div class='row'>
+		<div class='col-md-4'>Password:</div>
+		<div class='col-md-6'><input type='password' id='add_password' size='40' maxlength ='30' /></div>
+		</div>
+		<div class='row'>
+		<div class='col-md-4'><button onclick='add_user()'>Add User</button></div>
+		</div>
+		</div>";
 	}
 	$r = mysqli_query($db,"SELECT * FROM security WHERE username = '{$_SESSION['user']}'");
 	while($row = mysqli_fetch_array($r)){
@@ -68,8 +94,7 @@ $add_pass=mysqli_prep($db,$_POST['add_pass']);
 		$admin_right = $row['admin_right'];
 	}
 	if($page=="home"){
-		if($admin_right==0)$new_admin_right=1;
-		elseif($admin_right==1)$new_admin_right=3;
+		$new_admin_right=$admin_right+1;
 	}
 	elseif(($page=="wards")||($page=="associations")||($page=="catechism")){$new_admin_right=3;} 
 	$query="INSERT into security(`id`,`temp_id`,`admin_page`,`admin_sub_page`,`admin_right`,`username`,`password`) 

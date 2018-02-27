@@ -128,6 +128,7 @@ elseif($info==2){
 	require_once("connection.php");
 	$name = $_SESSION['user'];
 	$res=mysqli_query($db,"UPDATE security SET phone='{$mobile}',question='{$ques}',answer='{$ans}' WHERE username='{$name}'");
+	echo "<script>window.alert('Information updated.')</script>";
 }
 }
 

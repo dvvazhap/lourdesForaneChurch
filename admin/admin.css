@@ -1,13 +1,13 @@
 body{background-color:#86D4E5;color:#272727; width:1100px;}
-#adminWrapper{height:270px; border:solid black;z-index:1;}
+#adminWrapper{height:270px; z-index:1;}
 #page_table_image img{width:300px;height:180px;position:absolute;margin-left:50%;margin-top:-130px;border:20px solid #272727;}
-#one_council_member_wrapper{border:solid #272727;width:700px;height:180px;margin-left:180px;margin-top:-100px;position:absolute;overflow:none;}
-#photo_edit_council_members{height:40px;width:150px;position:relative;margin-top:80px;margin-left:-180px;}
-#photo_council_members{margin-left:0px;width:170px;position:absolute;}
-#one_council_member_details{width:520px;margin-left:180px;margin-top:-120px;position:relative;}
-#photo_council_members img{height:180px;width:170px;}
+#one_council_member_wrapper{border:solid #272727;}
+#photo_council_members img{height:180px;width:200px;}
+#photo_council_members input[type='file']{top:100px; left:7%; position:absolute; z-index:50;font-size:12px;}
+#photo_council_members .upload{top:150px; left:6%; position:absolute; z-index:50; width:38%;font-size:12px;}
+#photo_council_members .delete{top:150px; left:45%; position:absolute; z-index:50; width:38%;font-size:12px;}
 #one_council_member{height:185px;}
-#one_council_member_post{background-color:#272727;color:white;text-align:center;width:180px;height:50px;margin-top:30px;}
+#one_council_member_post{background-color:#272727;color:white;text-align:center;}
 #header{height:100px;width:100%;margin-left:0;margin-top:20px;text-align:center;font-size:30px;}
 #logout{font-size:20px;margin-left:85%;}
 #body{position:relative;padding:0px 0px 0px 0px;}
@@ -24,17 +24,8 @@ ul{list-style:none;}
 /* #content{position:absolute;margin-left:auto;float:none;width:90%;padding:10px 10px 0px 30px;font-size:20px;color:#272727;} */
 #content input,#content textarea,#content select{width:100%;}
 input[type='file'],input[type='submit']{cursor:pointer;}
-
-/* th{color:#fff;font-size:20px;}
-td{color:white;font-size:18px;} */
-
+#change_password_button,#add_user_button,#view_users_button,#show_gallery_button,#show_information_button{width:100% !important;}
+#password_table, #show_information, #add_user_table, #view_users{position:absolute; width:100%;}
 #one_image{position:relative;}#one_image_wrapper{margin-left:0px;margin-top:10px; position:relative; width:200px; height:250px;}
 #one_image img{height:200px; width:100%; border:solid #262626;}
-.one_image_left{position:relative;}
-.one_image_centre{position:relative;margin-left:30%;margin-top:-265px;}
-.one_image_right{position:relative;margin-left:60%;margin-top:-265px;}
-#change_password{width:150px;height:30px;}
-#add_user{position:relative;margin-left:160px;margin-top:-30px;width:150px;height:30px;}
-#view_user{height:30px;width:150px;margin-left:320px;margin-top:-30px;}
-.button{height:60px; width:auto; padding:10px; color:#272727; font-size:30px;}
 button{height:50px; width:auto; cursor:pointer; padding:5px; color:#272727; font-size:18px;}

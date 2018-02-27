@@ -1,17 +1,7 @@
 <?php include("admin_header.php")?>
 <div id='content'>
 <style>
-#create_event_button{margin-left:700px; position:absolute;}
-#create_event{width:350px; margin-left:800px; padding:0px; position:absolute; font-size:30px; -webkit-border-radius:20px;-moz-border-radius:20px;border-radius:20px; background-color:#272727; color:red;}
-th{color:white;}
-#flash_news{ margin-left:10px;}
-#important_news{margin-left:400px;}
-#button{float:left;}
-#change_password_button,#add_user_button,#view_users_button,#show_gallery_button,#show_information_button{width:250px;}
-#show_information{margin-left:300px;position:absolute; width:690px; margin-top:-290px; height:250px;}
-#view_users{margin-left:300px; position:absolute; width:690px; margin-top:-305px; overflow-y:scroll; height:270px;}
-#password_table{margin-left:280px; position:absolute; width:640px; margin-top:-290px; padding:30px;}
-#add_user_table{margin-left:280px; position:absolute; width:640px; margin-top:-290px; padding:30px;}
+#create_event{width:500px;z-index:90; left:0; padding:10px; position:absolute; font-size:18px; background-color:#272727;color:#fff;}
 </style>
 <script>
 window.onload=init;
@@ -64,7 +54,7 @@ var xmlhttp;
 	else{ xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");}
 	xmlhttp.onreadystatechange=function(){
 		if (xmlhttp.readyState==4 && xmlhttp.status==200){
-				document.getElementById("del").innerHTML=xmlhttp.responseText;
+				document.getElementById("events").innerHTML=xmlhttp.responseText;
 			}
 	}
 	xmlhttp.open("POST","../include/update_events.php",true);
@@ -90,20 +80,32 @@ var xmlhttp;
 <?php
 if(isset($_GET['action'])){$action=$_GET['action'];}else{$action=NULL;}
 if(($sub_page==0) && ($action==NULL)){
-echo"<div id='adminWrapper'><table id='button'><tr><td><button id='change_password_button' onclick='show_change_password()'>Change Password</button></td></tr>
-<tr><td><button id='show_information_button' onclick='show_information()'>Edit Information</button></td></tr>";
-if($admin_right<=1){
-echo "<tr><td><button id='add_user_button' onclick='add_user_table()'>Add User</button></td></tr>";
-echo "<tr><td><button id='view_users_button' onclick='show_users()'>Show Additional Users</button></td></tr>";
-}echo "<tr><td><button id='show_gallery_button' onclick='show_gallery()'>Show Gallery</button></td></tr></table>";
-echo "</div>";
-include("../include/change_password.php");
-include("../include/info.php");
-if($admin_right<=1){
-include("../include/view_users.php");
-include("../include/add_user.php");
-}
-include("../include/add_gallery_image.php");
+	echo "<div class='container-fluid'>
+	<div class='row' id='adminWrapper'>
+		<div class='col-md-3'>
+		<button id='change_password_button' onclick='show_change_password()'>Change Password</button>
+		<button id='show_information_button' onclick='show_information()'>Edit Information</button>";
+		if($admin_right<=1){
+			echo "<button id='add_user_button' onclick='add_user_table()'>Add User</button>";
+			echo "<button id='view_users_button' onclick='show_users()'>Show Additional Users</button>";
+		}
+		echo"<button id='show_gallery_button' onclick='show_gallery()'>Show Gallery</button>
+		</div>
+		<div class='col-md-9'>";
+		include("../include/change_password.php");
+		include("../include/info.php");
+		if($admin_right<=1){
+		include("../include/view_users.php");
+		include("../include/add_user.php");
+		}
+		echo "</div>
+	</div>
+	<div class='row'>
+		<div class='col-md-12'>";
+		include("../include/add_gallery_image.php");
+		echo "</div>
+	</div>
+	</div><hr/>";
 
 
 $query = "SELECT * FROM page_content WHERE page='home' && sub_page=2";
@@ -112,9 +114,12 @@ $c=mysqli_num_rows($result);
 if($c==0){$sql="INSERT into page_content(`page`,`sub_page`,`sub_no`,`temp_id`) VALUES('home',2,1,1)"; $res=mysqli_query($db,$sql);}
 if(!$result){ die("Error ".mysqli_connect_error());}
 if(isset($result)){ while($display = mysqli_fetch_array($result)){
-echo "<form id='flash_news' method='post'><b style='color:#272727'>Main Heading:</b><br/>
-<textarea name='flash_content' rows='2' cols='50'>{$display['sub_content']}</textarea>
-<input type='submit' name='submit_flash_news' value= 'Save' /></form>";}}
+echo "<div class='container-fluid'><div class='row'><div class='col-md-12'><form id='flash_news' method='post'><div class='row'>
+	<div class='col-md-2'>Main Heading:</div>
+	<div class='col-md-6'><input type='text' name='flash_content' value=\"{$display['sub_content']}\" /></div>
+	<div class='col-md-2'><input type='submit' name='submit_flash_news' value= 'Save' /></div>
+</div></form></div></div></div><br><br>";}}
+
 if(isset($_POST['submit_flash_news'])){
 if(isset($_POST['flash_content'])){$flash_content=mysqli_prep($db,$_POST['flash_content']);}else{$flash_content=NULL;}
 $query="UPDATE `page_content` SET `sub_content`='{$flash_content}' 
@@ -123,80 +128,134 @@ $result = mysqli_query($db,$query);
 echo "<script>window.location='admin_home.php?page=home&sub_page=0'</script>";}
 include("../include/display_admin_page_content.php");
 
-
-echo "<h2>List of event</h3>";
-echo "<button id='create_event_button' onclick='create_event()'>Add an event</button>";
+echo "<hr/><br/><br/><h2 class='heading'>LIST OF EVENTS</h3><br/>";
+echo "<button id='create_event_button' onclick='create_event()'>Add an event</button><br/><br/>";
 echo "<div id='create_event'></div>";
 echo "<div id='events'></div>";
-echo "<div id='del'></div>";
 
 
-echo"<hr/><b style='color:#272727'>Latest News :</b><br/>";
+echo"<hr/><h2 class='heading'>LATEST NEWS</h2><br/>";
+echo"<a href ='admin_home.php?page={$page}&sub_page=1'><button>Insert a new file</button></a><br/><br/>";
+
 $count=0;
 $query = "SELECT * FROM latest_news";
 $result = mysqli_query($db,$query);
 while($row=mysqli_fetch_array($result)){$count++;}
-if($count>0){
-echo"<table cellpadding=10 cellspacing=2><tr><th>File Description</th><th>File Name</th><th>New File</th><th>Visible</th><th>File Type</th></tr>";}
-else{ echo"No file exists in the latest news...!";}
+if($count==0){echo"No file exists in the latest news...!";}
+else{
+	
+	$query = "SELECT * FROM latest_news";
+	$result = mysqli_query($db,$query);
+	echo "<div class='container-fluid'><div class='row'>";
+	while($display = mysqli_fetch_array($result)){
+	if ($display['new_file']==1){$check_n= "checked='checked'";}
+	else{$check_n=" ";}
+	if ($display['visible']==1){$check_v="checked='checked'";}
+	else{$check_v=" ";}
+	
+	echo "<div class='col-md-6'>
+	<form action=\"admin_home.php?sub_page=3&file_id={$display['file_id']}&page={$page}\" method='post'>
+	<div class='row'>
+		<div class='col-md-6'>File Description<br/>
+		<textarea rows='5' cols=50 name='file_desc'>{$display['file_desc']}</textarea>
+		</div>
+		<div class='col-md-6'>
+			<div class='row'>
+				<div class='col-md-6'>New File:</div>
+				<div class='col-md-6'><input type='checkbox' style='width: 30px;height:30px' name='new_file' {$check_n}/></div>
+			</div>
+			<div class='row'>
+				<div class='col-md-6'>Visible:</div>
+				<div class='col-md-6'><input type='checkbox' style='width: 30px;height:30px' name='visible' {$check_v}/></div>
+			</div>
+			<div class='row'>
+				<div class='col-md-6'>File Name:</div>
+				<div class='col-md-6'>";
+				if($display['file_name']=="0"){echo "No file ";} else{echo $display['file_name'];}
+				echo"</div>
+			</div>
+			<div class='row'>
+				<div class='col-md-12'>
+				<input type='button' onClick=\"location.href='admin_home.php?sub_page=2&file_id={$display['file_id']}&page={$page}'\" value='Delete'/>	
+				</div>
+			</div>
+			<div class='row'><div class='col-md-12'><input type='submit' value= 'Save' /></div></div>
+		</div>
+	</div></form><br/><br/><hr/></div>";
+	}
+	echo"</div></div>";
+}
 
-$query = "SELECT * FROM latest_news";
-$result = mysqli_query($db,$query);
-while($display = mysqli_fetch_array($result)){
-if ($display['new_file']==1)
-{$check_n= "checked='checked'";}
-else{$check_n=" ";}
-if ($display['visible']==1)
-{$check_v="checked='checked'";}
-else{$check_v=" ";}
-
-echo"<form action=\"admin_home.php?sub_page=3&file_id={$display['file_id']}&page={$page}\" method='post'><tr>
-<td><textarea rows='5' cols=50 name='file_desc'>{$display['file_desc']}</textarea></td><td>";
-if($display['file_name']=="0"){echo "No file ";} else{echo $display['file_name'];}
-echo"</td><td><input type='checkbox' name='new_file' {$check_n}/></td>
-<td><input type='checkbox' name='visible' {$check_v}/></td>
-<td>{$display['file_type']}</td>
-<td><input type='button' onClick=\"location.href='admin_home.php?sub_page=2&file_id={$display['file_id']}&page={$page}'\" value='Delete'/></td>
-<td><input type='submit' value= 'Save' /></td>
-</tr></form>";}
-echo "</table>";
-echo"<br/><a href ='admin_home.php?sub_page=1&page={$page}'><button>Insert a new file</button></a><br/>";
 }
 elseif(($sub_page==1) && ($action==NULL)){ //Insert a new file
-echo"Latest News<br/>";
+echo"<b>Insert a new file</b><br/>";
+
+echo "<div class='container-fluid'><div class='row'>";
+
+echo "<div class='col-md-6'>
+<form action='admin_home.php?sub_page=4&page={$page}' method='post' enctype='multipart/form-data'>
+<div class='row'>
+	<div class='col-md-6'>
+		File Description<br/><textarea rows='5' cols=50 name='file_desc'></textarea>
+	</div>
+	<div class='col-md-6'>
+		<div class='row'>
+			<div class='col-md-6'>New File:</div>
+			<div class='col-md-6'><input type='checkbox' style='width: 30px;height:30px' name='new_file' /></div>
+		</div>
+		<div class='row'>
+			<div class='col-md-6'>Visible:</div>
+			<div class='col-md-6'><input type='checkbox' style='width: 30px;height:30px' name='visible' checked='checked' /></div>
+		</div>
+		<div class='row'>
+			<div class='col-md-6'>File Name:</div>
+			<div class='col-md-6'>
+			<input type='file' name='file' />
+			</div>
+		</div>
+		<div class='row'><div class='col-md-12'><input type='submit' value='Insert' /></div></div>
+	</div>
+</div></form><br/><hr/></div>";
+
+
 $count=0;
 $query = "SELECT * FROM latest_news";
 $result = mysqli_query($db,$query);
 if(!$result){ die("Error ".mysqli_connect_error());}
 while($row=mysqli_fetch_array($result)){$count++;}
-if($count>0){
-echo"<table cellpadding=10 cellspacing=2>
-<tr><th>File Description</th><th>File Name</th><th>New File</th><th>Visible</th><th>File Type</th></tr>";}
-else{echo "There are no files in latest news";}
-$query = "SELECT * FROM latest_news";
-$result = mysqli_query($db,$query);
-if(!$result){ die("Error ".mysqli_connect_error());}
-while($display = mysqli_fetch_array($result)){
-if ($display['new_file']==1)
-{$check_n= "checked='checked'";}
-else{$check_n=" ";}
-if ($display['visible']==1)
-{$check_v="checked='checked'";}
-else{$check_v=" ";}
-echo"<tr><td width=\"450\">{$display['file_desc']}</td>
-<td>{$display['file_name']}</td>
-<td><input type='checkbox' name='new_file' {$check_n} disabled='disabled'/></td>
-<td><input type='checkbox' name='visible' {$check_v} disabled='disabled'/></td>
-<td>{$display['file_type']}</td></tr>";
+if($count==0){
+	echo "<div class='col-md-6'>There are no files in latest news</div>";
 }
-echo "</table>";
-echo"<br/><br/><br/>Insert a new file";
-echo"<form action='admin_home.php?sub_page=4&page={$page}' method='post' enctype='multipart/form-data'>
-<br/>File Description:<br/><textarea rows='5' cols=50 name='file_desc'></textarea>
-<br/><input type='file' name='file' />
-<br/>New File:<input type='checkbox' name='new_file' />
-Visible:<input type='checkbox' name='visible' checked='checked' />
-<input type='submit' value='Insert' /></form>";
+else{	
+	$query = "SELECT * FROM latest_news";
+	$result = mysqli_query($db,$query);
+	if(!$result){ die("Error ".mysqli_connect_error());}
+	while($display = mysqli_fetch_array($result)){
+		if ($display['new_file']==1){$check_n= "checked='checked'";}else{$check_n=" ";}
+		if ($display['visible']==1){$check_v="checked='checked'";}else{$check_v=" ";}
+		echo "<div class='col-md-6'>
+		<div class='row'>
+			<div class='col-md-6'>File Description<br/>
+			{$display['file_desc']}
+			</div>
+			<div class='col-md-6'>
+				<div class='row'>
+					<div class='col-md-6'>New File:</div>
+					<div class='col-md-6'><input type='checkbox' style='width: 30px;height:30px' name='new_file' {$check_n} disabled='disabled'/></div>
+				</div>
+				<div class='row'>
+					<div class='col-md-6'>Visible:</div>
+					<div class='col-md-6'><input type='checkbox' style='width: 30px;height:30px' name='visible' {$check_v} disabled='disabled'/></div>
+				</div>
+				<div class='row'>
+					<div class='col-md-6'>File Name:</div>
+					<div class='col-md-6'>{$display['file_name']}</div>
+				</div>
+			</div>
+		</div><br/><br/><br/><hr/></div>";	
+	}
+}
+echo"</div></div>";
 }
 elseif(($sub_page==2)&&($action==NULL)){//Delete a file
 $file_id=$_GET['file_id'];

@@ -72,42 +72,68 @@ if($page=='gallery'){
 
 	echo "</div></div>";
 }
-
-elseif($page!='gallery'){
-	if($page=='home'){echo"<h4><div style='color:#272727'>*Upload a 660x280 jpg/jpeg Image of size less than 1 Mb</div></h4>";}
-	else{echo"<h4><div style='color:#272727'>*Upload a jpg/jpeg Image of size less than 1 Mb</div></h4>";}
-	echo"<div id='one_image'>";
-	$query="SELECT * FROM albums WHERE page='{$page}' && sub_page={$sub_page}";
-	$res=mysqli_query($db,$query);
-	if($res)	$num_rows=mysqli_num_rows($res);
-	if($num_rows >0){
-		$lr="one_image_left";
-		while($row=mysqli_fetch_array($res)){
-			$page_name=$row['page_name'];
-			echo"<div class='{$lr}'>";
-			echo "<div id='one_image_wrapper'>";
-			if(($page_name!="0")&&($page!="gallery")){$img=$path.$row['name'];}
-			elseif(($page_name=="0")&&($page!="gallery")){$img=$path.$row['name'];}
-			$file_name=$row['name'];
-			echo "<img src='{$img}'/>";
-			if($num_rows!=1){
-				echo "<form method='post'> <input type='hidden' value='{$img}' name='image'/>
-				<input type='hidden' value='{$file_name}' name='file_name'/>
-				<input type='hidden' value='{$page_name}' name='album_name'/>
-				<input type='submit' value='Delete the image' name='delete_image'/></form>";
+elseif($page=='home'){
+	echo"<div class='container-fluid' id='one_image'>
+		<div class='row'>
+			<div class='col-md-6'>
+				<h4>*Upload a 660x280 jpg/jpeg Image of size less than 1 Mb</h4>
+				<form method='post' enctype='multipart/form-data'>
+				<input type='file' name='file' />
+				<input type='submit' name='upload_image' value='Upload'>
+				</form>	
+			</div>";
+			$query="SELECT * FROM albums WHERE page='{$page}' && sub_page={$sub_page}";
+			$res=mysqli_query($db,$query);
+			if($res)	$num_rows=mysqli_num_rows($res);
+			if($num_rows >0){
+				while($row=mysqli_fetch_array($res)){
+					$page_name=$row['page_name'];
+					$img=$path.$row['name'];
+					$file_name=$row['name'];
+					echo"<div class='col-md-6'>
+						<img src='{$img}'/>";
+						if($num_rows!=1){
+							echo "<form method='post'> <input type='hidden' value='{$img}' name='image'/>
+							<input type='hidden' value='{$file_name}' name='file_name'/>
+							<input type='hidden' value='{$page_name}' name='album_name'/>
+							<input type='submit' value='Delete the image' name='delete_image'/></form>";
+						}
+					echo"<br/><br/></div>";
+				}
 			}
-			echo"</div></div>";
-			if($lr=="one_image_left"){$lr="one_image_centre";}
-			elseif($lr=="one_image_centre"){$lr="one_image_right";}
-			elseif($lr=="one_image_right"){$lr="one_image_left";}
-		}
-	}
-	echo"<h4>Upload a new Image...!";
-	echo"<form method='post' enctype='multipart/form-data'>
-	<input type='file' name='file' />";
-	if($page=="gallery"){echo"<input type='hidden' value=\"{$page_name}\" name='album_name'>";}
-	echo"<input type='submit' name='upload_image' value='Upload'>
-	</form></h4></div>";
-	echo"<hr/>";
+	echo"</div></div><hr/>";
+}
+elseif($page!='gallery'){
+	echo"<h4><div style='color:#272727'>*Upload a jpg/jpeg Image of size less than 1 Mb</div></h4>";
+	
+	echo"<div class='container-fluid' id='one_image'>
+		<div class='row'>
+			<div class='col-md-3'>
+				<h4>Upload a new Image...!</h4>
+				<form method='post' enctype='multipart/form-data'>
+				<input type='file' name='file' />
+				<input type='submit' name='upload_image' value='Upload'>
+				</form>	
+			</div>";
+			$query="SELECT * FROM albums WHERE page='{$page}' && sub_page={$sub_page}";
+			$res=mysqli_query($db,$query);
+			if($res)	$num_rows=mysqli_num_rows($res);
+			if($num_rows >0){
+				while($row=mysqli_fetch_array($res)){
+					$page_name=$row['page_name'];
+					$img=$path.$row['name'];
+					$file_name=$row['name'];
+					echo"<div class='col-md-3'>
+						<img src='{$img}'/>";
+						if($num_rows!=1){
+							echo "<form method='post'> <input type='hidden' value='{$img}' name='image'/>
+							<input type='hidden' value='{$file_name}' name='file_name'/>
+							<input type='hidden' value='{$page_name}' name='album_name'/>
+							<input type='submit' value='Delete the image' name='delete_image'/></form>";
+						}
+					echo"<br/><br/></div>";
+				}
+			}
+	echo"</div></div><hr/>";
 }
 ?>

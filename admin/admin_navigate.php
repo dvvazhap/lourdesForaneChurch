@@ -3,7 +3,7 @@
 <?php echo "<div class='container-fluid'>
     <div class='row'>
         <div class='col-md-8'>Welcome ".strtoupper($username)."</div>
-        <div class='col-md-4'><form action='admin_verify.php?logout=1' method='post' /><input class='button' type='submit' value='Logout' /></form></div>
+        <div class='col-md-4'><form action='admin_verify.php?logout=1' method='post' /><input type='submit' value='Logout' /></form></div>
     </div>
 </div>"; 
 if($admin_right<=1){
