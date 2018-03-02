@@ -72,5 +72,7 @@ height:100px;width:280px;margin-top:0;margin-left:75%;z-index:35;visibility: hid
 #contact_form form textarea {width: 380px;height: 200px;background: #fff;border: 1px solid #dfdfdf;padding: 5px;font-size: 12px;}
 #contact_form form .submit_btn {margin: 10px 0px;padding: 5px 14px;border: 1px solid #dfdfdf;background: #fff;color:#666;font-weight: bold;}
 /* footer */
-#footer {margin-left:3%;margin-top:10%;position:relative;width: 88%;padding:20px 3%;text-align: center;color: #755e96;}
-#footer a {color: #755e96;}/* end of footer */
+#footer {margin-left:3%;margin-top:10%;position:relative;width: 88%;padding:20px 3%;text-align: center;color: #272727;}
+#footer a {color: #272727;}/* end of footer */
+.company img{width:100%;}
+.company .contact{font-size:20px;}

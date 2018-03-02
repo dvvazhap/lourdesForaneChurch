@@ -21,7 +21,7 @@ if(aut){document.getElementById('add_user_table').style.visibility='hidden';}
 	echo "<button id='change_password_button' onclick='show_change_password()'>Change Password</button>
 	<button id='show_information_button' onclick='show_information()'>Edit Information</button>";
 	}
-	if($admin_right<=2){
+	if($admin_right<=3){
 		echo "<button id='add_user_button' onclick='add_user_table()'>Add User</button>";
 		echo "<button id='view_users_button' onclick='show_users()'>Show Additional Users</button>
 		<button id='add_teacher_button' onclick='add_teacher()'>Add a Teacher</button>
@@ -35,7 +35,7 @@ if(aut){document.getElementById('add_user_table').style.visibility='hidden';}
 		include("../include/change_password.php");
 		include("../include/info.php");
 	}
-	if($admin_right<=2){
+	if($admin_right<=3){
 		include("../include/view_users.php");
 		include("../include/add_user.php");
 		include("../include/add_teacher.php");

@@ -3,7 +3,6 @@ require_once("connection.php");
 if(isset($_GET['page'])){$page=$_GET['page'];}
 if(isset($_GET['sub_page'])){$sub_page=$_GET['sub_page'];}
 if(isset($_GET['page_name'])){$page_name=$_GET['page_name'];}
-if(isset($_GET['admin_right'])){$admin_right=$_GET['admin_right'];}
 
 $query="SELECT * FROM council_members WHERE page='{$page}' && sub_page={$sub_page} ORDER by position";
 $result=mysqli_query($db,$query);
@@ -18,7 +17,7 @@ echo"<h2 class='heading'>{$page_name} Council Members</h2>
 		echo "
 		<div class='row' id='one_council_member'>
 		<div class='col-md-12'>
-		<form action =\"admin_{$page}.php?page={$page}&sub_page={$sub_page}&position={$display['position']}&admin_right={$admin_right}\" method='post' enctype='multipart/form-data'>
+		<form action =\"admin_{$page}.php?page={$page}&sub_page={$sub_page}&position={$display['position']}&admin_right={$_SESSION['admin_right']}\" method='post' enctype='multipart/form-data'>
 			<div class='row'>
 			
 				<div class='col-md-2'><br/><br/>

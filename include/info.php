@@ -1,17 +1,21 @@
 <script>
 function show_information(){
-	document.getElementById('show_information').style.visibility='visible';
-	document.getElementById('show_information_button').style.visibility='hidden';
-	document.getElementById('password_table').style.visibility='hidden';
-	document.getElementById('change_password_button').style.visibility='visible';
-	var admin_right= document.getElementById('admin_right').value;
-	if(admin_right<=2){
-	document.getElementById('add_user').style.visibility='hidden';
-	document.getElementById('add_user_table').style.visibility='hidden';
-	document.getElementById('add_user_button').style.visibility='visible';
-	document.getElementById('view_users').style.visibility='hidden';
-	document.getElementById('view_users_button').style.visibility='visible';
-	}
+var atb = document.getElementById('add_teacher_button'); if(atb) document.getElementById('add_teacher_button').style.visibility='visible';
+var at = document.getElementById('add_teacher'); if(at) document.getElementById('add_teacher').style.visibility='hidden';
+var dtb = document.getElementById('del_teacher_button'); if(dtb) document.getElementById('del_teacher_button').style.visibility='visible';
+var dt = document.getElementById('delete_teacher'); if(dt) document.getElementById('delete_teacher').style.visibility='hidden';
+var sib = document.getElementById('show_information_button'); if(sib) document.getElementById('show_information_button').style.visibility='hidden';
+var si = document.getElementById('show_information'); if(si) document.getElementById('show_information').style.visibility='visible';
+var cpb= document.getElementById('change_password_button'); if(cpb) document.getElementById('change_password_button').style.visibility='visible';
+var pt = document.getElementById('password_table'); if(pt) document.getElementById('password_table').style.visibility='hidden';
+var aub = document.getElementById('add_user_button'); if(aub) document.getElementById('add_user_button').style.visibility='visible';
+var au = document.getElementById('add_user'); if(au) document.getElementById('add_user').style.visibility='hidden';
+var aut = document.getElementById('add_user_table'); if(aut) document.getElementById('add_user_table').style.visibility='hidden';
+var vub = document.getElementById('view_users_button'); if(vub) document.getElementById('view_users_button').style.visibility='visible';
+var vu = document.getElementById('view_users'); if(vu) document.getElementById('view_users').style.visibility='hidden';
+var smb = document.getElementById('show_mass_button'); if(smb) document.getElementById('show_mass_button').style.visibility='visible';
+var mt = document.getElementById('mass_table'); if(mt) document.getElementById('mass_table').style.visibility='hidden';
+	
 	var xmlhttp;
 	if (window.XMLHttpRequest){ xmlhttp=new XMLHttpRequest();}
 	else{ xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");}
@@ -39,21 +43,19 @@ var xmlhttp;
 	else{ xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");}
 	xmlhttp.onreadystatechange=function(){
 		if (xmlhttp.readyState==4 && xmlhttp.status==200){
-				document.getElementById("save_information").innerHTML=xmlhttp.responseText;
+				document.getElementById("save_information_notify").innerHTML=xmlhttp.responseText;
 			}
 	}
-	xmlhttp.open("POST","../include/info.php?info=2",true);
+	xmlhttp.open("POST","../include/info.php?update=1",true);
 	xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 	xmlhttp.send("mobile="+mobile_no+"&question="+question+"&answer="+answer);
 }
 </script>
 <?php
 if(!isset($_GET['info'])){
-	echo "<div id='show_information'></div><div id='save_information'></div>";
+	echo "<div id='show_information'></div>";
 }
 if(isset($_GET['info'])){
-$info = $_GET['info'];
-if($info==1){
 	if(!isset($_SESSION['user']))session_start();
 	require_once("connection.php");
 	$name = $_SESSION['user'];
@@ -116,11 +118,12 @@ if($info==1){
 			</div>
 			<div class='row'>
 				<div class='col-md-6'><button onclick='save_information()'>Save Information</button></div>
+				<div class='col-md-6' id='save_information_notify'></div>
 			</div>
 		</div>";
 	}
 }
-elseif($info==2){
+if(isset($_GET['update'])){
 	$mobile = $_POST['mobile'];
 	$ques = $_POST['question'];
 	$ans = $_POST['answer'];
@@ -128,8 +131,7 @@ elseif($info==2){
 	require_once("connection.php");
 	$name = $_SESSION['user'];
 	$res=mysqli_query($db,"UPDATE security SET phone='{$mobile}',question='{$ques}',answer='{$ans}' WHERE username='{$name}'");
-	echo "<script>window.alert('Information updated.')</script>";
-}
+	echo "<span style='color:green'>Information updated.</span>";
 }
 
 ?>

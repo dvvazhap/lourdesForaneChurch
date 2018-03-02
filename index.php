@@ -22,17 +22,11 @@
 				<div class="row">
 					<div class="col-md-12"><h2 class="heading">MASS TIMINGS</h2></div>
 				</div>
-				<div class="row">
-					<div class="col-md-4">Sunday:</div><div class="col-md-8">6.30 a.m,8.30 a.m, 10.30 a.m,5.30 p.m</div>
-				</div>
-				<div class="cleaner_h20"></div>   
-				<div class="row">
-					<div class="col-md-4">Mon-Sat:</div><div class="col-md-8">6.15 a.m, 6.00 p.m</div>
-				</div>
-				<div class="cleaner_h20"></div> 
-				<div class="row">
-					<div class="col-md-4">First Friday:</div><div class="col-md-8">6.00 p.m (Mass & Adoration)</div>
-				</div>
+				<?php $sql=mysqli_query($db,"SELECT * FROM mass ORDER BY id");
+					while($row=mysqli_fetch_array($sql)){
+						if(($row['heading'] != "")||($row['content'] != ""))
+						echo "<div class='row'><div class='col-md-4'>{$row['heading']}</div><div class='col-md-8'>{$row['content']}</div></div><div class='cleaner_h20'></div> ";}
+				?>
 			</div>
 			<div class="col-md-7" id="sliderFrame">
 				<div id="slider">

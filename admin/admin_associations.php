@@ -6,8 +6,8 @@
 <script>
 window.onload=init;
 function init(){
-document.getElementById('password_table').style.visibility='hidden';
-document.getElementById('add_user_table').style.visibility='hidden';
+ var pt = document.getElementById('password_table'); if(pt) document.getElementById('password_table').style.visibility='hidden';
+ var aut = document.getElementById('add_user_table'); if(aut) document.getElementById('add_user_table').style.visibility='hidden';
 }
 </script>
 <?php if(isset($_GET['sub_page'])){$sub_page=$_GET['sub_page'];}else{$sub_page=NULL;}

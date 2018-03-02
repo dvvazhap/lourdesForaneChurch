@@ -20,6 +20,9 @@ var at = document.getElementById('add_teacher'); if(at) document.getElementById(
 var dtb = document.getElementById('del_teacher_button'); if(dtb) document.getElementById('del_teacher_button').style.visibility='hidden';
 var dt = document.getElementById('delete_teacher'); if(dt) document.getElementById('delete_teacher').style.visibility='visible';
 
+var smb = document.getElementById('show_mass_button'); if(smb) document.getElementById('show_mass_button').style.visibility='visible';
+var mt = document.getElementById('mass_table'); if(mt) document.getElementById('mass_table').style.visibility='hidden';
+
 
 	document.getElementById('del_teacher_button').style.visibility='hidden';
 	var xmlhttp;
@@ -50,7 +53,7 @@ function delete_teacher(){
 
 <?php
 if(!isset($_GET['del_teacher'])){echo "<div id='delete_teacher'></div>";}
-else if(isset($_GET['del_teacher'])){
+if(isset($_GET['del_teacher'])){
 $res = mysqli_query($db,"SELECT * FROM teachers ORDER by class");
 echo"<div class='container-fluid'>
 <div class='row'>
@@ -59,18 +62,24 @@ echo"<div class='container-fluid'>
 <select id='teacher_class'>";
 
 while($row=mysqli_fetch_array($res)){
-echo "<option value='{$row['id']}' >{$row['name']}</option>";
+echo "<option value={$row['id']} >{$row['name']}</option>";
 }
 echo "</select></div>
 <div class='col-md-2'>
 <button onclick='delete_teacher()' >Remove</button>
 </div>
 
-</div></div>";
+</div>
+<div class ='row'><div class='col-md-12' id='delete_teacher_notify' ></div>
+</div>";
 
 }
 if(isset($_GET['del_teacher_id'])){
-$id = $_GET['del_teacher_id'];
-mysqli_query($db,"DELETE FROM teachers WHERE id={$id}");
+	$id = $_GET['del_teacher_id'];
+	$res = mysqli_query($db,"DELETE FROM teachers WHERE id={$id}");
+	if($res)
+		echo "<span style='color:green'>Deleted the teacher. Reload the page to see the updated list of teachers. </span>";
+	else	
+		echo "Something went wrong.";
 }
 ?>

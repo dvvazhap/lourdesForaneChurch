@@ -37,6 +37,9 @@ var at = document.getElementById('add_teacher'); if(at) document.getElementById(
 
 var dtb = document.getElementById('del_teacher_button'); if(dtb) document.getElementById('del_teacher_button').style.visibility='visible';
 var dt = document.getElementById('delete_teacher'); if(dt) document.getElementById('delete_teacher').style.visibility='hidden';
+
+var smb = document.getElementById('show_mass_button'); if(smb) document.getElementById('show_mass_button').style.visibility='visible';
+var mt = document.getElementById('mass_table'); if(mt) document.getElementById('mass_table').style.visibility='hidden';
 }
 function add_user(){
 	var add_user = document.getElementById('add_username').value;
@@ -53,7 +56,9 @@ function add_user(){
 					document.getElementById("add_user").innerHTML=xmlhttp.responseText;
 				}
 		}
-		xmlhttp.open("POST","../include/add_user.php?add=1",true);
+		var page = "<?php echo $_GET['page'] ?>";
+		var sub_page = "<?php echo $_GET['sub_page'] ?>";
+		xmlhttp.open("POST","../include/add_user.php?add=1&page="+page+"&sub_page="+sub_page,true);
 		xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 		xmlhttp.send("add_user="+add_user+"&add_pass="+add_pass);
 	}
@@ -66,6 +71,8 @@ session_start();
 require_once("connection.php");
 $add_user=mysqli_prep($db,$_POST['add_user']);
 $add_pass=mysqli_prep($db,$_POST['add_pass']);
+$page = $_GET['page'];
+$sub_page = $_GET['sub_page'];
 	$sql="SELECT * FROM security where username='{$add_user}'";
 	$result=mysqli_query($db,$sql);
 	while($row=mysqli_fetch_array($result)){
@@ -88,20 +95,21 @@ $add_pass=mysqli_prep($db,$_POST['add_pass']);
 		<div class='col-md-6'><input type='password' id='add_password' size='40' maxlength ='30' /></div>
 		</div>
 		<div class='row'>
+		<input type='hidden' id='new_user_page' value= ''/><>
 		<div class='col-md-4'><button onclick='add_user()'>Add User</button></div>
 		</div>
 		</div>";
 	}
-	$r = mysqli_query($db,"SELECT * FROM security WHERE username = '{$_SESSION['user']}'");
-	while($row = mysqli_fetch_array($r)){
-		$page = $row['admin_page'];
-		$sub_page = $row['admin_sub_page'];
-		$admin_right = $row['admin_right'];
-	}
+	$new_admin_right = 100;
+	
 	if($page=="home"){
-		$new_admin_right=$admin_right+1;
+		$new_admin_right=$_SESSION['admin_right']+1;
 	}
-	elseif(($page=="wards")||($page=="associations")||($page=="catechism")){$new_admin_right=3;} 
+	elseif(($page=="wards")||($page=="associations")||($page=="catechism")){
+		
+		$new_admin_right=$_SESSION['admin_right']+1;
+		if($new_admin_right <3) $new_admin_right=3;
+	}
 	$query="INSERT into security(`id`,`temp_id`,`admin_page`,`admin_sub_page`,`admin_right`,`username`,`password`) 
 		VALUES(1,1,'{$page}',{$sub_page},{$new_admin_right},'{$add_user}','{$add_pass}')";
 	$result=mysqli_query($db,$query);

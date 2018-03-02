@@ -37,7 +37,7 @@ $result=mysqli_query($db,$sql);
 if($result){
 $query="SELECT * FROM security WHERE username='{$session_user}' ";
 $res=mysqli_query($db,$query);
-while($row=mysqli_fetch_array($res)){$sub_page=$row['admin_sub_page'];$admin_right=$row['admin_right'];}
+while($row=mysqli_fetch_array($res)){$sub_page=$row['admin_sub_page'];}
 $_SESSION['pass'] = $pass1;
 echo "<script>window.alert('Password changed successfully...!')</script>";
 }}
@@ -47,24 +47,19 @@ echo "<script>window.alert('Password changed successfully...!')</script>";
 function show_change_password(){
 var cpb= document.getElementById('change_password_button'); if(cpb) document.getElementById('change_password_button').style.visibility='hidden';
 var pt = document.getElementById('password_table'); if(pt) document.getElementById('password_table').style.visibility='visible';
-
 var sib = document.getElementById('show_information_button'); if(sib) document.getElementById('show_information_button').style.visibility='visible';
 var si = document.getElementById('show_information'); if(si) document.getElementById('show_information').style.visibility='hidden';
-
 var aub = document.getElementById('add_user_button'); if(aub) document.getElementById('add_user_button').style.visibility='visible';
 var au = document.getElementById('add_user'); if(au) document.getElementById('add_user').style.visibility='hidden';
 var aut = document.getElementById('add_user_table'); if(aut) document.getElementById('add_user_table').style.visibility='hidden';
-
 var vub = document.getElementById('view_users_button'); if(vub) document.getElementById('view_users_button').style.visibility='visible';
 var vu = document.getElementById('view_users'); if(vu) document.getElementById('view_users').style.visibility='hidden';
-
-var atb = document.getElementById('add_teacher_button'); if(vub) document.getElementById('add_teacher_button').style.visibility='visible';
-var at = document.getElementById('add_teacher'); if(vu) document.getElementById('add_teacher').style.visibility='hidden';
-
-var dtb = document.getElementById('del_teacher_button'); if(vub) document.getElementById('del_teacher_button').style.visibility='visible';
-var dt = document.getElementById('delete_teacher'); if(vu) document.getElementById('delete_teacher').style.visibility='hidden';
-
-
+var atb = document.getElementById('add_teacher_button'); if(atb) document.getElementById('add_teacher_button').style.visibility='visible';
+var at = document.getElementById('add_teacher'); if(at) document.getElementById('add_teacher').style.visibility='hidden';
+var dtb = document.getElementById('del_teacher_button'); if(dtb) document.getElementById('del_teacher_button').style.visibility='visible';
+var dt = document.getElementById('delete_teacher'); if(dt) document.getElementById('delete_teacher').style.visibility='hidden';
+var smb = document.getElementById('show_mass_button'); if(smb) document.getElementById('show_mass_button').style.visibility='visible';
+var mt = document.getElementById('mass_table'); if(mt) document.getElementById('mass_table').style.visibility='hidden';
 }
 function change_password(){
 var actual_pass = document.getElementById('actual_pass').value;

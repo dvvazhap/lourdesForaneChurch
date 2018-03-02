@@ -18,6 +18,8 @@ var at = document.getElementById('add_teacher'); if(at) document.getElementById(
 
 var dtb = document.getElementById('del_teacher_button'); if(dtb) document.getElementById('del_teacher_button').style.visibility='visible';
 var dt = document.getElementById('delete_teacher'); if(dt) document.getElementById('delete_teacher').style.visibility='hidden';
+var smb = document.getElementById('show_mass_button'); if(smb) document.getElementById('show_mass_button').style.visibility='visible';
+var mt = document.getElementById('mass_table'); if(mt) document.getElementById('mass_table').style.visibility='hidden';
 var admin_right= document.getElementById('admin_right').value;
 
 	var xmlhttp;
@@ -66,7 +68,6 @@ $r = mysqli_query($db,"SELECT * FROM security WHERE username = '{$_SESSION['user
 while($row = mysqli_fetch_array($r)){
 	$page = $row['admin_page'];
 	$sub_page = $row['admin_sub_page'];
-	$admin_right = $row['admin_right'];
 }
 echo "<div class='container-fluid' style='max-height:250px;overflow-y:scroll;'>
 <div class='row'>
@@ -78,7 +79,7 @@ echo "<div class='container-fluid' style='max-height:250px;overflow-y:scroll;'>
 </div>";
 
 if(($page=='wards')||($page=='associations')){
-	$sql="SELECT * FROM security WHERE admin_page='{$page}' && admin_sub_page={$sub_page} && admin_right=3";
+	$sql="SELECT * FROM security WHERE admin_page='{$page}' && admin_sub_page={$sub_page} && admin_right>=3 && admin_right>{$_SESSION['admin_right']}";
 	$res=mysqli_query($db,$sql);
 	while($row1= mysqli_fetch_array($res)){
 		$query="SELECT * FROM {$page}_table WHERE id={$row1['admin_sub_page']} "; 
@@ -95,7 +96,7 @@ if(($page=='wards')||($page=='associations')){
 		}
 }
 elseif($page=='catechism'){
-	$sql="SELECT * FROM security WHERE admin_page='catechism' && admin_right=3";
+	$sql="SELECT * FROM security WHERE admin_page='catechism' && admin_right>=3 && admin_right>{$_SESSION['admin_right']}";
 	$res=mysqli_query($db,$sql);
 	while($row=mysqli_fetch_array($res)){
 		echo"<div class='row'>
@@ -109,7 +110,7 @@ elseif($page=='catechism'){
 elseif($page=='home'){
 
 
-	$sql="SELECT * FROM security WHERE admin_page='home' && admin_right>{$admin_right} && admin_right!=2";
+$sql="SELECT * FROM security WHERE admin_page='home' && admin_right>{$_SESSION['admin_right']}";
 	$res=mysqli_query($db,$sql);
 	while($row=mysqli_fetch_array($res)){
 		echo"<div class='row'>
@@ -120,7 +121,7 @@ elseif($page=='home'){
 		</div>";
 	}
 
-	$sql="SELECT * FROM security WHERE admin_page='catechism' && admin_right=3";
+	$sql="SELECT * FROM security WHERE admin_page='catechism' && admin_right>=3 && admin_right>{$_SESSION['admin_right']}";
 	$res=mysqli_query($db,$sql);
 	while($row=mysqli_fetch_array($res)){
 		echo"<div class='row'>
@@ -131,7 +132,7 @@ elseif($page=='home'){
 		</div>";
 	}
 
-	$sql1="SELECT DISTINCT * FROM security WHERE admin_page='wards' && admin_right=3";
+	$sql1="SELECT DISTINCT * FROM security WHERE admin_page='wards' && admin_right>=3 && admin_right>{$_SESSION['admin_right']}";
 	$res1=mysqli_query($db,$sql1);
 	while($row1=mysqli_fetch_array($res1)){
 		$sq2="SELECT * FROM wards_table WHERE id={$row1['admin_sub_page']}";
@@ -145,7 +146,7 @@ elseif($page=='home'){
 		</div>";
 	}
 
-	$sql3="SELECT DISTINCT * FROM security WHERE admin_page='associations' && admin_right=3";
+	$sql3="SELECT DISTINCT * FROM security WHERE admin_page='associations' && admin_right>=3 && admin_right>{$_SESSION['admin_right']}";
 	$res3=mysqli_query($db,$sql3);
 	while($row3=mysqli_fetch_array($res3)){
 		$sq4="SELECT * FROM associations_table WHERE id={$row3['admin_sub_page']}";

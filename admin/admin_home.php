@@ -7,9 +7,10 @@
 window.onload=init;
 function init(){
 document.getElementById('create_event').style.visibility='hidden';
-document.getElementById('password_table').style.visibility='hidden';
-document.getElementById('show_information').style.visibility='hidden';
-document.getElementById('add_user_table').style.visibility='hidden';
+var pt = document.getElementById('password_table'); if(pt) document.getElementById('password_table').style.visibility='hidden';
+var si = document.getElementById('show_information'); if(si) document.getElementById('show_information').style.visibility='hidden';
+var aut = document.getElementById('add_user_table'); if(aut) document.getElementById('add_user_table').style.visibility='hidden';
+var mt = document.getElementById('mass_table'); if(mt) document.getElementById('mass_table').style.visibility='hidden';
 show_events();
 }
 function create_event(){
@@ -89,11 +90,13 @@ if(($sub_page==0) && ($action==NULL)){
 			echo "<button id='add_user_button' onclick='add_user_table()'>Add User</button>";
 			echo "<button id='view_users_button' onclick='show_users()'>Show Additional Users</button>";
 		}
-		echo"<button id='show_gallery_button' onclick='show_gallery()'>Show Gallery</button>
+		echo"<button id='show_mass_button' onclick='show_mass()'>Change Mass Timings</button>
+		<button id='show_gallery_button' onclick='show_gallery()'>Show Gallery</button>
 		</div>
 		<div class='col-md-9'>";
 		include("../include/change_password.php");
 		include("../include/info.php");
+		include("../include/mass.php");
 		if($admin_right<=1){
 		include("../include/view_users.php");
 		include("../include/add_user.php");
@@ -106,6 +109,8 @@ if(($sub_page==0) && ($action==NULL)){
 		echo "</div>
 	</div>
 	</div><hr/>";
+
+	
 
 
 $query = "SELECT * FROM page_content WHERE page='home' && sub_page=2";

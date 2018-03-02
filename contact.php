@@ -51,15 +51,17 @@ require_once("include/connection.php");
             }?>
         </div>
     </div>
-    <div class="cleaner_h30"></div>
+    <div class="cleaner_h30"></div><div class="cleaner_h30"></div><div class="cleaner_h30"></div>
     <div class="row">
-        <div class="col-md-6">
-            <h1>DESIGN TREE</h1>
+        <div class="col-md-3"></div>
+        <div class="col-md-6 company">
+            <div class="row">
+            <div class="col-md-4"><img src='images/logo.png' /></div>
+            <div class="col-md-8 contact" ><br/>Developed by <br/>
+                <b>Dijil Varghese</b><br/>
+                <b>Ph: +91-9894985156 / +91-9739091906</b></div>
+            </div>  
         </div>
-        <div class="col-md-6 contact">
-            <span>This website is developed by</span>
-            Dijil Varghese<br/>
-            Ph: +91-9894985156 / +91-9739091906
-        </div>
+        <div class="col-md-3"></div>
     </div>
 </div>

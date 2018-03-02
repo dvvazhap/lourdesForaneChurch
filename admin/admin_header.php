@@ -1,9 +1,8 @@
 <?php 
 require_once("../include/connection.php");
-if(isset($_GET['reply'])){$reply=$_GET['reply'];}else{$reply=NULL;}
-if(isset($_GET['page'])){$page=$_GET['page'];}else{$page=NULL;}
-if(isset($_GET['sub_page'])){$sub_page=$_GET['sub_page'];}else{	$sub_page = 0;}
-include("admin_verify.php");?>
+include("admin_verify.php");
+if($_SESSION['admin_right'] != $admin_right){echo "<script>window.location= '../'</script>";die; }else{if($_SESSION['admin_right']>1){if(($_SESSION['admin_page']!=$_GET['page'])||($_SESSION['admin_sub_page']!=$_GET['sub_page'])){echo "<script>window.location= '../'</script>";die;}}}?>
+
 <!DOCTYPE html><html><head>
 <title>Lourdes Forane Church</title>
 <link rel="shortcut icon" href="../images/cross.png" />

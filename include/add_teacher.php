@@ -8,14 +8,15 @@ $c=mysqli_prep($db,$_POST['c']);
 $a=mysqli_prep($db,$_POST['a']);
 $rand = rand(1,9999);
 mysqli_query($db,"INSERT INTO teachers(`id`,`name`,`phone`,`landline`,`class`,`address`,`image`) VALUES({$rand},'{$n}','{$p}','{$l}',{$c},'{$a}','')");
+echo "<span style='color:green'>Added {$n} as a teacher. Reload the page to see the updated list of teachers. </span>";
 }
 if(!isset($_GET['teacher'])){echo "<div id='add_teacher'></div>";
 }
 elseif(isset($_GET['teacher'])){
 echo "<div class='container-fluid'>
 <div class='row'>
-	<div class='col-md-6'><button onclick='add_teacher_submit()'>Add a Teacher</button><br/><br/></div>
-	<div class='col-md-6'></div>
+	<div class='col-md-3'><button onclick='add_teacher_submit()'>Add a Teacher</button><br/><br/></div>
+	<div class='col-md-9' id='add_teacher_notify'></div>
 </div>
 
 <div class='row'>
@@ -72,7 +73,7 @@ function add_teacher_submit(){
 	else{ xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");}
 	xmlhttp.onreadystatechange=function(){
 		if (xmlhttp.readyState==4 && xmlhttp.status==200){
-			document.getElementById("add_teacher").innerHTML=xmlhttp.responseText;
+			document.getElementById("add_teacher_notify").innerHTML=xmlhttp.responseText;
 		}
 	}
 	xmlhttp.open("POST","../include/add_teacher.php?add_teacher_submit=1",true);
@@ -98,6 +99,9 @@ var at = document.getElementById('add_teacher'); if(at) document.getElementById(
 
 var dtb = document.getElementById('del_teacher_button'); if(dtb) document.getElementById('del_teacher_button').style.visibility='visible';
 var dt = document.getElementById('delete_teacher'); if(dt) document.getElementById('delete_teacher').style.visibility='hidden';
+
+var smb = document.getElementById('show_mass_button'); if(smb) document.getElementById('show_mass_button').style.visibility='visible';
+var mt = document.getElementById('mass_table'); if(mt) document.getElementById('mass_table').style.visibility='hidden';
 
 	var xmlhttp;
 	if (window.XMLHttpRequest){ xmlhttp=new XMLHttpRequest();}

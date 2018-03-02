@@ -9,9 +9,11 @@ $sql = "SELECT * FROM security WHERE username='{$username}' && password='{$passw
 $result = mysqli_query($db,$sql);
 while($row=mysqli_fetch_array($result))
 {$_SESSION['user']=$username;$_SESSION['pass']=$password;
-$_SESSION['admin_right']=$row['admin_right'];
+$_SESSION['admin_page'] = $row['admin_page'];
 $admin_page = $row['admin_page'];
+$_SESSION['admin_sub_page'] = $row['admin_sub_page'];
 $admin_sub_page = $row['admin_sub_page'];
+$_SESSION['admin_right']=$row['admin_right'];
 $admin_right = $row['admin_right'];
 }
 if(($admin_page==NULL)&&($admin_sub_page==NULL)){$reply=1;}
